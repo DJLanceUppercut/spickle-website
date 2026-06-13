@@ -1,0 +1,26 @@
+.banner {
+  background-color: var(--bg-card);
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  padding: 72px 0 !important;
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.heading {
+  font-size: clamp(24px, 3.5vw, 40px);
+  color: var(--text);
+}
+
+@media (max-width: 600px) {
+  .inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

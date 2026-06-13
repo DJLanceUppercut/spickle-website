@@ -1,0 +1,113 @@
+.book {
+  min-height: 100vh;
+  background-color: var(--bg);
+  padding-top: calc(var(--header-height) + 80px);
+  padding-bottom: 96px;
+}
+
+.inner {
+  max-width: 720px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.heading {
+  font-size: clamp(32px, 4vw, 52px);
+  color: var(--text);
+  margin: 0;
+}
+
+.intro {
+  font-size: 17px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.note {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.45);
+  line-height: 1.6;
+}
+
+.bookingWidget {
+  margin: 16px 0;
+}
+
+.placeholder {
+  border: 1px dashed rgba(255, 255, 255, 0.15);
+  padding: 48px 32px;
+  text-align: center;
+  background-color: var(--bg-card);
+}
+
+.placeholderText {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+}
+
+.placeholderSub {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.4);
+  line-height: 1.7;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.placeholderSub code {
+  color: var(--accent);
+  font-family: monospace;
+}
+
+.alternatives {
+  padding-top: 32px;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  margin-top: 16px;
+}
+
+.altHeading {
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.4);
+  margin-bottom: 16px;
+}
+
+.altLinks {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.altLink {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text);
+  transition: color 0.15s;
+}
+
+.altLink:hover {
+  color: var(--accent);
+}
+
+.altLink svg {
+  flex-shrink: 0;
+  color: var(--accent);
+}

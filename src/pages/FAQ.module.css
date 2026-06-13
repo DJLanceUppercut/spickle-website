@@ -1,0 +1,38 @@
+.faqSection {
+  background-color: var(--bg);
+}
+
+.category {
+  margin-bottom: 64px;
+}
+
+.category:last-child {
+  margin-bottom: 32px;
+}
+
+.categoryHeading {
+  font-size: 13px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 24px;
+}
+
+.contact {
+  margin-top: 32px;
+  padding-top: 48px;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.contactText {
+  font-size: 17px;
+  color: var(--text-secondary);
+}
+
+.contactLink {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}

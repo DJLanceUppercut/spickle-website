@@ -1,0 +1,93 @@
+.servicesSection {
+  background-color: var(--bg);
+}
+
+.serviceBlock {
+  padding-bottom: 64px;
+}
+
+.divided {
+  padding-top: 64px;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.serviceHeader {
+  margin-bottom: 40px;
+}
+
+.serviceTitle {
+  font-size: clamp(28px, 3.5vw, 44px);
+  color: var(--text);
+  margin-bottom: 16px;
+}
+
+.serviceIntro {
+  font-size: 17px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  max-width: 640px;
+}
+
+.detailGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+
+.detailItem {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 28px;
+  background-color: var(--bg-card);
+  border-left: 3px solid var(--accent);
+}
+
+.detailLabel {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.detailText {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.surfacesSection {
+  background-color: var(--bg-card);
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.surfacesHeading {
+  font-size: clamp(28px, 3.5vw, 44px);
+  color: var(--text);
+  margin-bottom: 16px;
+}
+
+.surfacesIntro {
+  font-size: 17px;
+  color: var(--text-secondary);
+  margin-bottom: 48px;
+  max-width: 560px;
+}
+
+.surfaceGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+}
+
+@media (max-width: 900px) {
+  .detailGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .surfaceGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

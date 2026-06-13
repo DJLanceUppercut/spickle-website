@@ -1,0 +1,60 @@
+.gallerySection {
+  background-color: var(--bg);
+}
+
+.filters {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 48px;
+}
+
+.filterBtn {
+  background-color: var(--bg-card);
+  color: var(--text-secondary);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  padding: 8px 20px;
+  cursor: pointer;
+  border-radius: 0;
+  transition: color 0.15s, border-color 0.15s, background-color 0.15s;
+}
+
+.filterBtn:hover {
+  color: var(--text);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.filterActive {
+  background-color: var(--accent);
+  color: #000;
+  border-color: var(--accent);
+  font-weight: 600;
+}
+
+.filterActive:hover {
+  color: #000;
+  border-color: var(--accent);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 48px;
+}
+
+.empty {
+  font-size: 16px;
+  color: var(--text-secondary);
+  text-align: center;
+  padding: 80px 0;
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

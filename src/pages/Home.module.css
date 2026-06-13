@@ -1,0 +1,189 @@
+.trustBar {
+  background-color: var(--bg-card);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  padding: 20px 0;
+}
+
+.trustList {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  list-style: none;
+  flex-wrap: wrap;
+}
+
+.trustItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.trustItem svg {
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.sectionLabel {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 40px;
+}
+
+.sectionHeading {
+  font-size: clamp(28px, 3.5vw, 44px);
+  color: var(--text);
+  margin-bottom: 16px;
+}
+
+.sectionIntro {
+  font-size: 17px;
+  color: var(--text-secondary);
+  margin-bottom: 48px;
+  max-width: 560px;
+}
+
+.services {
+  background-color: var(--bg);
+}
+
+.serviceGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+
+.serviceCard {
+  background-color: var(--bg-card);
+  padding: 40px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.serviceIcon {
+  color: var(--accent);
+}
+
+.serviceTitle {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.serviceDesc {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.surfacesSection {
+  background-color: var(--bg-card);
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.surfaceGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+}
+
+.why {
+  background-color: var(--bg);
+}
+
+.whyGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px;
+}
+
+.whyItem {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.whyAccent {
+  width: 32px;
+  height: 3px;
+  background-color: var(--accent);
+}
+
+.whyHeading {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.whyBody {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.beforeAfterSection {
+  background-color: var(--bg-card);
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.beforeAfterGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  margin-bottom: 40px;
+}
+
+.galleryLink {
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 1024px) {
+  .surfaceGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .serviceGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .surfaceGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .whyGrid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .beforeAfterGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .trustList {
+    gap: 20px;
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .surfaceGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}

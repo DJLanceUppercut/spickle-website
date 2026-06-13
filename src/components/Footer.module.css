@@ -1,0 +1,137 @@
+.footer {
+  background-color: var(--bg-card);
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  padding-top: 72px;
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 48px;
+  padding-bottom: 64px;
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.logo {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.tagline {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  max-width: 260px;
+}
+
+.social {
+  display: flex;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.socialLink {
+  color: var(--text-secondary);
+  transition: color 0.15s;
+}
+
+.socialLink:hover {
+  color: var(--accent);
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.colHeading {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+
+.colLink {
+  font-size: 14px;
+  color: var(--text-secondary);
+  transition: color 0.12s;
+}
+
+.colLink:hover {
+  color: var(--text);
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.contactLink {
+  font-size: 14px;
+  color: var(--text-secondary);
+  transition: color 0.12s;
+}
+
+.contactLink:hover {
+  color: var(--text);
+}
+
+.bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  padding: 24px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.copy {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.guardIt {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.guardIt strong {
+  color: rgba(255, 255, 255, 0.55);
+  font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  .inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+
+  .brand {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 560px) {
+  .inner {
+    grid-template-columns: 1fr;
+  }
+
+  .bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
