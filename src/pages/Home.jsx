@@ -1,11 +1,49 @@
-import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { Helmet } from 'react-helmet-async'
 import Hero from '../components/Hero'
 import SurfaceCard from '../components/SurfaceCard'
 import BeforeAfter from '../components/BeforeAfter'
 import CTABanner from '../components/CTABanner'
 import { surfaces } from '../data/surfaces'
 import styles from './Home.module.css'
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: 'Spickle',
+  description: 'Professional stone cleaning and sealing across Melbourne. Specialists in bluestone, limestone, granite, travertine, slate, sandstone and aggregate.',
+  telephone: '+611300220045',
+  email: 'info@spickle.com.au',
+  url: 'https://spickle.com.au',
+  logo: 'https://spickle.com.au/images/logo.png',
+  image: 'https://spickle.com.au/images/hero-bg.jpg',
+  priceRange: '$$',
+  areaServed: 'Melbourne, Victoria, Australia',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Melbourne',
+    addressRegion: 'VIC',
+    addressCountry: 'AU',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: -37.8136,
+    longitude: 144.9631,
+  },
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Stone Cleaning & Sealing Services',
+    itemListElement: [
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Stone Cleaning' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Stone Sealing' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Stain Removal' } },
+    ],
+  },
+  sameAs: [
+    'https://facebook.com/profile.php?id=100088685563706',
+    'https://instagram.com/spickle_sealing',
+  ],
+}
 
 const trustItems = [
   '20+ Years Experience',
@@ -66,14 +104,21 @@ const whyItems = [
 ]
 
 export default function Home() {
-  useEffect(() => {
-    document.title = 'Spickle — Melbourne Stone Cleaning & Sealing Specialists'
-    const desc = document.querySelector('meta[name="description"]')
-    if (desc) desc.setAttribute('content', 'Melbourne\'s natural stone cleaning and sealing specialists. Bluestone, limestone, granite, travertine and more. Call 1300 22 00 45.')
-  }, [])
+  const title = 'Spickle — Melbourne Stone Cleaning & Sealing Specialists'
+  const description = 'Melbourne\'s natural stone cleaning and sealing specialists. Bluestone, limestone, granite, travertine and more. Call 1300 22 00 45.'
 
   return (
     <>
+      <Helmet>
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <link rel="canonical" href="https://spickle.com.au/" />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:url" content="https://spickle.com.au/" />
+        <script type="application/ld+json">{JSON.stringify(schema)}</script>
+      </Helmet>
+
       <Hero
         title="Melbourne's Stone Cleaning & Sealing Specialists"
         subtitle="Natural stone, concrete and aggregate — cleaned, sealed and protected."

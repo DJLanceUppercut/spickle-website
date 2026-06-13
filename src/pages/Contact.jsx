@@ -1,18 +1,23 @@
-import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { Helmet } from 'react-helmet-async'
 import Hero from '../components/Hero'
 import styles from './Contact.module.css'
 
 export default function Contact() {
-  useEffect(() => {
-    document.title = 'Contact | Spickle — Melbourne Stone Cleaning & Sealing'
-    const desc = document.querySelector('meta[name="description"]')
-    if (desc) desc.setAttribute('content', 'Contact Spickle for stone cleaning and sealing across Melbourne. Call 1300 22 00 45 or email info@spickle.com.au.')
-    window.scrollTo(0, 0)
-  }, [])
+  const title = 'Contact | Spickle — Melbourne Stone Cleaning & Sealing'
+  const description = 'Contact Spickle for stone cleaning and sealing across Melbourne. Call 1300 22 00 45 or email info@spickle.com.au.'
 
   return (
     <>
+      <Helmet>
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <link rel="canonical" href="https://spickle.com.au/contact" />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:url" content="https://spickle.com.au/contact" />
+      </Helmet>
+
       <Hero
         title="Get in Touch"
         subtitle="For job bookings, use our online form. For general questions, we're here."

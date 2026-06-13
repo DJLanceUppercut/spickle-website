@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
+import { Helmet } from 'react-helmet-async'
 import Hero from '../components/Hero'
 import BeforeAfter from '../components/BeforeAfter'
 import CTABanner from '../components/CTABanner'
@@ -24,12 +25,8 @@ const filters = ['All', 'Bluestone', 'Limestone', 'Granite', 'Travertine', 'Slat
 export default function Gallery() {
   const [active, setActive] = useState('All')
 
-  useEffect(() => {
-    document.title = 'Gallery | Spickle — Melbourne Stone Cleaning & Sealing'
-    const desc = document.querySelector('meta[name="description"]')
-    if (desc) desc.setAttribute('content', 'Before and after gallery — stone cleaning and sealing results across Melbourne. Bluestone, limestone, granite, aggregate and more.')
-    window.scrollTo(0, 0)
-  }, [])
+  const title = 'Gallery | Spickle — Melbourne Stone Cleaning & Sealing'
+  const description = 'Before and after gallery — stone cleaning and sealing results across Melbourne. Bluestone, limestone, granite, aggregate and more.'
 
   const visible = active === 'All'
     ? allImages
@@ -37,6 +34,15 @@ export default function Gallery() {
 
   return (
     <>
+      <Helmet>
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <link rel="canonical" href="https://spickle.com.au/gallery" />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:url" content="https://spickle.com.au/gallery" />
+      </Helmet>
+
       <Hero
         title="Before &amp; After"
         subtitle="Real results from real Melbourne jobs. Placeholder images — real photos coming soon."

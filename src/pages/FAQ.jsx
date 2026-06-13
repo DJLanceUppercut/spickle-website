@@ -1,5 +1,5 @@
-import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { Helmet } from 'react-helmet-async'
 import Hero from '../components/Hero'
 import FAQAccordion from '../components/FAQAccordion'
 import CTABanner from '../components/CTABanner'
@@ -7,15 +7,20 @@ import { faqCategories } from '../data/faq'
 import styles from './FAQ.module.css'
 
 export default function FAQ() {
-  useEffect(() => {
-    document.title = 'FAQ | Spickle — Melbourne Stone Cleaning & Sealing'
-    const desc = document.querySelector('meta[name="description"]')
-    if (desc) desc.setAttribute('content', 'Frequently asked questions about stone cleaning, sealing and stain removal. How often to seal, what products we use, pricing and booking info.')
-    window.scrollTo(0, 0)
-  }, [])
+  const title = 'FAQ | Spickle — Melbourne Stone Cleaning & Sealing'
+  const description = 'Frequently asked questions about stone cleaning, sealing and stain removal. How often to seal, what products we use, pricing and booking info.'
 
   return (
     <>
+      <Helmet>
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <link rel="canonical" href="https://spickle.com.au/faq" />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:url" content="https://spickle.com.au/faq" />
+      </Helmet>
+
       <Hero
         title="Frequently Asked Questions"
         subtitle="Everything you need to know about stone cleaning and sealing."

@@ -1,5 +1,5 @@
-import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { Helmet } from 'react-helmet-async'
 import Hero from './Hero'
 import BeforeAfter from './BeforeAfter'
 import FAQAccordion from './FAQAccordion'
@@ -7,15 +7,17 @@ import CTABanner from './CTABanner'
 import styles from './SurfacePage.module.css'
 
 export default function SurfacePage({ surface }) {
-  useEffect(() => {
-    document.title = surface.seoTitle
-    const desc = document.querySelector('meta[name="description"]')
-    if (desc) desc.setAttribute('content', surface.seoDescription)
-    window.scrollTo(0, 0)
-  }, [surface])
-
   return (
     <>
+      <Helmet>
+        <title>{surface.seoTitle}</title>
+        <meta name="description" content={surface.seoDescription} />
+        <link rel="canonical" href={`https://spickle.com.au/surfaces/${surface.slug}`} />
+        <meta property="og:title" content={surface.seoTitle} />
+        <meta property="og:description" content={surface.seoDescription} />
+        <meta property="og:url" content={`https://spickle.com.au/surfaces/${surface.slug}`} />
+      </Helmet>
+
       <Hero
         title={surface.title}
         subtitle={surface.descriptor}

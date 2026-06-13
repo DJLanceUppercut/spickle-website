@@ -1,10 +1,28 @@
+/*
+  Brother 1816 Black — add the font files to /public/fonts/:
+    /public/fonts/brother-1816-black.woff2
+    /public/fonts/brother-1816-black.woff
+  Then the @font-face below will pick them up.
+  Montserrat Black serves as a fallback until the font files are added.
+*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@900&display=swap');
+
+@font-face {
+  font-family: 'Brother 1816';
+  src: url('/fonts/brother-1816-black.woff2') format('woff2'),
+       url('/fonts/brother-1816-black.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
-  --bg: #111111;
-  --bg-card: #1A1A1A;
+  --bg: #001e30;
+  --bg-card: #002f49;
   --text: #FFFFFF;
-  --text-secondary: #F5F5F0;
-  --accent: #C8A96E;
-  --font-display: 'Playfair Display', serif;
+  --text-secondary: #E8F5F1;
+  --accent: #219EBC;
+  --font-display: 'Brother 1816', 'Montserrat', sans-serif;
   --font-body: 'Inter', sans-serif;
   --max-width: 1200px;
   --header-height: 72px;
@@ -41,8 +59,8 @@ a {
 
 h1, h2, h3, h4, h5 {
   font-family: var(--font-display);
-  line-height: 1.2;
-  font-weight: 700;
+  font-weight: 900;
+  line-height: 1.1;
 }
 
 .container {
@@ -56,7 +74,7 @@ h1, h2, h3, h4, h5 {
   align-items: center;
   justify-content: center;
   background-color: var(--accent);
-  color: #000000;
+  color: var(--bg);
   font-family: var(--font-body);
   font-size: 14px;
   font-weight: 600;
@@ -89,7 +107,7 @@ h1, h2, h3, h4, h5 {
   text-transform: uppercase;
   padding: 0 32px;
   height: 48px;
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 0;
   cursor: pointer;
   transition: border-color 0.15s;

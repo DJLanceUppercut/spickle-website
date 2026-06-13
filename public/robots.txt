@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://spickle.com.au/sitemap.xml

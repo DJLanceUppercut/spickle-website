@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { Helmet } from 'react-helmet-async'
 import Hero from '../components/Hero'
 import SurfaceCard from '../components/SurfaceCard'
 import CTABanner from '../components/CTABanner'
@@ -38,15 +38,20 @@ const serviceDetails = [
 ]
 
 export default function Services() {
-  useEffect(() => {
-    document.title = 'Services | Spickle — Melbourne Stone Cleaning & Sealing'
-    const desc = document.querySelector('meta[name="description"]')
-    if (desc) desc.setAttribute('content', 'Stone cleaning, sealing and stain removal across Melbourne. Specialist services for all natural stone and aggregate surfaces. Call 1300 22 00 45.')
-    window.scrollTo(0, 0)
-  }, [])
+  const title = 'Services | Spickle — Melbourne Stone Cleaning & Sealing'
+  const description = 'Stone cleaning, sealing and stain removal across Melbourne. Specialist services for all natural stone and aggregate surfaces. Call 1300 22 00 45.'
 
   return (
     <>
+      <Helmet>
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <link rel="canonical" href="https://spickle.com.au/services" />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:url" content="https://spickle.com.au/services" />
+      </Helmet>
+
       <Hero
         title="What We Do"
         subtitle="Professional stone cleaning, sealing and stain removal — tailored to every surface type."
