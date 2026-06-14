@@ -12,7 +12,7 @@
 .filterBtn {
   background-color: var(--bg-card);
   color: var(--text-secondary);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(0, 47, 73, 0.15);
   font-family: var(--font-body);
   font-size: 13px;
   font-weight: 500;
@@ -25,18 +25,18 @@
 
 .filterBtn:hover {
   color: var(--text);
-  border-color: rgba(255, 255, 255, 0.3);
+  border-color: rgba(0, 47, 73, 0.3);
 }
 
 .filterActive {
   background-color: var(--accent);
-  color: #000;
+  color: #002f49;
   border-color: var(--accent);
   font-weight: 600;
 }
 
 .filterActive:hover {
-  color: #000;
+  color: #002f49;
   border-color: var(--accent);
 }
 

@@ -6,13 +6,18 @@ Deployed on Vercel. GitHub repo: DJLanceUppercut organisation.
 Stack: React, React Router v6, plain CSS modules (no Tailwind, no component libraries). Plain JSX only — no TypeScript.
 
 ## Design tokens (src/styles/global.css CSS variables)
-- `--bg: #111111`
-- `--bg-card: #1A1A1A`
-- `--text: #FFFFFF`
-- `--text-secondary: #F5F5F0`
-- `--accent: #C8A96E`
-- `--font-display: 'Playfair Display', serif`
+- `--bg: #FFFFFF` (white page background)
+- `--bg-card: #E8F5F1` (light mint for alternating sections and cards)
+- `--text: #002f49` (dark navy for body and headings)
+- `--text-secondary: #4a6a7a` (mid-teal for secondary/muted text)
+- `--accent: #219EBC` (brand teal — CTAs, icons, links)
+- `--font-display: 'Brother 1816', 'Montserrat', sans-serif`
 - `--font-body: 'Inter', sans-serif`
+
+## Button classes (global.css)
+- `.btn-primary` — teal background (#219EBC), white text, square corners, 48px min height. Use on white/mint backgrounds.
+- `.btn-ghost` — transparent, teal border and text. Use on white/mint backgrounds.
+- `.btn-ghost-light` — transparent, white border and text. Use on dark/teal backgrounds (e.g. inside Hero over dark overlay, or on CTA banner).
 
 ## Rules
 - No TypeScript. Plain JSX only.
@@ -21,8 +26,9 @@ Stack: React, React Router v6, plain CSS modules (no Tailwind, no component libr
 - The Book Now button links to the ServiceM8 hosted form — do not build a custom form.
 - All images live in /public/images/ or /public/gallery/.
 - Mobile-first responsive. Key breakpoints: 375px, 768px, 1280px.
-- CTA buttons: gold background (#C8A96E), black text, no border radius, 48px height minimum. Class: `.btn-primary` in global.css.
-- Ghost/outline buttons: `.btn-ghost` in global.css.
+- Hero component always has a dark overlay over the image — always use explicit white (#FFFFFF) text inside Hero, never `var(--text)`.
+- CTABanner component uses `var(--accent)` teal as its background. Its internal button uses `styles.ctaBtn` (white bg, navy text) defined in CTABanner.module.css.
+- Header: transparent over hero (white text via `--header-fg` CSS custom property), switches to white background + navy text on scroll.
 
 ## Business info
 - Phone: 1300 22 00 45

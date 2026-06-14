@@ -1,6 +1,6 @@
 .footer {
   background-color: var(--bg-card);
-  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  border-top: 1px solid rgba(0, 47, 73, 0.1);
   padding-top: 72px;
 }
 
@@ -20,7 +20,7 @@
 .logo {
   font-family: var(--font-display);
   font-size: 24px;
-  font-weight: 700;
+  font-weight: 900;
   color: var(--text);
 }
 
@@ -86,11 +86,11 @@
 }
 
 .contactLink:hover {
-  color: var(--text);
+  color: var(--accent);
 }
 
 .bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  border-top: 1px solid rgba(0, 47, 73, 0.1);
   padding: 24px 0;
   display: flex;
   justify-content: space-between;
@@ -101,16 +101,16 @@
 
 .copy {
   font-size: 13px;
-  color: rgba(255, 255, 255, 0.35);
+  color: rgba(0, 47, 73, 0.45);
 }
 
 .guardIt {
   font-size: 13px;
-  color: rgba(255, 255, 255, 0.35);
+  color: rgba(0, 47, 73, 0.45);
 }
 
 .guardIt strong {
-  color: rgba(255, 255, 255, 0.55);
+  color: rgba(0, 47, 73, 0.65);
   font-weight: 600;
 }
 

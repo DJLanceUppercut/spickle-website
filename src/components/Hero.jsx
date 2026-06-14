@@ -24,7 +24,7 @@ export default function Hero({ title, subtitle, image, ctaPrimary, ctaSecondary,
               </Link>
             )}
             {ctaSecondary && (
-              <Link to={ctaSecondary.to} className="btn-ghost">
+              <Link to={ctaSecondary.to} className="btn-ghost-light">
                 {ctaSecondary.label}
               </Link>
             )}

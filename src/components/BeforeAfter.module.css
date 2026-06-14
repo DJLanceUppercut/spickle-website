@@ -17,7 +17,7 @@
 
 .image {
   height: 280px;
-  background-color: #1e1e1e;
+  background-color: #b8d4cc;
   background-size: cover;
   background-position: center;
 }
@@ -26,8 +26,8 @@
   position: absolute;
   top: 12px;
   left: 12px;
-  background-color: rgba(0, 0, 0, 0.7);
-  color: var(--text);
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #FFFFFF;
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.1em;
@@ -37,12 +37,12 @@
 
 .badgeAfter {
   background-color: var(--accent);
-  color: #000;
+  color: #FFFFFF;
 }
 
 .caption {
   font-size: 13px;
-  color: rgba(255, 255, 255, 0.45);
+  color: rgba(0, 47, 73, 0.5);
   text-align: center;
 }
 

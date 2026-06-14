@@ -6,7 +6,7 @@ export default function CTABanner({ heading = 'Ready to restore your stone?', la
     <section className={styles.banner}>
       <div className={`container ${styles.inner}`}>
         <h2 className={styles.heading}>{heading}</h2>
-        <Link to={to} className="btn-primary">
+        <Link to={to} className={styles.ctaBtn}>
           {label}
         </Link>
       </div>
