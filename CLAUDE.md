@@ -53,12 +53,12 @@ All logo files live in `/public/images/logo/`. Six variants:
 
 | File | Description | Use where |
 |------|-------------|-----------|
-| `Spickle-Colour.png` | Full colour with tagline | Standalone / print |
-| `Spickle-Colour-noTagLine.png` | Full colour, no tagline | Footer, scrolled header |
-| `Spickle-Inverted.png` | White/inverted with tagline | Dark backgrounds, standalone |
-| `Spickle-Inverted-noTagLine.png` | White/inverted, no tagline | Transparent header over hero |
-| `3D-White-Transparent.png` | 3D render, white, with tagline | Hero decorative / marketing |
-| `3D-White-Transparent-noTagLine.png` | 3D render, white, no tagline | Hero decorative / marketing |
+| `Spickle-Colour.png` | Teal logo with tagline | Standalone / print |
+| `Spickle-Colour-noTagLine.png` | Teal logo, no tagline | Header and footer (works on both white and dark bg) |
+| `Spickle-Inverted.png` | Black logo with tagline | Black-on-white print only |
+| `Spickle-Inverted-noTagLine.png` | Black logo, no tagline | Black-on-white print only |
+| `3D-White-Transparent.png` | 3D render, white, with tagline | Dark backgrounds / marketing |
+| `3D-White-Transparent-noTagLine.png` | 3D render, white, no tagline | Dark backgrounds / marketing |
 
-**Header:** renders both `Spickle-Inverted-noTagLine.png` (`.logoLight`) and `Spickle-Colour-noTagLine.png` (`.logoDark`). CSS hides/shows them via `.header.scrolled` in Header.module.css.
+**Header:** single `Spickle-Colour-noTagLine.png` (teal) used for all states — works on both transparent and white scrolled header.
 **Footer:** uses `Spickle-Colour-noTagLine.png` (light mint background). Tagline text is kept as a separate paragraph below.

@@ -40,8 +40,7 @@ export default function Header() {
     <header className={`${styles.header} ${scrolled ? styles.scrolled : ''}`}>
       <div className={`container ${styles.inner}`}>
         <Link to="/" className={styles.logo} aria-label="Spickle home">
-          <img src="/images/logo/Spickle-Inverted-noTagLine.png" alt="Spickle" className={styles.logoLight} height="36" />
-          <img src="/images/logo/Spickle-Colour-noTagLine.png" alt="" className={styles.logoDark} height="36" aria-hidden="true" />
+          <img src="/images/logo/Spickle-Colour-noTagLine.png" alt="Spickle" className={styles.logoImg} />
         </Link>
 
         <nav className={styles.nav} aria-label="Main navigation">

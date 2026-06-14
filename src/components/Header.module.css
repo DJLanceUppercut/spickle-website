@@ -32,24 +32,10 @@
   align-items: center;
 }
 
-.logoLight {
+.logoImg {
   display: block;
   height: 42px;
   width: auto;
-}
-
-.logoDark {
-  display: none;
-  height: 42px;
-  width: auto;
-}
-
-.header.scrolled .logoLight {
-  display: none;
-}
-
-.header.scrolled .logoDark {
-  display: block;
 }
 
 .nav {
