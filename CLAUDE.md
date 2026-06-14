@@ -44,6 +44,6 @@ Placeholder images use local paths — replace with real photos when available:
 - Surface card thumb: /images/surfaces/{slug}-card.jpg
 - Gallery before: /gallery/{slug}-before-{n}.jpg
 - Gallery after: /gallery/{slug}-after-{n}.jpg
-- Site hero: /images/hero-bg.jpg
+- Site hero: /images/hero-bg.png
 
 When real images arrive, just drop them in at the same paths — no code changes needed.

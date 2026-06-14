@@ -16,7 +16,7 @@ const schema = {
   email: 'info@spickle.com.au',
   url: 'https://spickle.com.au',
   logo: 'https://spickle.com.au/images/logo.png',
-  image: 'https://spickle.com.au/images/hero-bg.jpg',
+  image: 'https://spickle.com.au/images/hero-bg.png',
   priceRange: '$$',
   areaServed: 'Melbourne, Victoria, Australia',
   address: {
@@ -122,7 +122,7 @@ export default function Home() {
       <Hero
         title="Melbourne's Stone Cleaning & Sealing Specialists"
         subtitle="Natural stone, concrete and aggregate — cleaned, sealed and protected."
-        image="/images/hero-bg.jpg"
+        image="/images/hero-bg.png"
         phone="1300 22 00 45"
         ctaPrimary={{ to: '/book', label: 'Book Now' }}
         ctaSecondary={{ to: '/services', label: 'See Our Services' }}
