@@ -202,8 +202,8 @@ export const surfaces = [
     name: 'Aggregate',
     title: 'Exposed Aggregate Cleaning & Sealing Melbourne',
     descriptor: 'Driveways, paths and pool surrounds — professional aggregate care done right.',
-    heroImage: '/images/surfaces/concrete.png',
-    cardImage: '/images/surfaces/concrete.png',
+    heroImage: '/images/surfaces/aggregate.jpg',
+    cardImage: '/images/surfaces/aggregate.jpg',
     seoTitle: 'Exposed Aggregate Cleaning & Sealing Melbourne | Spickle',
     seoDescription: 'Professional exposed aggregate cleaning and sealing in Melbourne. Remove algae, oil stains and restore colour. Long-lasting GuardIT sealers. Call 1300 22 00 45.',
     about: [
