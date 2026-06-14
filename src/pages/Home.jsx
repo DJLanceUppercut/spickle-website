@@ -84,18 +84,18 @@ const services = [
       </svg>
     ),
     title: 'Stain Removal',
-    desc: 'Targeted treatments for oil, rust, efflorescence, tannins and organic staining — matched to the stone type and stain chemistry for effective, safe removal.',
+    desc: 'Targeted treatments for oil, rust, efflorescence, tannins and organic staining, matched to the stone type and stain chemistry for effective, safe removal.',
   },
 ]
 
 const whyItems = [
   {
-    heading: 'Australian-Made GuardIT Products',
-    body: 'We exclusively use GuardIT Solutions — a professional range of stone cleaners and sealers made in Australia. Eco-friendly, pet-safe and formulated specifically for the stone types common in Melbourne homes.',
+    heading: 'Professional-Grade Products',
+    body: 'We work with professional stone care products from GuardIT Solutions, Lithofin and Environex, selecting the right formulation for each stone type and condition. Eco-friendly, pet-safe options are available.',
   },
   {
     heading: 'Tailored to Every Stone Type',
-    body: 'What works on granite will damage limestone. Our team understands the chemistry and porosity of every surface we treat, and adjusts pressure, pH and product selection accordingly.',
+    body: 'Different stones have different porosity, pH sensitivity and sealing requirements. Our team understands the chemistry of every surface we treat and adjusts pressure, products and technique accordingly.',
   },
   {
     heading: 'Professional Results, Not DIY Shortcuts',
@@ -104,7 +104,7 @@ const whyItems = [
 ]
 
 export default function Home() {
-  const title = 'Spickle — Melbourne Stone Cleaning & Sealing Specialists'
+  const title = 'Spickle | Melbourne Stone Cleaning & Sealing Specialists'
   const description = 'Melbourne\'s natural stone cleaning and sealing specialists. Bluestone, limestone, granite, travertine and more. Call 1300 22 00 45.'
 
   return (
@@ -121,7 +121,7 @@ export default function Home() {
 
       <Hero
         title="Melbourne's Stone Cleaning & Sealing Specialists"
-        subtitle="Natural stone, concrete and aggregate — cleaned, sealed and protected."
+        subtitle="Natural stone, concrete and aggregate. Cleaned, sealed and protected."
         image="/images/hero-bg.png"
         phone="1300 22 00 45"
         ctaPrimary={{ to: '/book', label: 'Book Now' }}
@@ -196,12 +196,12 @@ export default function Home() {
             <BeforeAfter
               before="/gallery/bluestone-before-1.jpg"
               after="/gallery/bluestone-after-1.jpg"
-              caption="Bluestone paving — stain removal + seal, Brighton"
+              caption="Bluestone paving: stain removal + seal, Brighton"
             />
             <BeforeAfter
               before="/gallery/aggregate-before-1.jpg"
               after="/gallery/aggregate-after-1.jpg"
-              caption="Exposed aggregate driveway — deep clean + wet look seal, Doncaster"
+              caption="Exposed aggregate driveway: deep clean + wet look seal, Doncaster"
             />
           </div>
           <div className={styles.galleryLink}>

@@ -2,7 +2,7 @@ import { Helmet } from 'react-helmet-async'
 import styles from './Book.module.css'
 
 export default function Book() {
-  const title = 'Book Now | Spickle — Melbourne Stone Cleaning & Sealing'
+  const title = 'Book Now | Spickle | Melbourne Stone Cleaning & Sealing'
   const description = 'Book a stone cleaning or sealing job with Spickle. Serving all Melbourne suburbs. Quick response, professional results.'
 
   return (
@@ -23,7 +23,7 @@ export default function Book() {
             <h1 className={styles.heading}>Book a Job or Request a Quote</h1>
             <p className={styles.intro}>
               Use the booking form below to tell us about your job. Include the surface type, approximate area and location.
-              We'll confirm within one business day — often the same day.
+              We'll confirm within one business day, often the same day.
             </p>
             <p className={styles.note}>
               Photos of your surface help us give you a more accurate quote. You can attach them in the form below.

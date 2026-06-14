@@ -7,7 +7,7 @@ import { faqCategories } from '../data/faq'
 import styles from './FAQ.module.css'
 
 export default function FAQ() {
-  const title = 'FAQ | Spickle — Melbourne Stone Cleaning & Sealing'
+  const title = 'FAQ | Spickle | Melbourne Stone Cleaning & Sealing'
   const description = 'Frequently asked questions about stone cleaning, sealing and stain removal. How often to seal, what products we use, pricing and booking info.'
 
   return (

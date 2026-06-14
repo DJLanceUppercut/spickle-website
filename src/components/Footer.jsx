@@ -51,7 +51,7 @@ export default function Footer() {
 
       <div className={`container ${styles.bottom}`}>
         <p className={styles.copy}>© Spickle Pty Ltd {new Date().getFullYear()}. All rights reserved.</p>
-        <p className={styles.guardIt}>Products by <strong>GuardIT Solutions</strong> — Australian-made, eco-friendly stone care.</p>
+        <p className={styles.guardIt}>Products by <strong>GuardIT Solutions, Lithofin and Environex</strong>. Professional, eco-friendly stone care.</p>
       </div>
     </footer>
   )
