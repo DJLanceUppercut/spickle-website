@@ -34,13 +34,13 @@
 
 .logoLight {
   display: block;
-  height: 36px;
+  height: 42px;
   width: auto;
 }
 
 .logoDark {
   display: none;
-  height: 36px;
+  height: 42px;
   width: auto;
 }
 
