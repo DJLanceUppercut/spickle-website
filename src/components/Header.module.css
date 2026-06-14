@@ -28,15 +28,28 @@
 
 .logo {
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
 }
 
-.logoText {
-  font-family: var(--font-display);
-  font-size: 22px;
-  font-weight: 900;
-  color: var(--header-fg, rgba(255, 255, 255, 0.92));
-  letter-spacing: 0.02em;
-  transition: color 0.25s;
+.logoLight {
+  display: block;
+  height: 36px;
+  width: auto;
+}
+
+.logoDark {
+  display: none;
+  height: 36px;
+  width: auto;
+}
+
+.header.scrolled .logoLight {
+  display: none;
+}
+
+.header.scrolled .logoDark {
+  display: block;
 }
 
 .nav {

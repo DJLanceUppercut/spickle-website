@@ -35,7 +35,7 @@ Stack: React, React Router v6, plain CSS modules (no Tailwind, no component libr
 - Email: info@spickle.com.au
 - Facebook: facebook.com/profile.php?id=100088685563706
 - Instagram: instagram.com/spickle_sealing
-- Products used: GuardIT Solutions (Australian-made, eco-friendly)
+- Products used: GuardIT Solutions, Lithofin and Environex (professional, eco-friendly stone care)
 - ServiceM8 booking form: embed code added to /book page via dangerouslySetInnerHTML
 
 ## Image conventions
@@ -47,3 +47,18 @@ Placeholder images use local paths — replace with real photos when available:
 - Site hero: /images/hero-bg.png
 
 When real images arrive, just drop them in at the same paths — no code changes needed.
+
+## Logo
+All logo files live in `/public/images/logo/`. Six variants:
+
+| File | Description | Use where |
+|------|-------------|-----------|
+| `Spickle-Colour.png` | Full colour with tagline | Standalone / print |
+| `Spickle-Colour-noTagLine.png` | Full colour, no tagline | Footer, scrolled header |
+| `Spickle-Inverted.png` | White/inverted with tagline | Dark backgrounds, standalone |
+| `Spickle-Inverted-noTagLine.png` | White/inverted, no tagline | Transparent header over hero |
+| `3D-White-Transparent.png` | 3D render, white, with tagline | Hero decorative / marketing |
+| `3D-White-Transparent-noTagLine.png` | 3D render, white, no tagline | Hero decorative / marketing |
+
+**Header:** renders both `Spickle-Inverted-noTagLine.png` (`.logoLight`) and `Spickle-Colour-noTagLine.png` (`.logoDark`). CSS hides/shows them via `.header.scrolled` in Header.module.css.
+**Footer:** uses `Spickle-Colour-noTagLine.png` (light mint background). Tagline text is kept as a separate paragraph below.

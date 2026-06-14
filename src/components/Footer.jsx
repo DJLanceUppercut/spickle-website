@@ -7,7 +7,7 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div className={`container ${styles.inner}`}>
         <div className={styles.brand}>
-          <span className={styles.logo}>Spickle</span>
+          <img src="/images/logo/Spickle-Colour-noTagLine.png" alt="Spickle" className={styles.logo} />
           <p className={styles.tagline}>Melbourne's natural stone cleaning &amp; sealing specialists.</p>
           <div className={styles.social}>
             <a href="https://facebook.com/profile.php?id=100088685563706" target="_blank" rel="noopener noreferrer" aria-label="Spickle on Facebook" className={styles.socialLink}>
