@@ -2,11 +2,20 @@
 // General stone facts only; anything Spickle-specific that Lukey hasn't
 // confirmed stays out or goes in a .todo block on the page.
 
+import bluestoneImg from '../assets/surfaces/bluestone.jpg';
+import limestoneImg from '../assets/surfaces/limestone.webp';
+import travertineImg from '../assets/surfaces/travertine-tile.jpg';
+import graniteImg from '../assets/surfaces/granite.jpg';
+import slateImg from '../assets/surfaces/slate.jpg';
+import sandstoneImg from '../assets/surfaces/sandstone.jpg';
+import porphyryImg from '../assets/surfaces/porphyry.jpg';
+import aggregateImg from '../assets/surfaces/aggregate-tile.jpg';
+
 export const stones = [
   {
     slug: 'bluestone',
     name: 'Bluestone',
-    image: '/images/surfaces/bluestone.jpg',
+    image: bluestoneImg,
     tagline: 'Melbourne’s stone. Dense, dark and forgiving, until oil finds it.',
     what: 'Bluestone is a volcanic basalt and the classic Melbourne paver, from laneways to pool surrounds. It’s dense and hard-wearing, with the small surface holes known as cat’s paws that give it its character.',
     risks: [
@@ -19,7 +28,7 @@ export const stones = [
   {
     slug: 'limestone',
     name: 'Limestone',
-    image: '/images/surfaces/limestone.webp',
+    image: limestoneImg,
     tagline: 'Soft, light and porous. The stone that most needs sealing, and careful cleaning.',
     what: 'Limestone brings a pale, warm look to pool surrounds and alfresco areas. It’s a soft, porous stone, which is exactly why it needs more care than most.',
     risks: [
@@ -32,7 +41,7 @@ export const stones = [
   {
     slug: 'travertine',
     name: 'Travertine',
-    image: '/images/surfaces/travertine-tile.jpg',
+    image: travertineImg,
     tagline: 'Beautiful, pitted, and quick to hold grime in every void.',
     what: 'Travertine is a limestone formed around mineral springs, known for the natural pits and voids across its face. It’s a favourite for pool copings and alfresco floors.',
     risks: [
@@ -45,7 +54,7 @@ export const stones = [
   {
     slug: 'granite',
     name: 'Granite',
-    image: '/images/surfaces/granite.jfif',
+    image: graniteImg,
     tagline: 'The toughest of the common pavers. Low maintenance, not no maintenance.',
     what: 'Granite is a dense igneous stone, one of the hardest paving materials going. Flamed granite is popular for driveways and high-traffic areas because it shrugs off wear that would mark softer stone.',
     risks: [
@@ -58,7 +67,7 @@ export const stones = [
   {
     slug: 'slate',
     name: 'Slate',
-    image: '/images/surfaces/slate.jpg',
+    image: slateImg,
     tagline: 'Layered, textured and prone to flaking when the wrong sealer peels.',
     what: 'Slate is a fine-grained layered stone with natural texture and colour variation, common in older Melbourne paths and patios as well as new work.',
     risks: [
@@ -71,7 +80,7 @@ export const stones = [
   {
     slug: 'sandstone',
     name: 'Sandstone',
-    image: '/images/surfaces/sandstone.jpg',
+    image: sandstoneImg,
     tagline: 'The most absorbent stone we treat. Seal it early or it shows everything.',
     what: 'Sandstone’s warm banded colours make it a favourite for paths, steps and pool surrounds. It’s also the most porous stone on this list, which drives everything about how it’s treated.',
     risks: [
@@ -84,7 +93,7 @@ export const stones = [
   {
     slug: 'porphyry',
     name: 'Porphyry',
-    image: '/images/surfaces/porphyry.jpg',
+    image: porphyryImg,
     tagline: 'Dense European cobble stone, built for traffic, better sealed.',
     what: 'Porphyry is a dense volcanic stone, usually laid as cobbles, crazy paving or flagstones. It’s extremely hard-wearing, which is why it turns up on driveways and commercial forecourts.',
     risks: [
@@ -97,7 +106,7 @@ export const stones = [
   {
     slug: 'aggregate',
     name: 'Concrete & exposed aggregate',
-    image: '/images/surfaces/aggregate-tile.jpg',
+    image: aggregateImg,
     tagline: 'Not stone, but it stains like it. Driveways are where sealing pays for itself.',
     what: 'Exposed aggregate and plain concrete cover more Melbourne driveways than any stone. Concrete is porous, and the textured face of exposed aggregate gives oil and dirt plenty to hold on to.',
     risks: [

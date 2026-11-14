@@ -44,9 +44,13 @@ const business = {
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    <meta property="og:image" content="https://www.spickle.com.au/logo-colour.png" />
+    <meta property="og:image" content="https://www.spickle.com.au/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta name="robots" content="noindex" />
     <script type="application/ld+json" set:html={JSON.stringify(business)} />
+    <!-- Vercel Web Analytics: enable it on the Vercel project (Analytics tab) for this to record -->
+    <script defer src="/_vercel/insights/script.js"></script>
     <slot name="head" />
   </head>
   <body>

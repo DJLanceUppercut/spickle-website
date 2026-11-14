@@ -1,0 +1,64 @@
+---
+// Draggable before/after comparison. Pass real `before` and `after` image
+// paths (plus `caption`) once job photos exist; with no images it renders
+// labelled placeholder panels so the interaction can be reviewed now.
+interface Props {
+  before?: string;
+  after?: string;
+  caption?: string;
+}
+const { before, after, caption } = Astro.props;
+---
+<figure class="ba">
+  <div class="ba-stage" data-ba>
+    <div class="ba-layer ba-before">
+      {before ? <img src={before} alt="Before" loading="lazy" /> : <div class="ph ph-before">Before</div>}
+    </div>
+    <div class="ba-layer ba-after" data-ba-top>
+      {after ? <img src={after} alt="After" loading="lazy" /> : <div class="ph ph-after">After</div>}
+    </div>
+    <div class="ba-line" data-ba-line aria-hidden="true"><span class="ba-knob"></span></div>
+    <label class="visually-hidden" data-ba-label>Drag to compare before and after</label>
+    <input class="ba-range" type="range" min="0" max="100" value="50" data-ba-range aria-label="Compare before and after" />
+  </div>
+  {caption && <figcaption>{caption}</figcaption>}
+</figure>
+
+<style>
+  .ba { margin: 0; }
+  .ba-stage { position: relative; height: clamp(260px, 42vw, 560px); border-radius: 2px; overflow: hidden; }
+  .ba-layer { position: absolute; inset: 0; }
+  .ba-layer img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .ba-after { clip-path: inset(0 0 0 var(--ba-pos, 50%)); }
+  .ph { width: 100%; height: 100%; display: flex; align-items: flex-end; padding: 20px; box-sizing: border-box; font-size: 14px; font-weight: 600; }
+  .ph-before { background: #57524a; color: #ece8e1; }
+  .ph-after { background: #c5bdae; color: #2e2a23; justify-content: flex-end; }
+  .ba-line {
+    position: absolute; top: 0; bottom: 0; left: var(--ba-pos, 50%); width: 2px; margin-left: -1px;
+    background: #ffffff; pointer-events: none;
+  }
+  .ba-knob {
+    position: absolute; top: 50%; left: 50%; width: 44px; height: 44px; transform: translate(-50%, -50%);
+    border-radius: 50%; background: #ffffff; box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+  }
+  .ba-knob::before, .ba-knob::after {
+    content: ''; position: absolute; top: 50%; width: 0; height: 0; margin-top: -5px;
+    border-top: 5px solid transparent; border-bottom: 5px solid transparent;
+  }
+  .ba-knob::before { left: 9px; border-right: 7px solid #002f49; }
+  .ba-knob::after { right: 9px; border-left: 7px solid #002f49; }
+  .ba-range {
+    position: absolute; inset: 0; width: 100%; height: 100%; margin: 0;
+    opacity: 0; cursor: ew-resize; touch-action: none;
+  }
+  figcaption { margin-top: 12px; font-size: 13px; color: var(--faint); }
+</style>
+
+<script>
+  for (const stage of document.querySelectorAll('[data-ba]')) {
+    const range = stage.querySelector('[data-ba-range]');
+    range?.addEventListener('input', () => {
+      stage.style.setProperty('--ba-pos', `${range.value}%`);
+    });
+  }
+</script>

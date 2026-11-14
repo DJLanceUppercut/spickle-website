@@ -1,0 +1,28 @@
+---
+import Base from '../layouts/Base.astro';
+import StoneTemplate from '../components/StoneTemplate.astro';
+import SuburbTemplate from '../components/SuburbTemplate.astro';
+import { stones } from '../data/stones.js';
+import { suburbs } from '../data/suburbs.js';
+
+export function getStaticPaths() {
+  return [
+    ...stones.map((s) => ({ params: { slug: s.slug }, props: { kind: 'stone', s } })),
+    ...suburbs.map((sub) => ({ params: { slug: sub.slug }, props: { kind: 'suburb', sub } })),
+  ];
+}
+
+const { kind, s, sub } = Astro.props;
+
+const title =
+  kind === 'stone'
+    ? `${s.name} Cleaning & Sealing Melbourne | Spickle`
+    : `Driveway & Paving Cleaning ${sub.name} | Spickle`;
+const description =
+  kind === 'stone'
+    ? `${s.name} cleaning and sealing across Melbourne and the Mornington Peninsula. From $16/m². Book a quote.`
+    : `Pressure cleaning and sealing for driveways and paving in ${sub.name}. Local clean days, priced to your exact area. Call 1300 22 00 45.`;
+---
+<Base title={title} description={description}>
+  {kind === 'stone' ? <StoneTemplate s={s} /> : <SuburbTemplate sub={sub} />}
+</Base>

@@ -1,0 +1,53 @@
+---
+import Base from '../../layouts/Base.astro';
+import { guides } from '../../data/guides.js';
+---
+<Base
+  title="Stone Care Guides | Spickle"
+  description="Plain answers to the stone problems people search for: oil stains, etching, mould, efflorescence and when to reseal."
+>
+  <section class="band hairline-top">
+    <div class="wrap">
+      <h1>Stone care guides</h1>
+      <p class="lede">Plain answers to the problems people actually search for. What you can safely do yourself, and where the line is.</p>
+      <ul class="guide-list">
+        {guides.map((g) => (
+          <li>
+            <a href={`/guides/${g.slug}`}>
+              <h2>{g.title}</h2>
+              <p>{g.description}</p>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="band panel">
+    <div class="wrap book-row">
+      <div>
+        <h2>Problem not on the list?</h2>
+        <p>Send photos and we'll tell you what it is and what it needs.</p>
+      </div>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="/book-now">Book a quote</a>
+        <a class="tlink" href="tel:1300220045">Call 1300 22 00 45</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .lede { font-size: var(--step-1); color: #d6e8ee; margin-bottom: clamp(2rem, 4vw, 3rem); max-width: 40ch; }
+  .guide-list { margin: 0; padding: 0; list-style: none; max-width: 820px; }
+  .guide-list li { border-top: 1px solid var(--hairline); }
+  .guide-list li:last-child { border-bottom: 1px solid var(--hairline); }
+  .guide-list a { display: block; padding: 1.4rem 0; text-decoration: none; }
+  .guide-list h2 { font-size: var(--step-1); margin-bottom: 0.25em; }
+  .guide-list a:hover h2 { color: var(--teal-bright); }
+  .guide-list p { margin: 0; font-size: 1rem; }
+  .book-row { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1.5rem 3rem; }
+  .book-row h2 { margin-bottom: 0.3em; }
+  .book-row p { margin: 0; }
+  .cta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.9rem 1.6rem; }
+</style>

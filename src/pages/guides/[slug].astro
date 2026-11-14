@@ -1,0 +1,61 @@
+---
+import Base from '../../layouts/Base.astro';
+import { guides } from '../../data/guides.js';
+
+export function getStaticPaths() {
+  return guides.map((g) => ({ params: { slug: g.slug }, props: { g } }));
+}
+
+const { g } = Astro.props;
+const others = guides.filter((o) => o.slug !== g.slug);
+const ctaHref = g.ctaHref ?? '/book-now';
+---
+<Base title={`${g.title} | Spickle`} description={g.description}>
+  <article class="band hairline-top">
+    <div class="wrap narrow">
+      <p class="crumb"><a href="/guides">Stone care guides</a></p>
+      <h1>{g.title}</h1>
+      <p class="lede">{g.intro}</p>
+      {g.sections.map((sec) => (
+        <section>
+          <h2>{sec.h}</h2>
+          {sec.ps.map((p) => <p>{p}</p>)}
+        </section>
+      ))}
+      <div class="cta-box">
+        <p>Rather hand it to someone who does this all day?</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href={ctaHref}>{g.ctaText}</a>
+          <a class="tlink" href="tel:1300220045">Call 1300 22 00 45</a>
+        </div>
+        <p class="rel"><a class="tlink" href={g.related}>{g.relatedText}</a></p>
+      </div>
+    </div>
+  </article>
+
+  <section class="band panel">
+    <div class="wrap">
+      <h2 class="more-head">More guides</h2>
+      <ul class="more">
+        {others.map((o) => <li><a href={`/guides/${o.slug}`}>{o.title}</a></li>)}
+      </ul>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .narrow { max-width: 760px; }
+  .crumb { font-size: var(--step--1); margin-bottom: 1rem; }
+  .crumb a { color: var(--faint); text-decoration: none; }
+  .crumb a:hover { color: var(--white); text-decoration: underline; }
+  .lede { font-size: var(--step-1); line-height: 1.5; color: #d6e8ee; }
+  h2 { font-size: var(--step-1); margin-top: 1.6em; }
+  .cta-box { margin-top: 3rem; padding: 1.75rem; border: 1px solid var(--hairline); border-radius: 2px; background: var(--panel); }
+  .cta-box > p:first-child { font-weight: 600; color: var(--white); }
+  .cta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.9rem 1.6rem; }
+  .rel { margin: 1.4rem 0 0; font-size: var(--step--1); }
+  .more-head { font-size: var(--step-1); }
+  .more { margin: 0; padding: 0; list-style: none; display: grid; gap: 0.6rem; max-width: 760px; }
+  .more a { color: var(--muted); text-decoration: underline; text-decoration-color: var(--teal); text-underline-offset: 0.25em; }
+  .more a:hover { color: var(--white); }
+</style>
