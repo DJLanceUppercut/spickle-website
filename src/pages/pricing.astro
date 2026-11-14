@@ -1,0 +1,90 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base
+  title="Stone Sealing Prices Melbourne | $16–40/m² | Spickle"
+  description="Stone and concrete cleaning and sealing from $16 to $40 per m². What moves the price, the sealer options, and how to get an exact quote."
+>
+  <section class="band light">
+    <div class="wrap top-grid">
+      <div>
+        <p class="kicker">Cleaning and sealing</p>
+        <p class="price">$16–40</p>
+        <p class="per">per square metre</p>
+      </div>
+      <div>
+        <p>Most jobs land in that range. Where yours sits comes down to two things: the sealer you choose, and what the job needs before sealing can start.</p>
+        <p class="small">Rural jobs carry a separate travel fee, quoted up front.</p>
+        <a class="btn btn-navy" href="/book-now">Book a quote</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <h2>The sealer moves the price most</h2>
+      <p class="section-lede">Sealers differ in what they're made of, how long they last and what they do to the look of the stone. We recommend one for your stone and where it's laid, and tell you why.</p>
+      <div class="sealers">
+        <div>
+          <h3>Penetrating</h3>
+          <p>Soaks in and protects from within. Natural look, slip resistance unchanged. The usual choice outdoors.</p>
+        </div>
+        <div>
+          <h3>Penetrating, enhancing</h3>
+          <p>The same protection, and it deepens the stone's colour towards its wet look.</p>
+        </div>
+        <div>
+          <h3>Topical</h3>
+          <p>A thin film on the surface, in matte, satin or gloss. Changes the finish, so we'll talk through where it suits.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band panel">
+    <div class="wrap">
+      <h2>What the job needs</h2>
+      <p class="section-lede">The second factor is the state of the stone before sealing can start.</p>
+      <ul class="needs">
+        <li><strong>New, clean stone</strong> needs the least work: a clean-off of installation residue, then the sealer.</li>
+        <li><strong>Established stone</strong> usually needs a proper clean first: dirt, mould, efflorescence.</li>
+        <li><strong>Stained or coated stone</strong> needs the most: stain treatment, or stripping a failed old sealer, before the new one goes on.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap quote-grid">
+      <div>
+        <h2>Getting an exact price</h2>
+        <p>Send a few photos and the rough size of the area. That's enough for us to see the stone, its condition and what it needs, and come back with a number.</p>
+      </div>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="/book-now">Book a quote</a>
+        <a class="tlink" href="tel:1300220045">Call 1300 22 00 45</a>
+        <a class="tlink" href="mailto:info@spickle.com.au">Email photos</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .top-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(360px, 100%), 1fr)); gap: clamp(2rem, 6vw, 6rem); align-items: center; }
+  .kicker { font-size: var(--step-0); font-weight: 600; color: var(--teal-deep); margin-bottom: 0.3rem; }
+  .price { font-family: var(--display); font-size: clamp(3.75rem, 9vw, 8.5rem); line-height: 0.95; color: var(--navy); margin: 0; }
+  .per { font-size: var(--step-1); margin: 0.5rem 0 0; }
+  .small { font-size: var(--step--1); }
+  .section-lede { margin-bottom: clamp(1.75rem, 4vw, 2.75rem); }
+  .sealers { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)); gap: clamp(1.75rem, 3vw, 2.75rem); }
+  .sealers div { padding-top: 1.25rem; border-top: 1px solid var(--teal); }
+  .sealers h3 { font-family: var(--font); font-size: var(--step-0); font-weight: 700; margin-bottom: 0.35em; }
+  .sealers p { font-size: 1rem; margin: 0; }
+  .needs { margin: 0; padding: 0; list-style: none; max-width: var(--measure); }
+  .needs li { padding: 0.9rem 0; border-top: 1px solid var(--hairline); color: var(--muted); }
+  .needs li:last-child { border-bottom: 1px solid var(--hairline); }
+  .needs strong { color: var(--white); }
+  .quote-grid { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1.5rem 3rem; }
+  .quote-grid h2 { margin-bottom: 0.3em; }
+  .quote-grid p { margin: 0; }
+  .cta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.9rem 1.6rem; }
+</style>

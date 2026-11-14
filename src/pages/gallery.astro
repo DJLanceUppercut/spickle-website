@@ -1,0 +1,43 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base
+  title="Before & After Gallery | Stone Cleaning & Sealing | Spickle"
+  description="Before and after photos of stone and concrete cleaning and sealing jobs across Melbourne and the Mornington Peninsula."
+>
+  <section class="band hairline-top">
+    <div class="wrap">
+      <h1>Before and after</h1>
+      <p class="lede">Same stone, same spot, one visit apart. Each pair is labelled with the stone and the suburb.</p>
+      <div class="pairs">
+        <div class="todo pair">[Before/after pair 1: photos, stone and suburb. Waiting on job photos from Lukey.]</div>
+        <div class="todo pair">[Before/after pair 2]</div>
+        <div class="todo pair">[Before/after pair 3]</div>
+        <div class="todo pair">[Before/after pair 4]</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band panel">
+    <div class="wrap book-row">
+      <div>
+        <h2>Yours could be the next pair</h2>
+        <p>Send photos of your stone as it is now, and we'll price the after.</p>
+      </div>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="/book-now">Book a quote</a>
+        <a class="tlink" href="tel:1300220045">Call 1300 22 00 45</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .lede { font-size: var(--step-1); color: #d6e8ee; margin-bottom: clamp(2rem, 4vw, 3rem); }
+  .pairs { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr)); gap: clamp(1.5rem, 3vw, 2.5rem); }
+  .pair { min-height: 260px; display: flex; align-items: center; justify-content: center; text-align: center; }
+  .book-row { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1.5rem 3rem; }
+  .book-row h2 { margin-bottom: 0.3em; }
+  .book-row p { margin: 0; }
+  .cta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.9rem 1.6rem; }
+</style>

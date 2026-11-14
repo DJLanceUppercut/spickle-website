@@ -1,0 +1,55 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base
+  title="Driveway & Paving Cleaning Bentleigh East | Spickle"
+  description="Pressure cleaning and sealing for driveways and paving in Bentleigh East. Local clean days, priced to your exact area. Call 1300 22 00 45."
+>
+  <section class="band hairline-top">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="crumb">Bentleigh East</p>
+        <h1>Got our flyer? Your street's clean day is coming up.</h1>
+        <p class="lede">We clean and seal driveways and paving street by street, so your neighbours' jobs and yours share the travel.</p>
+        <div class="todo offer">[Offer and date for the current Bentleigh East drop, matched to the flyer: the discounted clean-day price and the booking cutoff]</div>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="tel:1300220045">Call 1300 22 00 45</a>
+          <a class="tlink" href="/book-now">Book online</a>
+        </div>
+      </div>
+      <ul class="points">
+        <li>Priced to your exact driveway, no measuring visit needed</li>
+        <li>Eco-friendly products</li>
+        <li>No lock-in, no obligation</li>
+        <li>Pay only once the job's done</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="band panel">
+    <div class="wrap grid2">
+      <div>
+        <h2>More than driveways</h2>
+        <p>We clean and seal natural stone too: bluestone, limestone, travertine and the rest. If your paving or pool surround needs attention, ask while we're on your street.</p>
+        <a class="tlink" href="/#stones">See the stones we work with</a>
+      </div>
+      <div>
+        <h2>Local proof</h2>
+        <div class="todo">[Before/after photos from Bentleigh East and nearby jobs, starting with Normdale Rd]</div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .hero-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: clamp(2.5rem, 6vw, 6rem); align-items: start; }
+  .crumb { font-size: var(--step--1); font-weight: 700; color: var(--teal-bright); margin-bottom: 0.9rem; letter-spacing: 0.04em; }
+  .lede { font-size: var(--step-1); color: #d6e8ee; max-width: 34ch; }
+  .offer { margin: 1.25rem 0; }
+  .cta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.9rem 1.6rem; }
+  .points { margin: 0; padding: 0; list-style: none; }
+  .points li { padding: 0.8rem 0; border-top: 1px solid var(--hairline); color: var(--muted); }
+  .points li:last-child { border-bottom: 1px solid var(--hairline); }
+  .grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(380px, 100%), 1fr)); gap: clamp(2rem, 5vw, 5rem); align-items: start; }
+  @media (max-width: 860px) { .hero-grid { grid-template-columns: 1fr; } }
+</style>

@@ -1,0 +1,53 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base
+  title="Areas We Service | Stone Sealing Melbourne & Mornington Peninsula | Spickle"
+  description="Spickle cleans and seals stone across 115 suburbs: Melbourne's inner and south-east suburbs and the Mornington Peninsula, from Abbotsford to Sorrento."
+>
+  <section class="band hairline-top">
+    <div class="wrap">
+      <h1>Where we work</h1>
+      <p class="lede">115 suburbs: Melbourne's inner and south-east suburbs and the Mornington Peninsula, from Abbotsford to Sorrento.</p>
+      <div class="regions">
+        <div>
+          <h2>Inner Melbourne</h2>
+          <div class="todo">[Inner Melbourne suburbs from the 115-suburb list on the current site's contact page]</div>
+        </div>
+        <div>
+          <h2>South-east suburbs</h2>
+          <div class="todo">[South-east suburbs from the same list]</div>
+        </div>
+        <div>
+          <h2>Mornington Peninsula</h2>
+          <div class="todo">[Peninsula suburbs from the same list]</div>
+        </div>
+      </div>
+      <p class="rural">Outside these areas, we still travel. Rural jobs carry a separate travel fee, quoted up front, so you'll know the full price before you book.</p>
+    </div>
+  </section>
+
+  <section class="band panel">
+    <div class="wrap book-row">
+      <div>
+        <h2>In the area?</h2>
+        <p>Send photos and a rough size and we'll price your job.</p>
+      </div>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="/book-now">Book a quote</a>
+        <a class="tlink" href="tel:1300220045">Call 1300 22 00 45</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .lede { font-size: var(--step-1); color: #d6e8ee; margin-bottom: clamp(2rem, 4vw, 3rem); max-width: 40ch; }
+  .regions { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: clamp(1.75rem, 3vw, 2.75rem); }
+  .regions h2 { font-size: var(--step-1); }
+  .rural { margin-top: clamp(2rem, 4vw, 3rem); padding-top: 1.4rem; border-top: 1px solid var(--hairline); }
+  .book-row { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1.5rem 3rem; }
+  .book-row h2 { margin-bottom: 0.3em; }
+  .book-row p { margin: 0; }
+  .cta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.9rem 1.6rem; }
+</style>

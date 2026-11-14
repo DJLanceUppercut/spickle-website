@@ -1,0 +1,22 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base
+  title="Request received | Spickle"
+  description="Your quote request has been received. We'll come back to you with a price."
+>
+  <section class="band hairline-top">
+    <div class="wrap narrow">
+      <h1>Got it. We're on it.</h1>
+      <p class="lede">Your quote request has come through. We'll come back to you with a price within <span class="todo-inline">[timeframe]</span>.</p>
+      <p>If anything's urgent in the meantime, call <a class="tlink" href="tel:1300220045">1300 22 00 45</a>.</p>
+      <p class="back"><a class="tlink" href="/">Back to the homepage</a></p>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .narrow { max-width: 760px; padding-block: 3rem; }
+  .lede { font-size: var(--step-1); color: #d6e8ee; }
+  .back { margin-top: 2.5rem; }
+</style>

@@ -1,0 +1,46 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base
+  title="About Spickle | Stone Cleaning & Sealing Melbourne"
+  description="Spickle cleans and seals natural stone and concrete across Melbourne and the Mornington Peninsula, matching the treatment to the stone."
+>
+  <section class="band hairline-top">
+    <div class="wrap grid">
+      <div>
+        <h1>Stone people, not pressure-washer people</h1>
+        <p class="lede">Spickle does one thing: cleaning and sealing natural stone and concrete, across Melbourne and the Mornington Peninsula.</p>
+        <p>Every stone takes cleaners and sealers differently. A product that's routine on granite can permanently etch limestone, and a sealer that suits dense bluestone can peel off slate. Matching the treatment to the stone is the whole job, and it's what we know.</p>
+        <p>We work for homeowners, property managers, body corporates and golf clubs, and we seal new jobs for landscapers and builders before handover.</p>
+      </div>
+      <div class="facts">
+        <div class="todo">[Who does the work: names, photo, background. Waiting on content from Lukey.]</div>
+        <div class="todo">[ABN and insurance details to add]</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band panel">
+    <div class="wrap book-row">
+      <div>
+        <h2>Talk to us about your stone</h2>
+        <p>Photos and a rough size are all we need to price it.</p>
+      </div>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="/book-now">Book a quote</a>
+        <a class="tlink" href="tel:1300220045">Call 1300 22 00 45</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: clamp(2.5rem, 6vw, 6rem); align-items: start; }
+  .lede { font-size: var(--step-1); color: #d6e8ee; }
+  .facts { display: grid; gap: 1.25rem; }
+  .book-row { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1.5rem 3rem; }
+  .book-row h2 { margin-bottom: 0.3em; }
+  .book-row p { margin: 0; }
+  .cta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.9rem 1.6rem; }
+  @media (max-width: 860px) { .grid { grid-template-columns: 1fr; } }
+</style>
