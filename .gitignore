@@ -1,9 +1,4 @@
 node_modules
 dist
-dist-ssr
-*.local
-.env
-.env.local
-.env.production
-.vercel
-.vite-react-ssg-temp
+.astro
+.DS_Store
