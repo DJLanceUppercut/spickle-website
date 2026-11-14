@@ -1,0 +1,41 @@
+---
+// Full-bleed bluestone surface for section backgrounds, drawn in SVG so it
+// stays sharp at any width. Swap for a real macro photo of wet bluestone
+// (2400px wide or more) when one is available.
+// Place inside a section with `position: relative; isolation: isolate`.
+interface Props { id?: string; shade?: number }
+const { id = 'tx', shade = 0.78 } = Astro.props;
+---
+<div class="stone-tx" aria-hidden="true">
+  <svg preserveAspectRatio="xMidYMid slice" viewBox="0 0 1600 900">
+    <defs>
+      <filter id={`${id}-mottle`} x="0" y="0" width="100%" height="100%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.0035" numOctaves="3" seed="4" />
+        <feColorMatrix type="matrix" values="0 0 0 0 0.62  0 0 0 0 0.70  0 0 0 0 0.74  0 0 0 0.55 -0.1" />
+      </filter>
+      <filter id={`${id}-grain`} x="0" y="0" width="100%" height="100%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="3" seed="9" />
+        <feColorMatrix type="matrix" values="0 0 0 0 0.05  0 0 0 0 0.08  0 0 0 0 0.10  0 0 0 1.5 -0.6" />
+      </filter>
+      <filter id={`${id}-pits`} x="0" y="0" width="100%" height="100%">
+        <feTurbulence type="turbulence" baseFrequency="0.045" numOctaves="1" seed="21" />
+        <feColorMatrix type="matrix" values="0 0 0 0 0.02  0 0 0 0 0.04  0 0 0 0 0.06  0 0 0 -9 4.6" />
+      </filter>
+    </defs>
+    <rect width="1600" height="900" fill="#3c4950" />
+    <rect width="1600" height="900" filter={`url(#${id}-mottle)`} />
+    <rect width="1600" height="900" filter={`url(#${id}-pits)`} opacity="0.55" />
+    <rect width="1600" height="900" filter={`url(#${id}-grain)`} />
+  </svg>
+  <div class="tx-shade" style={`--shade:${shade}`}></div>
+</div>
+
+<style>
+  .stone-tx { position: absolute; inset: 0; z-index: -1; overflow: hidden; }
+  .stone-tx svg { width: 100%; height: 100%; display: block; }
+  .tx-shade {
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(180deg, rgba(0, 32, 47, var(--shade)) 0%, rgba(0, 47, 73, calc(var(--shade) - 0.12)) 50%, rgba(0, 32, 47, var(--shade)) 100%);
+  }
+</style>
