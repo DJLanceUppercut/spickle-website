@@ -1,28 +1,35 @@
 @import '@fontsource-variable/archivo/standard.css';
+@import '@fontsource/marcellus/index.css';
 
 :root {
   --teal: #219ebc;
-  --teal-deep: #1a7f98;
+  --teal-bright: #5fc2de;
+  --teal-deep: #19708a;
   --navy: #002f49;
-  --navy-2: #0a3d5a;
+  --navy-deep: #00202f;
+  --panel: #06374f;
   --mint: #e8f5f1;
   --ink: #2d2a26;
-  --stone: #5f6b73;
+  --text: #eef4f3;
+  --muted: #c3d6dd;
+  --faint: #9fb9c4;
+  --hairline: rgba(255, 255, 255, 0.16);
   --white: #ffffff;
 
   --font: 'Archivo Variable', 'Archivo', system-ui, sans-serif;
+  --display: 'Marcellus', Georgia, 'Times New Roman', serif;
 
   /* Type scale: 1.25 ratio from 18px */
   --step--1: 0.889rem;
   --step-0: 1.125rem;
   --step-1: 1.406rem;
   --step-2: 1.758rem;
-  --step-3: clamp(1.9rem, 1.4rem + 2vw, 2.75rem);
-  --step-4: clamp(2.4rem, 1.5rem + 4vw, 4.4rem);
+  --step-3: clamp(1.9rem, 1.4rem + 2vw, 3rem);
+  --step-4: clamp(2.5rem, 1.6rem + 4.2vw, 5rem);
 
   --measure: 62ch;
   --gutter: clamp(1.25rem, 4vw, 3rem);
-  --max: 1180px;
+  --max: 1240px;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -33,38 +40,37 @@ body {
   margin: 0;
   font-family: var(--font);
   font-size: var(--step-0);
-  line-height: 1.55;
-  color: var(--ink);
-  background: var(--white);
-  font-variation-settings: 'wdth' 100;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--navy);
+  -webkit-font-smoothing: antialiased;
 }
 
 img { max-width: 100%; height: auto; display: block; }
 
-a { color: var(--teal-deep); text-underline-offset: 0.18em; }
-a:hover { color: var(--navy); }
+a { color: var(--muted); text-underline-offset: 0.18em; text-decoration-color: var(--teal); }
+a:hover { color: var(--white); }
 
 :focus-visible {
-  outline: 3px solid var(--teal);
+  outline: 3px solid var(--teal-bright);
   outline-offset: 3px;
   border-radius: 4px;
 }
 
 h1, h2, h3 {
-  font-family: var(--font);
-  color: var(--navy);
+  font-family: var(--display);
+  font-weight: 400;
+  color: var(--white);
   margin: 0 0 0.6em;
-  line-height: 1.05;
-  font-weight: 850;
-  font-stretch: 125%;
-  letter-spacing: -0.01em;
+  line-height: 1.1;
+  letter-spacing: 0.005em;
   text-wrap: balance;
 }
-h1 { font-size: var(--step-4); }
+h1 { font-size: var(--step-4); line-height: 1.04; }
 h2 { font-size: var(--step-3); }
-h3 { font-size: var(--step-1); font-weight: 750; font-stretch: 112%; line-height: 1.2; }
+h3 { font-size: var(--step-1); line-height: 1.25; }
 
-p { margin: 0 0 1em; max-width: var(--measure); text-wrap: pretty; }
+p { margin: 0 0 1em; max-width: var(--measure); text-wrap: pretty; color: var(--muted); }
 
 .wrap {
   width: 100%;
@@ -73,40 +79,63 @@ p { margin: 0 0 1em; max-width: var(--measure); text-wrap: pretty; }
   padding-inline: var(--gutter);
 }
 
+.band { padding-block: clamp(3.5rem, 8vw, 7.5rem); }
+.band.panel { background: var(--panel); }
+.band.hairline-top { border-top: 1px solid var(--hairline); }
+
+/* Light band (the one bright moment on the page) */
+.band.light { background: var(--mint); }
+.band.light h1, .band.light h2, .band.light h3 { color: var(--navy); }
+.band.light p { color: #3b5563; }
+.band.light a { color: var(--navy); text-decoration-color: var(--teal); }
+.band.light a:hover { color: var(--teal-deep); }
+
 .skip {
   position: absolute; left: -999px; top: 0.5rem;
-  background: var(--navy); color: var(--white); padding: 0.6rem 1rem; z-index: 100;
+  background: var(--mint); color: var(--navy); padding: 0.6rem 1rem; z-index: 100;
 }
 .skip:focus { left: 0.5rem; }
 
 /* Buttons */
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
-  font: inherit; font-weight: 700; font-stretch: 110%;
-  padding: 0.85rem 1.4rem;
-  border-radius: 999px;
+  font: inherit; font-weight: 700;
+  padding: 0.9rem 1.6rem;
+  border-radius: 2px;
   text-decoration: none;
   border: 2px solid transparent;
   cursor: pointer;
+  min-height: 44px;
   transition: background-color 0.15s, color 0.15s, border-color 0.15s;
 }
-.btn-primary { background: var(--teal); color: var(--white); }
-.btn-primary:hover { background: var(--teal-deep); color: var(--white); }
-.btn-outline { border-color: currentColor; color: var(--navy); background: transparent; }
-.btn-outline:hover { background: var(--navy); color: var(--white); border-color: var(--navy); }
-.on-dark .btn-outline { color: var(--white); }
-.on-dark .btn-outline:hover { background: var(--white); color: var(--navy); border-color: var(--white); }
+.btn-primary { background: var(--teal); color: var(--navy-deep); }
+.btn-primary:hover { background: var(--teal-bright); color: var(--navy-deep); }
+.btn-navy { background: var(--navy); color: var(--white); }
+.btn-navy:hover { background: var(--navy-deep); color: var(--white); }
+.btn-outline { border-color: rgba(255,255,255,0.6); color: var(--white); background: transparent; }
+.btn-outline:hover { background: var(--white); color: var(--navy); border-color: var(--white); }
+
+/* Underlined text links in the Dusk style */
+.tlink {
+  color: var(--white); font-weight: 600; text-decoration: underline;
+  text-decoration-color: var(--teal); text-decoration-thickness: 2px; text-underline-offset: 6px;
+}
+.tlink:hover { color: var(--teal-bright); }
+.band.light .tlink { color: var(--navy); }
+.band.light .tlink:hover { color: var(--teal-deep); }
 
 /* Placeholder blocks: things Lukey still needs to supply */
 .todo {
   border: 2px dashed var(--teal);
-  background: repeating-linear-gradient(-45deg, var(--mint), var(--mint) 12px, #f3faf8 12px, #f3faf8 24px);
-  color: var(--navy);
-  border-radius: 6px;
+  background: rgba(33, 158, 188, 0.08);
+  color: var(--text);
+  border-radius: 4px;
   padding: 1.25rem;
   font-size: var(--step--1);
   font-weight: 600;
 }
+.band.light .todo { color: var(--navy); background: rgba(33, 158, 188, 0.1); }
+.todo-inline { background: rgba(33, 158, 188, 0.28); padding: 0 0.3em; border-radius: 3px; }
 
 .visually-hidden {
   position: absolute !important; width: 1px; height: 1px; overflow: hidden;

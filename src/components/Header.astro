@@ -1,9 +1,8 @@
 ---
 const links = [
-  { href: '/services', label: 'Services' },
   { href: '/#stones', label: 'Stones' },
-  { href: '/pricing', label: 'Pricing' },
-  { href: '/gallery', label: 'Gallery' },
+  { href: '/services', label: 'Services' },
+  { href: '/#pricing', label: 'Pricing' },
   { href: '/faq', label: 'FAQ' },
   { href: '/contact', label: 'Contact' },
 ];
@@ -11,7 +10,7 @@ const links = [
 <header class="site-header">
   <div class="wrap bar">
     <a href="/" class="logo" aria-label="Spickle Cleaning & Sealing, home">
-      <img src="/logo-colour.png" alt="Spickle Cleaning & Sealing" width="160" height="47" />
+      <img src="/logo-white.png" alt="Spickle Cleaning & Sealing" width="160" height="47" />
     </a>
     <nav aria-label="Main">
       <ul>
@@ -20,31 +19,31 @@ const links = [
     </nav>
     <div class="actions">
       <a class="phone" href="tel:1300220045">1300 22 00 45</a>
-      <a class="btn btn-primary" href="#quote">Get a quote</a>
+      <a class="btn btn-primary" href="/book-now">Book a quote</a>
     </div>
   </div>
 </header>
 
 <div class="mobile-bar" role="navigation" aria-label="Quick contact">
   <a href="tel:1300220045">Call 1300 22 00 45</a>
-  <a href="#quote" class="mb-quote">Get a quote</a>
+  <a href="/book-now" class="mb-quote">Book a quote</a>
 </div>
 
 <style>
   .site-header {
     position: sticky; top: 0; z-index: 50;
-    background: rgba(255, 255, 255, 0.96);
-    backdrop-filter: blur(6px);
-    border-bottom: 1px solid #e3ecea;
+    background: rgba(0, 32, 47, 0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--hairline);
   }
   .bar { display: flex; align-items: center; gap: 2rem; min-height: 76px; }
   .logo img { width: 150px; height: auto; }
   nav { margin-left: auto; }
-  nav ul { display: flex; gap: 1.5rem; list-style: none; margin: 0; padding: 0; }
-  nav a { color: var(--navy); text-decoration: none; font-weight: 600; font-size: 1rem; }
-  nav a:hover { color: var(--teal-deep); text-decoration: underline; }
+  nav ul { display: flex; gap: 1.6rem; list-style: none; margin: 0; padding: 0; }
+  nav a { color: var(--muted); text-decoration: none; font-weight: 500; font-size: 1rem; }
+  nav a:hover { color: var(--white); text-decoration: underline; text-decoration-color: var(--teal); text-underline-offset: 0.3em; }
   .actions { display: flex; align-items: center; gap: 1.25rem; }
-  .phone { color: var(--navy); font-weight: 800; font-stretch: 112%; text-decoration: none; white-space: nowrap; }
+  .phone { color: var(--white); font-weight: 800; text-decoration: none; white-space: nowrap; }
   .actions .btn { padding: 0.6rem 1.1rem; font-size: 1rem; }
 
   .mobile-bar { display: none; }
@@ -60,15 +59,16 @@ const links = [
     .mobile-bar {
       display: grid; grid-template-columns: 1fr 1fr;
       position: fixed; inset: auto 0 0 0; z-index: 60;
-      background: var(--navy);
+      background: var(--navy-deep);
+      border-top: 1px solid var(--hairline);
       padding: 0.5rem 0.5rem calc(0.5rem + env(safe-area-inset-bottom));
       gap: 0.5rem;
     }
     .mobile-bar a {
-      text-align: center; padding: 0.8rem 0.5rem; border-radius: 999px;
+      text-align: center; padding: 0.8rem 0.5rem; border-radius: 2px;
       color: var(--white); font-weight: 700; text-decoration: none; font-size: 0.98rem;
       border: 2px solid rgba(255,255,255,0.5);
     }
-    .mobile-bar .mb-quote { background: var(--teal); border-color: var(--teal); }
+    .mobile-bar .mb-quote { background: var(--teal); border-color: var(--teal); color: var(--navy-deep); }
   }
 </style>

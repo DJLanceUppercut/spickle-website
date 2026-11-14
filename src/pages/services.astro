@@ -1,0 +1,104 @@
+---
+import Base from '../layouts/Base.astro';
+import SealDemo from '../components/SealDemo.astro';
+---
+<Base
+  title="Stone Cleaning, Sealing & Stain Removal | Spickle"
+  description="Cleaning, sealing, stain removal and new installation sealing for natural stone and concrete across Melbourne and the Mornington Peninsula."
+>
+  <section class="band hairline-top">
+    <div class="wrap">
+      <h1>What we do</h1>
+      <p class="lede">Four services, one aim: stone that looks the way it did the day it was laid.</p>
+    </div>
+  </section>
+
+  <section class="band panel" id="new-install">
+    <div class="wrap svc">
+      <div>
+        <h2>New installation sealing</h2>
+        <p>New stone has no protection the day it's laid, and the first barbecue is rarely far away. Once the stone and grout have cured, we clean off installation residue and efflorescence, then seal, so the surface starts life protected.</p>
+        <p>For landscapers and builders we seal before handover: your client gets a finished result, and you don't get the call about the first stain.</p>
+      </div>
+      <div>
+        <h2 class="h-follow">When to book it</h2>
+        <p>Soon after laying, once curing is done. Tell us when the job finished and we'll tell you the right window for your stone and sealer.</p>
+        <a class="tlink" href="tel:1300220045">Set up handover sealing</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="cleaning">
+    <div class="wrap svc">
+      <div>
+        <h2>Cleaning</h2>
+        <p>Dirt, mould, moss, efflorescence and general grime, lifted with cleaners matched to the surface. That matching matters: a cleaner that's routine on granite can permanently etch limestone or travertine.</p>
+        <p>We use controlled pressure cleaning where the stone can take it and gentler methods where it can't, so soft stone like sandstone keeps its face.</p>
+      </div>
+      <div>
+        <h2 class="h-follow">On its own or before sealing</h2>
+        <p>Cleaning stands alone if the stone is already sealed and just needs freshening. If it's unsealed, cleaning is the first half of a seal job.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band panel" id="sealing">
+    <div class="wrap">
+      <h2>Sealing</h2>
+      <p class="section-lede">Two kinds of sealer, chosen for the stone and where it's laid.</p>
+      <div class="seal-grid">
+        <SealDemo />
+        <div class="seal-types">
+          <div>
+            <h3>Penetrating sealer</h3>
+            <p>Soaks into the stone and protects it from within. The surface keeps its natural look and its slip resistance, so it's what we use on most outdoor areas. An enhancing version deepens the stone's colour towards its wet look.</p>
+          </div>
+          <div>
+            <h3>Topical sealer</h3>
+            <p>Sits on the surface as a thin film and gives the stone a matte, satin or gloss finish. We'll tell you where a topical finish suits and where it doesn't, before you choose.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="stains">
+    <div class="wrap svc">
+      <div>
+        <h2>Stain removal</h2>
+        <p>Oil and grease, leaf tannins, rust, mould and efflorescence. We identify the stain and the stone, then use the treatment that draws it out without damaging the surface.</p>
+      </div>
+      <div>
+        <h2 class="h-follow">An honest note</h2>
+        <p>Most stains can be improved and many removed entirely, but a stain that has had months to set in porous stone doesn't always come out fully. We'll tell you what's realistic when we see the photos, not after the job.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band hairline-top">
+    <div class="wrap book-row">
+      <div>
+        <h2>Book a quote</h2>
+        <p>Photos and the rough size of the area are all we need to price it.</p>
+      </div>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="/book-now">Book a quote</a>
+        <a class="tlink" href="tel:1300220045">Call 1300 22 00 45</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .lede { font-size: var(--step-1); color: #d6e8ee; }
+  .svc { display: grid; grid-template-columns: 1.4fr 1fr; gap: clamp(2rem, 5vw, 5rem); align-items: start; }
+  .h-follow { font-size: var(--step-1); }
+  .section-lede { margin-bottom: clamp(2rem, 4vw, 3rem); }
+  .seal-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(440px, 100%), 1fr)); gap: clamp(2rem, 4vw, 4rem); align-items: center; }
+  .seal-types { display: grid; gap: 2rem; max-width: 480px; }
+  .book-row { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1.5rem 3rem; }
+  .book-row h2 { margin-bottom: 0.3em; }
+  .book-row p { margin: 0; }
+  .cta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.9rem 1.6rem; }
+  @media (max-width: 860px) { .svc { grid-template-columns: 1fr; } }
+</style>

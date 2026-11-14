@@ -1,0 +1,41 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base
+  title="Book a Stone Sealing Quote | Spickle"
+  description="Book a stone cleaning and sealing quote. Send photos and the rough size of the area, and we'll come back with a price. From $16/m²."
+>
+  <section class="band hairline-top">
+    <div class="wrap grid">
+      <div>
+        <h1>Book a quote</h1>
+        <p class="lede">Send a few photos and the rough size of the area, and we'll come back with a price.</p>
+        <h2 class="sub">What helps us price it fast</h2>
+        <ul class="list">
+          <li>A few photos of the area, including any stains</li>
+          <li>The approximate size in square metres, even a rough guess</li>
+          <li>The stone, if you know it</li>
+          <li>Your suburb</li>
+        </ul>
+        <div class="contacts">
+          <a class="tlink" href="tel:1300220045">Call 1300 22 00 45</a>
+          <a class="tlink" href="mailto:info@spickle.com.au">info@spickle.com.au</a>
+        </div>
+        <p class="small">Pricing runs $16 to $40 per m², depending on the sealer and the job. Rural jobs carry a separate travel fee, quoted up front.</p>
+      </div>
+      <div class="todo embed">ServiceM8 booking form<br />[Embed from ServiceM8 goes here: name, phone, email, address, approximate m², paving type, photos. Waiting on the embed code from Lukey.]</div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(400px, 100%), 1fr)); gap: clamp(2.5rem, 6vw, 6rem); align-items: start; }
+  .lede { font-size: var(--step-1); color: #d6e8ee; }
+  .sub { font-size: var(--step-1); margin-top: 1.5em; }
+  .list { margin: 0 0 1.5em; padding: 0; list-style: none; max-width: var(--measure); }
+  .list li { padding: 0.65rem 0; border-top: 1px solid var(--hairline); color: var(--muted); }
+  .list li:last-child { border-bottom: 1px solid var(--hairline); }
+  .contacts { display: flex; flex-wrap: wrap; gap: 0.9rem 1.8rem; margin-bottom: 1.5rem; }
+  .small { font-size: var(--step--1); }
+  .embed { min-height: 420px; display: flex; flex-direction: column; justify-content: center; line-height: 1.7; }
+</style>

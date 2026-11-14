@@ -1,108 +1,108 @@
 ---
 import Base from '../layouts/Base.astro';
 import SealDemo from '../components/SealDemo.astro';
-
-const stones = [
-  { name: 'Bluestone', href: '/bluestone' },
-  { name: 'Limestone', href: '/limestone' },
-  { name: 'Travertine', href: '/travertine' },
-  { name: 'Granite', href: '/granite' },
-  { name: 'Slate', href: '/slate' },
-  { name: 'Sandstone', href: '/sandstone' },
-  { name: 'Porphyry', href: '/porphyry' },
-  { name: 'Concrete & exposed aggregate', href: '/aggregate' },
-];
-
+import { stones } from '../data/stones.js';
 ---
 <Base
   title="Stone Cleaning & Sealing Melbourne | Spickle"
-  description="Cleaning and sealing for bluestone, limestone, travertine, concrete and more across Melbourne and the Mornington Peninsula. From $16/m². Get a quote."
+  description="Cleaning and sealing for bluestone, limestone, travertine, concrete and more across Melbourne and the Mornington Peninsula. From $16/m². Book a quote."
 >
   <!-- Hero -->
   <section class="hero">
-    <div class="wrap hero-grid">
+    <img class="hero-bg" src="/images/hero-dusk.jpg" alt="" width="1920" height="1440" fetchpriority="high" />
+    <div class="hero-shade" aria-hidden="true"></div>
+    <div class="wrap hero-inner">
       <div class="hero-copy">
-        <h1>Stone and concrete cleaning and sealing in Melbourne</h1>
-        <p class="lede">Just had new paving laid? Get it sealed before the first spill finds it. We clean and seal bluestone, limestone, travertine, granite and more across Melbourne and the Mornington Peninsula.</p>
+        <h1>Natural stone, sealed properly.</h1>
+        <p class="lede">We clean and seal bluestone, limestone, travertine and every other natural stone across Melbourne and the Mornington Peninsula. New paving is best sealed soon after it's laid, before the first spill finds it.</p>
         <div class="cta-row">
-          <a class="btn btn-primary" href="#quote">Get a quote</a>
-          <a class="btn btn-outline" href="tel:1300220045">Call 1300 22 00 45</a>
+          <a class="btn btn-primary" href="/book-now">Book a quote</a>
+          <a class="tlink" href="tel:1300220045">Call 1300 22 00 45</a>
         </div>
-        <ul class="facts">
-          <li><strong>From $16/m²</strong> cleaning and sealing</li>
-          <li><strong>Penetrating and topical</strong> sealers</li>
-          <li><strong>115 suburbs</strong> across Melbourne</li>
-          <li class="todo-fact"><strong>[★ rating]</strong> from [number] Google reviews</li>
-        </ul>
       </div>
-      <div class="hero-visual">
-        <SealDemo />
-      </div>
+      <dl class="facts">
+        <div><dt>From $16/m²</dt><dd>cleaning and sealing</dd></div>
+        <div><dt>Two sealer types</dt><dd>penetrating and topical</dd></div>
+        <div><dt>115 suburbs</dt><dd>Melbourne and the Peninsula</dd></div>
+      </dl>
     </div>
   </section>
 
   <!-- New paving -->
-  <section class="band mint" id="new-paving">
+  <section class="band hairline-top" id="new-paving">
     <div class="wrap split">
-      <div>
-        <h2>New paving? Seal it now</h2>
-        <p>New stone has no protection the day it's laid. Oil, red wine, leaves and barbecue fat soak straight in, and once a stain is inside the stone it's slow and costly to draw out.</p>
+      <h2>New stone has no protection the day it's laid.</h2>
+      <div class="split-copy">
+        <p>Oil, red wine, leaves and barbecue fat soak straight in. Once a stain is inside the stone it's slow and costly to draw out, and some never fully come back.</p>
         <p>Sealing soon after installation, once the stone and grout have cured, keeps it looking the way it did at handover.</p>
-        <p><a href="/new-installation-sealing">Read about new installation sealing</a></p>
+        <aside class="trade">
+          <h3>Landscapers and builders</h3>
+          <p>We seal your jobs before handover, so your client gets a finished result and you don't get the call about the first stain.</p>
+          <a class="tlink" href="tel:1300220045">Set up handover sealing</a>
+        </aside>
       </div>
-      <aside class="trade">
-        <h3>Landscapers and builders</h3>
-        <p>We can seal your jobs before handover, so your client gets a finished result and you don't get the call about the first stain.</p>
-        <p><a href="tel:1300220045">Call us to set it up</a></p>
-      </aside>
     </div>
   </section>
 
-  <!-- What we do -->
-  <section class="band" id="services">
+  <!-- Sealing -->
+  <section class="band panel" id="sealing">
     <div class="wrap">
-      <h2>What we do</h2>
-      <div class="three">
-        <div>
-          <h3>Cleaning</h3>
-          <p>We lift dirt, mould, moss and efflorescence without damaging the stone, using cleaners matched to the surface.</p>
-        </div>
-        <div>
-          <h3>Sealing</h3>
-          <p>Penetrating sealers soak in, leave the stone looking natural and don't change its slip resistance, so we use them on most outdoor areas. Topical sealers sit on the surface and give a matte, satin or gloss finish.</p>
-        </div>
-        <div>
-          <h3>Stain removal</h3>
-          <p>Oil and grease, leaf tannins, mould and efflorescence. We match the treatment to the stone, because a cleaner that's safe on granite can etch limestone.</p>
+      <h2>Two ways to seal stone</h2>
+      <p class="section-lede">We choose the sealer for the stone and where it's laid, then tell you why.</p>
+      <div class="seal-grid">
+        <SealDemo />
+        <div class="seal-types">
+          <div>
+            <h3>Penetrating sealer</h3>
+            <p>Soaks into the stone and protects it from within. The surface keeps its natural look and its slip resistance, so it's what we use on most outdoor areas.</p>
+          </div>
+          <div>
+            <h3>Topical sealer</h3>
+            <p>Sits on the surface as a thin film and gives the stone a matte, satin or gloss finish.</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Stones -->
-  <section class="band stones-band" id="stones">
+  <section class="band" id="stones">
     <div class="wrap">
-      <h2>Stones we work with</h2>
-      <p>Every stone takes cleaners and sealers differently. Pick yours to see how we treat it.</p>
-      <ul class="stones">
-        {stones.map((s) => <li><a href={s.href}>{s.name}</a></li>)}
+      <div class="row-head">
+        <h2>Stones we work with</h2>
+        <p>Each stone takes cleaners and sealers differently. A cleaner that's safe on granite can etch limestone, so we match the treatment to the stone. Pick yours to see how we treat it.</p>
+      </div>
+      <ul class="stone-grid">
+        {stones.map((s) => (
+          <li>
+            <a href={`/${s.slug}`}>
+              <img src={s.image} alt="" width="400" height="500" loading="lazy" />
+              <span>{s.name}</span>
+            </a>
+          </li>
+        ))}
       </ul>
     </div>
   </section>
 
-  <!-- Pricing -->
-  <section class="band navy on-dark" id="pricing">
+  <!-- Pricing: the one light band on the page -->
+  <section class="band light" id="pricing">
     <div class="wrap price-grid">
       <div>
-        <h2>What it costs</h2>
-        <p class="price"><span>$16</span> to <span>$40</span> <small>per m²</small></p>
+        <p class="kicker">What it costs</p>
+        <p class="price">$16–40</p>
+        <p class="per">per square metre</p>
       </div>
       <div class="price-copy">
-        <p>Most jobs fall in that range. Where yours sits depends on the sealer you choose and what the job needs. Jobs in rural areas carry a separate travel fee, quoted up front.</p>
-        <p>Send us the rough size and a few photos and we'll price it.</p>
+        <p>Where your job sits in that range comes down to two things:</p>
+        <ol class="price-factors">
+          <li>The sealer you choose</li>
+          <li>What the job needs</li>
+        </ol>
+        <p class="small">Rural jobs carry a separate travel fee, quoted up front.</p>
         <div class="cta-row">
-          <a class="btn btn-primary" href="#quote">Get a quote</a>
-          <a class="btn btn-outline" href="/pricing">See pricing</a>
+          <a class="btn btn-navy" href="/book-now">Book a quote</a>
+          <a class="tlink" href="mailto:info@spickle.com.au">Email photos for a price</a>
         </div>
       </div>
     </div>
@@ -113,159 +113,170 @@ const stones = [
     <div class="wrap">
       <h2>How a job runs</h2>
       <ol class="steps">
-        <li><h3>Send photos</h3><p>Send us photos and the approximate area. We'll come back with a quote within <span class="todo-inline">[timeframe]</span>.</p></li>
-        <li><h3>Book a date</h3><p>We book a date and tell you how long the area needs to stay clear.</p></li>
-        <li><h3>Clean and seal</h3><p>We clean, treat any stains, then seal.</p></li>
-        <li><h3>Look after it</h3><p>You get care instructions and a guide to when it'll need resealing.</p></li>
+        <li>
+          <span class="step-n" aria-hidden="true">1</span>
+          <h3>Send photos</h3>
+          <p>Photos and the rough size of the area. We come back with a price within <span class="todo-inline">[timeframe]</span>.</p>
+        </li>
+        <li>
+          <span class="step-n" aria-hidden="true">2</span>
+          <h3>Book a date</h3>
+          <p>We tell you how long the area needs to stay clear before and after.</p>
+        </li>
+        <li>
+          <span class="step-n" aria-hidden="true">3</span>
+          <h3>Clean, treat, seal</h3>
+          <p>We clean the stone, lift any stains, then apply the sealer.</p>
+        </li>
+        <li>
+          <span class="step-n" aria-hidden="true">4</span>
+          <h3>Look after it</h3>
+          <p>You get care instructions and a guide to when it'll need resealing.</p>
+        </li>
       </ol>
     </div>
   </section>
 
   <!-- Before and after -->
-  <section class="band mint" id="gallery">
+  <section class="band hairline-top" id="gallery">
     <div class="wrap">
       <h2>Before and after</h2>
-      <div class="gallery">
-        <div class="todo">Before/after slider: e.g. bluestone pool surround, Brighton. Needs a matched before and after photo.</div>
-        <div class="todo">Before/after slider: e.g. limestone courtyard, Malvern.</div>
-        <div class="todo">Before/after slider: e.g. exposed aggregate driveway, Mornington.</div>
-      </div>
-      <p><a href="/gallery">See the gallery</a></p>
+      <div class="todo">[Matched before and after photos from real Spickle jobs go here, with the stone and suburb under each pair. Waiting on job photos from Lukey.]</div>
     </div>
   </section>
 
-  <!-- Reviews -->
-  <section class="band" id="reviews">
+  <!-- Review -->
+  <section class="band panel">
     <div class="wrap">
-      <h2>What customers say</h2>
-      <div class="todo">Three Google reviews with first names and suburbs, plus the overall rating and review count.</div>
+      <figure class="review">
+        <blockquote>
+          <p class="quote-text"><span class="todo-inline">[A Google review from a customer, two or three sentences about their stone and the result.]</span></p>
+        </blockquote>
+        <figcaption>
+          <span class="who todo-inline">[First name], [suburb]</span>
+          <span class="todo-inline">[Rating] from [number] Google reviews</span>
+        </figcaption>
+      </figure>
     </div>
   </section>
 
-  <!-- Who / where -->
-  <section class="band who-where">
-    <div class="wrap split">
+  <!-- Who and where -->
+  <section class="band">
+    <div class="wrap two-col">
       <div>
-        <h2>Who we work for</h2>
+        <h3>Who we work for</h3>
         <p>Homeowners, property managers, body corporates and golf clubs across Melbourne.</p>
       </div>
       <div>
-        <h2>Where we work</h2>
-        <p>Melbourne's inner and south-east suburbs and the Mornington Peninsula, from Abbotsford to Sorrento. Further out? We travel for a separate fee.</p>
-        <p><a href="/service-areas">See all suburbs</a></p>
+        <h3>Where we work</h3>
+        <p>Melbourne's inner and south-east suburbs and the Mornington Peninsula, from Abbotsford to Sorrento. Further out, we travel for a separate fee.</p>
+        <a class="tlink" href="/contact">See all suburbs</a>
       </div>
     </div>
   </section>
 
-  <!-- Quote -->
-  <section class="band quote-band" id="quote">
-    <div class="wrap quote-grid">
-      <div class="quote-intro">
-        <h2>Get your stone protected</h2>
-        <p>Send us a few details and photos for a quote, or call <a href="tel:1300220045">1300 22 00 45</a>.</p>
-        <p class="small">Prefer email? Send photos and questions to <a href="mailto:info@spickle.com.au">info@spickle.com.au</a>.</p>
-      </div>
-      <div class="booking">
-        <div class="todo booking-slot">ServiceM8 online booking form goes here. Paste the embed code from ServiceM8 when it's ready; until then, people can call or email.</div>
+  <!-- Book -->
+  <section class="band hairline-top" id="quote">
+    <div class="wrap book-grid">
+      <div>
+        <h2>Book a quote</h2>
+        <p>Send a few photos and the rough size of the area, and we'll come back with a price.</p>
         <div class="cta-row">
-          <a class="btn btn-primary" href="tel:1300220045">Call 1300 22 00 45</a>
-          <a class="btn btn-outline" href="mailto:info@spickle.com.au?subject=Quote%20request">Email photos for a quote</a>
+          <a class="tlink" href="tel:1300220045">Call 1300 22 00 45</a>
+          <a class="tlink" href="mailto:info@spickle.com.au">info@spickle.com.au</a>
         </div>
       </div>
+      <div class="todo book-embed">ServiceM8 booking form<br />[Embed from ServiceM8 goes here: name, phone, email, address, approximate m², paving type, photos]</div>
     </div>
   </section>
-
 </Base>
 
 <style>
-  .band { padding-block: clamp(3.5rem, 8vw, 6.5rem); }
-  .mint { background: var(--mint); }
-  .navy { background: var(--navy); color: #d9eaef; }
-  .navy h2 { color: var(--white); }
-  .navy a:not(.btn) { color: var(--white); }
-
   /* Hero */
-  .hero { padding-block: clamp(2.5rem, 6vw, 5rem) clamp(3rem, 7vw, 5.5rem); }
-  .hero-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: center; }
-  .hero h1 { font-size: clamp(2.2rem, 1.3rem + 2.6vw, 3.35rem); margin-bottom: 0.45em; }
-  .lede { font-size: var(--step-1); line-height: 1.45; color: var(--ink); max-width: 34ch; }
-  .cta-row { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.75rem; }
-  .facts {
-    list-style: none; padding: 0; margin: 2.25rem 0 0;
-    display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem 1.5rem;
-    font-size: 0.98rem; color: var(--stone);
-    border-top: 1px solid #d6e3e0; padding-top: 1.25rem;
+  .hero { position: relative; overflow: hidden; }
+  .hero-bg {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    object-fit: cover; object-position: 50% 62%;
   }
-  .facts strong { display: block; color: var(--navy); font-size: 1.05rem; font-stretch: 115%; font-weight: 800; }
-  .todo-fact strong { color: var(--teal-deep); }
+  .hero-shade {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(0,47,73,0.72) 0%, rgba(0,47,73,0.28) 42%, rgba(0,32,47,0.9) 100%);
+  }
+  .hero-inner {
+    position: relative;
+    padding-top: clamp(7rem, 15vw, 14rem);
+    padding-bottom: clamp(2.5rem, 5vw, 4.5rem);
+    display: flex; flex-direction: column; gap: clamp(2.25rem, 5vw, 4rem);
+  }
+  .hero-copy { max-width: 820px; display: flex; flex-direction: column; gap: 1.5rem; }
+  .hero-copy h1 { margin: 0; }
+  .lede { font-size: var(--step-1); line-height: 1.5; max-width: 32ch; color: #d6e8ee; margin: 0; }
+  .cta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.9rem 1.6rem; }
+  .facts {
+    margin: 0; padding-top: 1.4rem; border-top: 1px solid rgba(255,255,255,0.3);
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr)); gap: 1.25rem;
+  }
+  .facts dt { font-family: var(--display); font-size: var(--step-2); color: var(--white); }
+  .facts dd { margin: 0.2rem 0 0; font-size: var(--step--1); color: #c3d6dd; }
 
-  /* New paving */
-  .split { display: grid; grid-template-columns: 1.3fr 1fr; gap: clamp(2rem, 6vw, 5rem); align-items: start; }
-  .trade { border-left: 4px solid var(--teal); padding: 0.5rem 0 0.5rem 1.5rem; }
-  .trade p { font-size: 1.05rem; }
+  /* Split sections */
+  .split { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr)); gap: clamp(2rem, 5vw, 5rem); align-items: start; }
+  .split h2 { margin: 0; }
+  .split-copy { max-width: 560px; }
+  .trade { margin-top: 1.4rem; padding-top: 1.4rem; border-top: 1px solid var(--hairline); }
+  .trade h3 { font-family: var(--font); font-size: var(--step-0); font-weight: 700; margin-bottom: 0.4em; }
 
-  /* What we do */
-  .three { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(1.5rem, 4vw, 3rem); margin-top: 1.5rem; }
-  .three > div { border-top: 3px solid var(--teal); padding-top: 1.25rem; }
-  .three p { font-size: 1.05rem; }
+  /* Sealing */
+  .section-lede { margin-bottom: clamp(2rem, 4vw, 3rem); }
+  .seal-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(440px, 100%), 1fr)); gap: clamp(2rem, 4vw, 4rem); align-items: center; }
+  .seal-types { display: grid; gap: 2rem; max-width: 480px; }
 
   /* Stones */
-  .stones-band { padding-top: 0; }
-  .stones { list-style: none; margin: 2rem 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0 0.2em; }
-  .stones li { font-size: clamp(1.7rem, 1rem + 2.8vw, 3.3rem); font-weight: 850; font-stretch: 125%; line-height: 1.15; letter-spacing: -0.015em; }
-  .stones li:not(:last-child)::after { content: '/'; color: var(--teal); font-weight: 400; margin-inline: 0.22em 0.12em; }
-  .stones a { color: var(--navy); text-decoration: none; }
-  .stones a:hover { color: var(--teal); text-decoration: underline; text-decoration-thickness: 0.06em; }
+  .row-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 1rem 3rem; margin-bottom: clamp(2rem, 4vw, 3.25rem); }
+  .row-head h2 { margin: 0; }
+  .row-head p { margin: 0; max-width: 46ch; }
+  .stone-grid {
+    list-style: none; margin: 0; padding: 0;
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(min(150px, 100%), 1fr)); gap: clamp(1rem, 2vw, 1.6rem) clamp(0.85rem, 1.6vw, 1.25rem);
+  }
+  .stone-grid a { display: flex; flex-direction: column; gap: 0.7rem; color: var(--text); text-decoration: none; }
+  .stone-grid a:hover span { text-decoration: underline; text-decoration-color: var(--teal); text-underline-offset: 0.3em; }
+  .stone-grid img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 2px; }
+  .stone-grid span { font-size: 1.05rem; font-weight: 600; }
 
   /* Pricing */
-  .price-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 6vw, 5rem); align-items: center; }
-  .price { font-size: clamp(2.6rem, 1.4rem + 4.5vw, 5rem); font-weight: 850; font-stretch: 125%; color: var(--white); line-height: 1; margin: 0; }
-  .price span { color: #8fd3e6; }
-  .price small { display: block; font-size: 0.32em; font-weight: 600; font-stretch: 110%; color: #d9eaef; margin-top: 0.5em; }
-  .price-copy p { font-size: 1.1rem; }
-
-  /* Steps: a real sequence, so numbered */
-  .steps { list-style: none; counter-reset: step; padding: 0; margin: 2rem 0 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
-  .steps li { counter-increment: step; position: relative; padding-top: 3.4rem; }
-  .steps li::before {
-    content: counter(step);
-    position: absolute; top: 0; left: 0;
-    width: 2.4rem; height: 2.4rem; border-radius: 50%;
-    background: var(--navy); color: var(--white);
-    display: grid; place-items: center; font-weight: 800;
+  .price-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(380px, 100%), 1fr)); gap: clamp(2.25rem, 6vw, 6rem); align-items: center; }
+  .kicker { font-size: var(--step-0); font-weight: 600; color: var(--teal-deep); margin-bottom: 0.4rem; }
+  .price { font-family: var(--display); font-size: clamp(3.75rem, 9vw, 8.5rem); line-height: 0.95; color: var(--navy); margin: 0; }
+  .per { font-size: var(--step-1); margin: 0.5rem 0 0; }
+  .price-copy { max-width: 520px; }
+  .price-factors {
+    margin: 0 0 1em; padding: 0; list-style: none;
+    border-top: 1px solid #b9d2cb;
   }
-  .steps li:not(:last-child)::after {
-    content: ''; position: absolute; top: 1.2rem; left: 3rem; right: -1.5rem;
-    border-top: 2px dotted #9fc9d3;
+  .price-factors li { padding: 0.9rem 0; border-bottom: 1px solid #b9d2cb; font-size: var(--step-1); font-weight: 600; color: var(--navy); }
+  .small { font-size: var(--step--1); }
+
+  /* Process */
+  .steps {
+    margin: 0; padding: 0; list-style: none;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(min(230px, 100%), 1fr)); gap: clamp(1.75rem, 3vw, 2.5rem);
   }
-  .steps p { font-size: 1rem; }
-  .todo-inline { background: var(--mint); outline: 1px dashed var(--teal); padding: 0 0.3em; border-radius: 3px; }
+  .steps li { padding-top: 1.25rem; border-top: 1px solid var(--teal); }
+  .step-n { font-family: var(--display); font-size: 2.5rem; line-height: 1; color: var(--teal-bright); display: block; margin-bottom: 0.5rem; }
+  .steps h3 { font-family: var(--font); font-size: var(--step-0); font-weight: 700; margin-bottom: 0.35em; }
+  .steps p { font-size: 1rem; margin: 0; }
 
-  /* Gallery + reviews */
-  .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin: 1.5rem 0; }
-  .gallery .todo { aspect-ratio: 4 / 3; display: flex; align-items: flex-end; }
+  /* Review */
+  .review { margin: 0; max-width: 980px; }
+  .review blockquote { margin: 0; }
+  .quote-text { font-family: var(--display); font-size: clamp(1.6rem, 3vw, 2.6rem); line-height: 1.3; color: var(--white); max-width: none; }
+  .review figcaption { display: flex; flex-wrap: wrap; gap: 0.4rem 1.5rem; font-size: 1rem; color: var(--muted); }
+  .review .who { font-weight: 600; color: var(--white); }
 
-  .who-where { padding-top: 0; }
-  .who-where h2 { font-size: var(--step-2); }
+  .two-col { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(360px, 100%), 1fr)); gap: clamp(2rem, 5vw, 5rem); }
 
-  /* Quote */
-  .quote-band { background: var(--mint); }
-  .quote-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: clamp(2rem, 6vw, 5rem); align-items: start; }
-  .quote-intro p { font-size: 1.1rem; }
-  .quote-intro .small { font-size: 1rem; color: var(--stone); }
-  .booking-slot { min-height: 280px; display: flex; align-items: center; }
-  .booking .cta-row { margin-top: 1.25rem; }
-
-  @media (max-width: 900px) {
-    .hero-grid, .split, .price-grid, .quote-grid { grid-template-columns: 1fr; }
-    .three { grid-template-columns: 1fr; }
-    .steps { grid-template-columns: 1fr 1fr; }
-    .steps li::after { display: none; }
-    .gallery { grid-template-columns: 1fr; }
-    .lede { max-width: none; }
-  }
-  @media (max-width: 520px) {
-    .steps { grid-template-columns: 1fr; }
-    .facts { grid-template-columns: 1fr 1fr; }
-  }
+  /* Book */
+  .book-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(400px, 100%), 1fr)); gap: clamp(2rem, 6vw, 6rem); align-items: center; }
+  .book-embed { min-height: 300px; display: flex; flex-direction: column; justify-content: center; line-height: 1.7; }
 </style>

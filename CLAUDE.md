@@ -5,7 +5,8 @@ The June React build lives on `master`; this branch is the Astro rebuild being c
 
 ## Stack
 - Astro, static output (`npm run build` -> `dist/`). No CSS frameworks. Component-scoped `<style>` plus `src/styles/global.css`.
-- Font: Archivo Variable (self-hosted via @fontsource) as a stand-in until a Brother 1816 web licence is bought.
+- Fonts: Archivo Variable for body/UI (stand-in until a Brother 1816 web licence is bought) and Marcellus for display headings. Both self-hosted via @fontsource.
+- Design direction: "Dusk" (picked 14 Nov from the design canvas). Dark navy ground throughout, Marcellus display type, photo-led hero, mint pricing band as the one light moment. Stone pages generate from `src/data/stones.js` via `src/pages/[stone].astro`.
 
 ## Brand tokens (src/styles/global.css)
 - `--teal: #219ebc`, `--navy: #002f49`, `--mint: #e8f5f1`, `--ink: #2d2a26` (from the 2022 brand guidelines)

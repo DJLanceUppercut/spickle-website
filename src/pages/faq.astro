@@ -1,0 +1,100 @@
+---
+import Base from '../layouts/Base.astro';
+
+const faqs = [
+  {
+    q: 'How soon after laying can stone be sealed?',
+    a: 'Once the stone and grout have cured. The right window depends on the stone and the sealer, so tell us when the job finished and we’ll confirm the timing when we quote.',
+  },
+  {
+    q: 'What’s the difference between penetrating and topical sealers?',
+    a: 'A penetrating sealer soaks into the stone and protects it from within, keeping the natural look and the stone’s slip resistance. A topical sealer sits on the surface as a thin film and gives a matte, satin or gloss finish. We recommend one for your stone and where it’s laid, and tell you why.',
+  },
+  {
+    q: 'Will sealing make my pavers slippery?',
+    a: 'A penetrating sealer doesn’t change the surface, so slip resistance stays as it was. Topical sealers change the surface finish, so around pools and on ramps we’ll talk through the options before you choose.',
+  },
+  {
+    q: 'How long do we need to stay off the area?',
+    a: 'It depends on the sealer and the weather. We tell you the clear time for your job when you book, both before the work (the stone needs to be dry) and after it.',
+  },
+  {
+    q: 'How often does stone need resealing?',
+    a: 'It varies with the sealer, the stone, traffic and exposure. After the job you get care instructions and a realistic guide to when yours will need another coat.',
+  },
+  {
+    q: 'What does it cost?',
+    a: 'Cleaning and sealing runs from $16 to $40 per square metre. Where your job sits in that range comes down to the sealer you choose and what the job needs. Rural jobs carry a separate travel fee, quoted up front.',
+  },
+  {
+    q: 'Can you get old stains out?',
+    a: 'Usually we can improve them substantially, and many come out entirely. A stain that has had months to set in porous stone doesn’t always come out fully, and we’ll tell you what’s realistic when we see the photos rather than after the job.',
+  },
+  {
+    q: 'Do you travel outside Melbourne?',
+    a: 'We cover Melbourne’s inner and south-east suburbs and the Mornington Peninsula as standard. Further out, we travel for a separate fee, quoted up front.',
+  },
+  {
+    q: 'Do you work with landscapers and builders?',
+    a: 'Yes. We seal jobs before handover so your client gets a finished result and the first stain never happens. Call us to set up a standing arrangement.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+<Base
+  title="Stone Sealing FAQ | Spickle"
+  description="Common questions about stone cleaning and sealing: timing, penetrating vs topical sealers, slip resistance, cost and resealing."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} slot="head" />
+  <section class="band hairline-top">
+    <div class="wrap">
+      <h1>Questions we get asked</h1>
+      <div class="faq-list">
+        {faqs.map((f) => (
+          <details>
+            <summary>{f.q}</summary>
+            <p>{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="band panel">
+    <div class="wrap book-row">
+      <div>
+        <h2>Something we haven't covered?</h2>
+        <p>Ask us directly, we'd rather you knew before we start.</p>
+      </div>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="/book-now">Book a quote</a>
+        <a class="tlink" href="tel:1300220045">Call 1300 22 00 45</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  h1 { margin-bottom: clamp(1.5rem, 4vw, 3rem); }
+  .faq-list { max-width: 820px; border-top: 1px solid var(--hairline); }
+  details { border-bottom: 1px solid var(--hairline); }
+  summary {
+    cursor: pointer; padding: 1.15rem 0; font-size: var(--step-1); font-family: var(--display);
+    color: var(--white); list-style-position: outside;
+  }
+  summary:hover { color: var(--teal-bright); }
+  details p { padding: 0 0 1.25rem; margin: 0; }
+  .book-row { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1.5rem 3rem; }
+  .book-row h2 { margin-bottom: 0.3em; }
+  .book-row p { margin: 0; }
+  .cta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.9rem 1.6rem; }
+</style>

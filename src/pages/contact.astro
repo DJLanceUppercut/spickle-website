@@ -1,0 +1,41 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base
+  title="Contact Spickle | Stone Cleaning & Sealing Melbourne"
+  description="Contact Spickle Cleaning & Sealing. Call 1300 22 00 45 or email info@spickle.com.au. Melbourne and the Mornington Peninsula."
+>
+  <section class="band hairline-top">
+    <div class="wrap grid">
+      <div>
+        <h1>Contact</h1>
+        <p class="lede">Fastest way to a price: call, or email photos and the rough size of the area.</p>
+        <dl class="details">
+          <div><dt>Phone</dt><dd><a class="tlink" href="tel:1300220045">1300 22 00 45</a></dd></div>
+          <div><dt>Email</dt><dd><a class="tlink" href="mailto:info@spickle.com.au">info@spickle.com.au</a></dd></div>
+          <div><dt>Instagram</dt><dd><a class="tlink" href="https://instagram.com/spickle_sealing">@spickle_sealing</a></dd></div>
+          <div><dt>Facebook</dt><dd><a class="tlink" href="https://www.facebook.com/profile.php?id=100088685563706">Spickle Cleaning &amp; Sealing</a></dd></div>
+        </dl>
+        <div class="todo">[Business hours to confirm with Lukey]</div>
+      </div>
+      <div>
+        <h2>Where we work</h2>
+        <p>Melbourne's inner and south-east suburbs and the Mornington Peninsula, from Abbotsford to Sorrento. We cover 115 suburbs as standard; further out, we travel for a separate fee, quoted up front.</p>
+        <div class="todo">[Full suburb list to add, from the service-area list used for the letterbox campaigns]</div>
+        <h2 class="sub">Prefer to book straight in?</h2>
+        <p><a class="btn btn-primary" href="/book-now">Book a quote</a></p>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(380px, 100%), 1fr)); gap: clamp(2.5rem, 6vw, 6rem); align-items: start; }
+  .lede { font-size: var(--step-1); color: #d6e8ee; }
+  .details { margin: 2rem 0; display: grid; gap: 1rem; }
+  .details div { display: grid; grid-template-columns: 110px 1fr; align-items: baseline; gap: 1rem; padding-top: 1rem; border-top: 1px solid var(--hairline); }
+  .details dt { font-size: var(--step--1); color: var(--faint); font-weight: 600; }
+  .details dd { margin: 0; }
+  .sub { margin-top: 1.5em; }
+  .todo { margin-top: 1.5rem; }
+</style>
