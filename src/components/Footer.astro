@@ -1,0 +1,60 @@
+---
+const year = new Date().getFullYear();
+---
+<footer class="site-footer on-dark">
+  <div class="wrap grid">
+    <div class="brand">
+      <img src="/logo-white.png" alt="Spickle Cleaning & Sealing" width="180" height="53" loading="lazy" />
+      <p>Stone and concrete cleaning and sealing across Melbourne and the Mornington Peninsula.</p>
+    </div>
+    <div>
+      <h2 class="f-head">Contact</h2>
+      <ul>
+        <li><a href="tel:1300220045">1300 22 00 45</a></li>
+        <li><a href="mailto:info@spickle.com.au">info@spickle.com.au</a></li>
+        <li><a href="https://instagram.com/spickle_sealing">Instagram</a></li>
+        <li><a href="https://www.facebook.com/profile.php?id=100088685563706">Facebook</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2 class="f-head">Services</h2>
+      <ul>
+        <li><a href="/new-installation-sealing">New installation sealing</a></li>
+        <li><a href="/services">Cleaning</a></li>
+        <li><a href="/services">Sealing</a></li>
+        <li><a href="/services">Stain removal</a></li>
+        <li><a href="/pricing">Pricing</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2 class="f-head">More</h2>
+      <ul>
+        <li><a href="/gallery">Before and after gallery</a></li>
+        <li><a href="/service-areas">Areas we service</a></li>
+        <li><a href="/faq">FAQ</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/privacy">Privacy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap legal">
+    <p>© {year} Spickle Pty Ltd. ABN <span class="todo-inline">[ABN to add]</span></p>
+  </div>
+</footer>
+
+<style>
+  .site-footer { background: var(--navy); color: #cfe3e9; padding: 4rem 0 2rem; }
+  .grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 2.5rem; }
+  .brand img { width: 170px; margin-bottom: 1rem; }
+  .brand p { font-size: 1rem; max-width: 30ch; }
+  .f-head { color: var(--white); font-size: 1rem; font-stretch: 112%; font-weight: 750; margin-bottom: 0.9rem; }
+  ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.45rem; }
+  a { color: #cfe3e9; text-decoration: none; font-size: 1rem; }
+  a:hover { color: var(--white); text-decoration: underline; }
+  .legal { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.15); }
+  .legal p { font-size: 0.875rem; margin: 0; max-width: none; }
+  .todo-inline { background: rgba(33,158,188,0.25); padding: 0 0.3em; border-radius: 3px; }
+  @media (max-width: 860px) { .grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 640px) { .site-footer { padding-bottom: 6rem; } }
+  @media (max-width: 480px) { .grid { grid-template-columns: 1fr; } }
+</style>

@@ -1,0 +1,114 @@
+@import '@fontsource-variable/archivo/standard.css';
+
+:root {
+  --teal: #219ebc;
+  --teal-deep: #1a7f98;
+  --navy: #002f49;
+  --navy-2: #0a3d5a;
+  --mint: #e8f5f1;
+  --ink: #2d2a26;
+  --stone: #5f6b73;
+  --white: #ffffff;
+
+  --font: 'Archivo Variable', 'Archivo', system-ui, sans-serif;
+
+  /* Type scale: 1.25 ratio from 18px */
+  --step--1: 0.889rem;
+  --step-0: 1.125rem;
+  --step-1: 1.406rem;
+  --step-2: 1.758rem;
+  --step-3: clamp(1.9rem, 1.4rem + 2vw, 2.75rem);
+  --step-4: clamp(2.4rem, 1.5rem + 4vw, 4.4rem);
+
+  --measure: 62ch;
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+  --max: 1180px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  font-size: var(--step-0);
+  line-height: 1.55;
+  color: var(--ink);
+  background: var(--white);
+  font-variation-settings: 'wdth' 100;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+a { color: var(--teal-deep); text-underline-offset: 0.18em; }
+a:hover { color: var(--navy); }
+
+:focus-visible {
+  outline: 3px solid var(--teal);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+h1, h2, h3 {
+  font-family: var(--font);
+  color: var(--navy);
+  margin: 0 0 0.6em;
+  line-height: 1.05;
+  font-weight: 850;
+  font-stretch: 125%;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+h1 { font-size: var(--step-4); }
+h2 { font-size: var(--step-3); }
+h3 { font-size: var(--step-1); font-weight: 750; font-stretch: 112%; line-height: 1.2; }
+
+p { margin: 0 0 1em; max-width: var(--measure); text-wrap: pretty; }
+
+.wrap {
+  width: 100%;
+  max-width: var(--max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.skip {
+  position: absolute; left: -999px; top: 0.5rem;
+  background: var(--navy); color: var(--white); padding: 0.6rem 1rem; z-index: 100;
+}
+.skip:focus { left: 0.5rem; }
+
+/* Buttons */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+  font: inherit; font-weight: 700; font-stretch: 110%;
+  padding: 0.85rem 1.4rem;
+  border-radius: 999px;
+  text-decoration: none;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: background-color 0.15s, color 0.15s, border-color 0.15s;
+}
+.btn-primary { background: var(--teal); color: var(--white); }
+.btn-primary:hover { background: var(--teal-deep); color: var(--white); }
+.btn-outline { border-color: currentColor; color: var(--navy); background: transparent; }
+.btn-outline:hover { background: var(--navy); color: var(--white); border-color: var(--navy); }
+.on-dark .btn-outline { color: var(--white); }
+.on-dark .btn-outline:hover { background: var(--white); color: var(--navy); border-color: var(--white); }
+
+/* Placeholder blocks: things Lukey still needs to supply */
+.todo {
+  border: 2px dashed var(--teal);
+  background: repeating-linear-gradient(-45deg, var(--mint), var(--mint) 12px, #f3faf8 12px, #f3faf8 24px);
+  color: var(--navy);
+  border-radius: 6px;
+  padding: 1.25rem;
+  font-size: var(--step--1);
+  font-weight: 600;
+}
+
+.visually-hidden {
+  position: absolute !important; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap;
+}

@@ -1,0 +1,59 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description: string;
+}
+const { title, description } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+
+const business = {
+  '@context': 'https://schema.org',
+  '@type': 'HomeAndConstructionBusiness',
+  name: 'Spickle Cleaning & Sealing',
+  legalName: 'Spickle Pty Ltd',
+  url: 'https://www.spickle.com.au',
+  telephone: '+61 1300 22 00 45',
+  email: 'info@spickle.com.au',
+  logo: 'https://www.spickle.com.au/logo-colour.png',
+  areaServed: [
+    { '@type': 'City', name: 'Melbourne' },
+    { '@type': 'Place', name: 'Mornington Peninsula' },
+  ],
+  sameAs: [
+    'https://www.facebook.com/profile.php?id=100088685563706',
+    'https://instagram.com/spickle_sealing',
+  ],
+  priceRange: '$16-$40 per m²',
+};
+---
+<!doctype html>
+<html lang="en-AU">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta name="theme-color" content="#002f49" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content="https://www.spickle.com.au/logo-colour.png" />
+    <meta name="robots" content="noindex" />
+    <script type="application/ld+json" set:html={JSON.stringify(business)} />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <Header />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>
