@@ -3,8 +3,18 @@
   "buildCommand": "astro build",
   "installCommand": "npm install",
   "outputDirectory": "dist",
+  "cleanUrls": true,
+  "trailingSlash": false,
   "redirects": [
-    { "source": "/home", "destination": "/", "permanent": true },
-    { "source": "/pages/cookie-policy", "destination": "/privacy", "permanent": true }
+    {
+      "source": "/home",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/pages/cookie-policy",
+      "destination": "/privacy",
+      "permanent": true
+    }
   ]
 }
