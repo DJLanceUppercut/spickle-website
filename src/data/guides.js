@@ -1,7 +1,9 @@
 // Problem-search guides: each answers the question a customer types into
 // Google, honestly, then points at the matching service. Advice stays
 // conservative: nothing a reader could damage their stone by following.
-// Written from general stone knowledge; flagged for Lukey's expert review.
+// Written from general stone knowledge and fact-checked 15 Nov 2026
+// (acid/iron on bluestone, honed vs polished etching, porosity wording).
+// Still worth Lukey's read for anything that clashes with how Spickle works.
 
 export const guides = [
   {
@@ -22,7 +24,7 @@ export const guides = [
       {
         h: 'What to avoid',
         ps: [
-          'Harsh caustic degreasers and acid-based cleaners can discolour bluestone or etch the surrounding grout, and high-pressure blasting at close range can scar the surface. If a product doesn’t say it’s safe for natural stone, don’t experiment on a visible spot.',
+          'Keep acid away from it. Bluestone carries iron, and acid-based cleaners (including most “brick and paver” acid washes) can draw that out as rust-coloured marks that are harder to fix than the oil. Acid also eats grout. High-pressure blasting at close range can scar the surface too. If a product doesn’t say it’s safe for natural stone, test it somewhere out of sight first.',
         ],
       },
       {
@@ -49,12 +51,12 @@ export const guides = [
     description:
       'Dull spots and rings on limestone are usually etching, not staining: what causes it, why it can’t be cleaned off, and how to stop it happening.',
     intro:
-      'Dull spots, rings and splash marks on limestone are usually not dirt at all. They’re etching: places where something acidic has eaten the polished surface. Knowing the difference matters, because etching can’t be cleaned off.',
+      'Dull spots, rings and splash marks on limestone are usually not dirt at all. They’re etching: places where something acidic has eaten into the surface of the stone. Knowing the difference matters, because etching can’t be cleaned off.',
     sections: [
       {
         h: 'Stain or etch?',
         ps: [
-          'A stain is something in the stone: it has colour, and it darkens the surface. An etch is damage to the stone itself: it looks dull, lighter, slightly rough, and shows most at an angle in the light. Wine, citrus, vinegar, soft drinks and many supermarket cleaners are all acidic enough to etch limestone on contact.',
+          'A stain is something in the stone: it has colour, usually darker than the stone around it. An etch is damage to the stone itself. On polished or honed limestone it shows as a dull, lighter patch, clearest at an angle in the light; on textured outdoor limestone it reads as a pale, slightly rougher mark. Wine, citrus, vinegar, soft drinks and many supermarket cleaners are all acidic enough to etch limestone on contact.',
         ],
       },
       {
@@ -80,12 +82,12 @@ export const guides = [
     description:
       'Why sandstone goes green or black in shaded spots, how to clean it without damaging the soft surface, and how to keep it from coming back.',
     intro:
-      'Sandstone in a shaded or damp spot goes green with algae and black with mould faster than any other common paver. It’s the most porous stone in regular use, and its surface holds exactly the moisture growth needs.',
+      'Sandstone in a shaded or damp spot goes green with algae and black with mould faster than any other common paver. It’s one of the most porous stones in regular use, and its surface holds exactly the moisture growth needs.',
     sections: [
       {
         h: 'Cleaning it without damage',
         ps: [
-          'Sandstone’s surface is soft. Aggressive pressure cleaning scours it, leaves wand marks, and opens the surface up so growth comes back faster. Harsh chlorine mixes can leave their own marks and knock out the garden next to the paving.',
+          'Sandstone’s surface is soft. Aggressive pressure cleaning scours it, leaves wand marks, and opens the surface up so growth comes back faster. Strong chlorine mixes can leave yellow or rust-toned marks of their own on sandstone, and they knock out the garden next to the paving.',
           'The safe home version: a stiff nylon brush, a pH-neutral or stone-safe outdoor cleaner, and patience. For heavy growth across a whole area, controlled professional cleaning gets it even without chewing the surface.',
         ],
       },
@@ -123,7 +125,7 @@ export const guides = [
       {
         h: 'What to do first',
         ps: [
-          'Dry brushing with a stiff brush removes loose surface salt, and some installations settle down on their own as they dry out. Don’t reach for acid wash as the first move: acid dissolves efflorescence, but it can also etch acid-sensitive stone like limestone and travertine, burn grout, and leave its own marks if it’s not neutralised properly.',
+          'Dry brushing with a stiff brush removes loose surface salt, and some installations settle down on their own as they dry out. Don’t reach for acid wash as the first move: acid dissolves efflorescence, but it can also etch acid-sensitive stone like limestone and travertine, pull rust-coloured staining out of bluestone, burn grout, and leave its own marks if it’s not neutralised properly.',
         ],
       },
       {
@@ -155,7 +157,7 @@ export const guides = [
       {
         h: 'The shadow that stays',
         ps: [
-          'Oil that’s had time soaks past the surface, and washing then only cleans the top. The dark shadow that remains is oil held in the concrete’s pores, and it needs a drawing treatment, a poultice or hot-water extraction, to lift. That’s the point where it’s a professional job.',
+          'Oil that’s had time soaks past the surface, and washing then only cleans the top. The dark shadow that remains is oil held in the concrete’s pores, and it needs more than a wash to lift: a poultice that draws it out, or hot-water pressure cleaning with a degreaser. That’s the point where it’s a professional job.',
         ],
       },
       {

@@ -1,4 +1,5 @@
 ---
+import { ABN } from '../config/site.js';
 const year = new Date().getFullYear();
 ---
 <footer class="site-footer">
@@ -41,7 +42,7 @@ const year = new Date().getFullYear();
     </div>
   </div>
   <div class="wrap legal">
-    <p>© {year} Spickle Pty Ltd. ABN <span class="todo-inline">[ABN to add]</span></p>
+    <p>© {year} Spickle Pty Ltd. ABN {ABN}</p>
   </div>
 </footer>
 

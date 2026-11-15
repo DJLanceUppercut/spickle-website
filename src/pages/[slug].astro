@@ -4,6 +4,7 @@ import StoneTemplate from '../components/StoneTemplate.astro';
 import SuburbTemplate from '../components/SuburbTemplate.astro';
 import { stones } from '../data/stones.js';
 import { suburbs } from '../data/suburbs.js';
+import { SITE } from '../config/site.js';
 
 export function getStaticPaths() {
   return [
@@ -22,7 +23,29 @@ const description =
   kind === 'stone'
     ? `${s.name} cleaning and sealing across Melbourne and the Mornington Peninsula. From $15/m². Book a quote.`
     : `Pressure cleaning and sealing for driveways and paving in ${sub.name}. Local clean days, priced to your exact area. Call 1300 22 00 45.`;
+const slug = kind === 'stone' ? s.slug : sub.slug;
+const serviceName = kind === 'stone' ? `${s.name} cleaning and sealing` : `Driveway and paving cleaning in ${sub.name}`;
+const schema = [
+  {
+    '@type': 'Service',
+    name: serviceName,
+    serviceType: 'Stone cleaning and sealing',
+    url: `${SITE}/${slug}`,
+    provider: { '@type': 'HomeAndConstructionBusiness', name: 'Spickle Cleaning & Sealing', url: SITE, telephone: '+61 1300 22 00 45' },
+    areaServed: kind === 'stone'
+      ? [{ '@type': 'City', name: 'Melbourne' }, { '@type': 'Place', name: 'Mornington Peninsula' }]
+      : [{ '@type': 'Place', name: `${sub.name}, VIC` }],
+    offers: { '@type': 'Offer', priceCurrency: 'AUD', priceSpecification: { '@type': 'UnitPriceSpecification', price: 15, priceCurrency: 'AUD', unitText: 'per square metre', minPrice: 15 } },
+  },
+  {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE}/` },
+      { '@type': 'ListItem', position: 2, name: kind === 'stone' ? s.name : sub.name, item: `${SITE}/${slug}` },
+    ],
+  },
+];
 ---
-<Base title={title} description={description}>
+<Base title={title} description={description} schema={schema}>
   {kind === 'stone' ? <StoneTemplate s={s} /> : <SuburbTemplate sub={sub} />}
 </Base>

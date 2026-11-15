@@ -1,6 +1,13 @@
 ---
 import Base from '../layouts/Base.astro';
 import SealDemo from '../components/SealDemo.astro';
+
+const tiles = [
+  { href: '#new-install', n: '01', name: 'New installation sealing', line: 'Protection from day one, before the first spill.' },
+  { href: '#cleaning', n: '02', name: 'Cleaning', line: 'Grime, mould and residue, with cleaners matched to the stone.' },
+  { href: '#sealing', n: '03', name: 'Sealing', line: 'Penetrating or topical, chosen for the stone and where it is.' },
+  { href: '#stains', n: '04', name: 'Stain removal', line: 'Oil, rust, tannins and more, drawn out without damage.' },
+];
 ---
 <Base
   title="Stone Cleaning, Sealing & Stain Removal | Spickle"
@@ -10,6 +17,18 @@ import SealDemo from '../components/SealDemo.astro';
     <div class="wrap">
       <h1>What we do</h1>
       <p class="lede">Four services, one aim: stone that looks the way it did the day it was laid.</p>
+      <ul class="tiles">
+        {tiles.map((t, i) => (
+          <li data-reveal style={`--delay:${i * 0.07}s`}>
+            <a href={t.href}>
+              <span class="t-n">{t.n}</span>
+              <span class="t-name">{t.name}</span>
+              <span class="t-line">{t.line}</span>
+              <span class="t-arrow" aria-hidden="true">↓</span>
+            </a>
+          </li>
+        ))}
+      </ul>
     </div>
   </section>
 
@@ -23,7 +42,12 @@ import SealDemo from '../components/SealDemo.astro';
       <div>
         <h2 class="h-follow">When to book it</h2>
         <p>Soon after laying, once curing is done. Tell us when the job finished and we'll tell you the right window for your stone and sealer.</p>
-        <a class="tlink" href="tel:1300220045">Set up handover sealing</a>
+        <ul class="covers">
+          <li>Installation residue and efflorescence cleaned off</li>
+          <li>Sealed once stone and grout have cured</li>
+          <li>Handover sealing for landscapers and builders</li>
+        </ul>
+        <p class="links"><a class="tlink" href="/new-installation-sealing">More on new installation sealing</a><a class="tlink" href="/guides/white-haze-on-new-paving">White haze on new paving</a></p>
       </div>
     </div>
   </section>
@@ -38,6 +62,12 @@ import SealDemo from '../components/SealDemo.astro';
       <div>
         <h2 class="h-follow">On its own or before sealing</h2>
         <p>Cleaning stands alone if the stone is already sealed and just needs freshening. If it's unsealed, cleaning is the first half of a seal job.</p>
+        <ul class="covers">
+          <li>Dirt, grime, mould and moss</li>
+          <li>Cleaners matched to the stone</li>
+          <li>Pressure only where the stone can take it</li>
+        </ul>
+        <p class="links"><a class="tlink" href="/guides/mould-on-sandstone">Mould and algae on sandstone</a></p>
       </div>
     </div>
   </section>
@@ -57,6 +87,7 @@ import SealDemo from '../components/SealDemo.astro';
             <h3>Topical sealer</h3>
             <p>Sits on the surface as a thin film and gives the stone a matte, satin or gloss finish. We'll tell you where a topical finish suits and where it doesn't, before you choose.</p>
           </div>
+          <p class="links"><a class="tlink" href="/guides/how-often-to-reseal">How often does stone need resealing?</a></p>
         </div>
       </div>
     </div>
@@ -71,6 +102,7 @@ import SealDemo from '../components/SealDemo.astro';
       <div>
         <h2 class="h-follow">An honest note</h2>
         <p>Most stains can be improved and many removed entirely, but a stain that has had months to set in porous stone doesn't always come out fully. We'll tell you what's realistic when we see the photos, not after the job.</p>
+        <p class="links"><a class="tlink" href="/guides/oil-stains-on-bluestone">Oil on bluestone</a><a class="tlink" href="/guides/oil-stains-on-exposed-aggregate">Oil on aggregate driveways</a><a class="tlink" href="/guides/limestone-etching">Dull marks on limestone</a></p>
       </div>
     </div>
   </section>
@@ -91,6 +123,30 @@ import SealDemo from '../components/SealDemo.astro';
 
 <style>
   .lede { font-size: var(--step-1); color: #d6e8ee; }
+  .tiles {
+    list-style: none; margin: clamp(2rem, 4vw, 3rem) 0 0; padding: 0;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(0.75rem, 1.5vw, 1.1rem);
+  }
+  @media (max-width: 900px) { .tiles { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 480px) { .tiles { grid-template-columns: 1fr; } }
+  .tiles a {
+    position: relative; display: grid; gap: 0.5rem; height: 100%;
+    padding: 1.25rem 1.25rem 1.4rem; border-radius: 6px;
+    background: rgba(255, 255, 255, 0.04); border: 1px solid var(--hairline);
+    color: var(--white); text-decoration: none;
+    transition: background-color 0.25s, border-color 0.25s, transform 0.25s;
+  }
+  .tiles a:hover, .tiles a:focus-visible { background: rgba(33, 158, 188, 0.12); border-color: var(--teal); transform: translateY(-2px); }
+  .t-n { font-family: var(--display); font-size: 1.6rem; line-height: 1; color: var(--teal-bright); }
+  .t-name { font-family: var(--display); font-size: var(--step-1); line-height: 1.15; padding-right: 1.5rem; }
+  .t-line { font-size: 0.95rem; color: var(--muted); line-height: 1.45; }
+  .t-arrow { position: absolute; top: 1.15rem; right: 1.15rem; color: var(--teal-bright); transition: transform 0.25s; }
+  .tiles a:hover .t-arrow { transform: translateY(3px); }
+  .covers { list-style: none; margin: 1.25rem 0; padding: 0; display: grid; gap: 0.55rem; }
+  .covers li { position: relative; padding-left: 1.6rem; color: var(--text); }
+  .covers li::before { content: ''; position: absolute; left: 0; top: 0.55em; width: 0.8rem; height: 2px; background: var(--teal); }
+  .links { display: flex; flex-wrap: wrap; gap: 0 1.5rem; margin: 0.5rem 0 0; }
+  section[id] { scroll-margin-top: 80px; }
   .svc { display: grid; grid-template-columns: 1.4fr 1fr; gap: clamp(2rem, 5vw, 5rem); align-items: start; }
   .h-follow { font-size: var(--step-1); }
   .section-lede { margin-bottom: clamp(2rem, 4vw, 3rem); }

@@ -2,14 +2,16 @@
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { PRELAUNCH } from '../config/site.js';
+import { PRELAUNCH, ABN } from '../config/site.js';
 
 interface Props {
   title: string;
   description: string;
   noindex?: boolean;
+  /** Extra JSON-LD objects for this page (Article, Service, BreadcrumbList) */
+  schema?: object[];
 }
-const { title, description, noindex = false } = Astro.props;
+const { title, description, noindex = false, schema = [] } = Astro.props;
 // build.format 'file' gives paths like /services.html; Vercel serves them at
 // /services (cleanUrls), so canonical and og:url must use the clean form.
 const cleanPath = Astro.url.pathname.replace(/\.html$/, '').replace(/\/index$/, '/') || '/';
@@ -20,6 +22,8 @@ const business = {
   '@type': 'HomeAndConstructionBusiness',
   name: 'Spickle Cleaning & Sealing',
   legalName: 'Spickle Pty Ltd',
+  taxID: `ABN ${ABN}`,
+  image: 'https://www.spickle.com.au/og-image.jpg',
   url: 'https://www.spickle.com.au',
   telephone: '+61 1300 22 00 45',
   email: 'info@spickle.com.au',
@@ -44,6 +48,7 @@ const business = {
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta name="theme-color" content="#002f49" />
@@ -56,6 +61,7 @@ const business = {
     <meta property="og:image:height" content="630" />
     {(PRELAUNCH || noindex) && <meta name="robots" content="noindex" />}
     <script type="application/ld+json" set:html={JSON.stringify(business)} />
+    {schema.map((obj) => <script type="application/ld+json" set:html={JSON.stringify({ '@context': 'https://schema.org', ...obj })} />)}
     <!-- Vercel Web Analytics: enable it on the Vercel project (Analytics tab) for this to record -->
     <script defer src="/_vercel/insights/script.js"></script>
     <slot name="head" />

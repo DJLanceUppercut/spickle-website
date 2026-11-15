@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import { guides } from '../../data/guides.js';
+import { SITE } from '../../config/site.js';
 
 export function getStaticPaths() {
   return guides.map((g) => ({ params: { slug: g.slug }, props: { g } }));
@@ -9,8 +10,29 @@ export function getStaticPaths() {
 const { g } = Astro.props;
 const others = guides.filter((o) => o.slug !== g.slug);
 const ctaHref = g.ctaHref ?? '/book-now';
+const url = `${SITE}/guides/${g.slug}`;
+const schema = [
+  {
+    '@type': 'Article',
+    headline: g.title,
+    description: g.description,
+    url,
+    mainEntityOfPage: url,
+    image: `${SITE}/og-image.jpg`,
+    author: { '@type': 'Organization', name: 'Spickle Cleaning & Sealing', url: SITE },
+    publisher: { '@type': 'Organization', name: 'Spickle Cleaning & Sealing', logo: { '@type': 'ImageObject', url: `${SITE}/logo-colour.png` } },
+  },
+  {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE}/` },
+      { '@type': 'ListItem', position: 2, name: 'Stone care guides', item: `${SITE}/guides` },
+      { '@type': 'ListItem', position: 3, name: g.title, item: url },
+    ],
+  },
+];
 ---
-<Base title={`${g.title} | Spickle`} description={g.description}>
+<Base title={`${g.title} | Spickle`} description={g.description} schema={schema}>
   <article class="band hairline-top">
     <div class="wrap narrow">
       <p class="crumb"><a href="/guides">Stone care guides</a></p>

@@ -1,5 +1,13 @@
 ---
 import Base from '../layouts/Base.astro';
+import { ABN } from '../config/site.js';
+
+const principles = [
+  { h: 'Treatment matched to the stone', p: 'We identify the stone before we choose a cleaner or a sealer. What is routine on granite can etch limestone, so nothing goes on until we know what it is.' },
+  { h: 'Priced from your photos', p: 'Send photos and the rough size of the area and we come back with a price, so you know what the job costs before anyone turns up.' },
+  { h: 'Straight answers on stains', p: 'Most stains improve and many come out completely. When one won\'t, we say so when we see the photos, not after the job.' },
+  { h: 'We remember the reseal', p: 'Every sealing job goes in our reseal diary. You get care instructions and a realistic interval, and we get in touch when it is coming due.' },
+];
 ---
 <Base
   title="About Spickle | Stone Cleaning & Sealing Melbourne"
@@ -14,13 +22,34 @@ import Base from '../layouts/Base.astro';
         <p>We work for homeowners, property managers, body corporates and golf clubs, and we seal new jobs for landscapers and builders before handover.</p>
       </div>
       <div class="facts">
+        <dl class="glance">
+          <div><dt>Business</dt><dd>Spickle Pty Ltd</dd></div>
+          <div><dt>ABN</dt><dd>{ABN}</dd></div>
+          <div><dt>Service area</dt><dd>115 suburbs across Melbourne and the Mornington Peninsula. <a class="tlink" href="/service-areas">See the list</a></dd></div>
+          <div><dt>Contact</dt><dd><a href="tel:1300220045">1300 22 00 45</a><br /><a href="mailto:info@spickle.com.au">info@spickle.com.au</a></dd></div>
+        </dl>
         <div class="todo">[Who does the work: names, photo, background. Waiting on content from Lukey.]</div>
-        <div class="todo">[ABN and insurance details to add]</div>
+        <div class="todo">[Insurance details to add]</div>
       </div>
     </div>
   </section>
 
   <section class="band panel">
+    <div class="wrap">
+      <h2 data-reveal>How we work</h2>
+      <ol class="principles">
+        {principles.map((x, i) => (
+          <li data-reveal style={`--delay:${i * 0.07}s`}>
+            <span class="pn">{i + 1}</span>
+            <h3>{x.h}</h3>
+            <p>{x.p}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="band hairline-top">
     <div class="wrap book-row">
       <div>
         <h2>Talk to us about your stone</h2>
@@ -38,6 +67,17 @@ import Base from '../layouts/Base.astro';
   .grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: clamp(2.5rem, 6vw, 6rem); align-items: start; }
   .lede { font-size: var(--step-1); color: #d6e8ee; }
   .facts { display: grid; gap: 1.25rem; }
+  .glance { margin: 0; padding: 1.5rem; border: 1px solid var(--hairline); border-radius: 6px; background: rgba(255,255,255,0.03); display: grid; gap: 1rem; }
+  .glance div { display: grid; grid-template-columns: 7.5rem 1fr; gap: 1rem; padding-bottom: 1rem; border-bottom: 1px solid var(--hairline); }
+  .glance div:last-child { border-bottom: 0; padding-bottom: 0; }
+  .glance dt { color: var(--muted); font-size: 0.95rem; }
+  .glance dd { margin: 0; color: var(--white); }
+  .glance dd a:not(.tlink) { color: var(--white); }
+  .principles { list-style: none; margin: clamp(1.5rem, 3vw, 2.5rem) 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); gap: clamp(1.5rem, 3vw, 2.5rem); }
+  .principles li { border-top: 2px solid var(--teal); padding-top: 1.25rem; }
+  .pn { font-family: var(--display); font-size: 2.4rem; line-height: 1; color: var(--teal-bright); display: block; margin-bottom: 0.6rem; }
+  .principles h3 { margin-bottom: 0.4em; }
+  .principles p { margin: 0; }
   .book-row { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1.5rem 3rem; }
   .book-row h2 { margin-bottom: 0.3em; }
   .book-row p { margin: 0; }
