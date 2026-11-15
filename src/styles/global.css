@@ -26,7 +26,8 @@
   --field: #ffffff;
   --link-hover: var(--teal-deep);
   --focus: var(--teal-deep);
-  --star: #d99a00;
+  --star: #a87400;
+  --accent: var(--teal-deep);   /* teal text and numerals on light */
   --header-bg: rgba(255, 255, 255, 0.94);
 
   --font: 'Archivo Variable', 'Archivo', system-ui, sans-serif;
@@ -75,6 +76,7 @@ body {
   --link-hover: var(--teal-bright);
   --focus: var(--teal-bright);
   --star: #f2c94c;
+  --accent: var(--teal-bright);
   color: var(--text);
 }
 .band.dark { background: var(--navy); }
