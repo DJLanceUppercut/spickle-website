@@ -21,4 +21,4 @@ The June React build lives on `master`; this branch is the Astro rebuild being c
 
 ## Business info
 - Phone: 1300 22 00 45 · Email: info@spickle.com.au
-- Pricing: $16 to $40 per m², depending on the sealer and the job; rural travel is a separate fee.
+- Pricing: from $15 per m² (no upper figure on the site: bigger or more demanding jobs can go higher), depending on the sealer and the job; rural travel is a separate fee.

@@ -2,18 +2,18 @@
 import Base from '../layouts/Base.astro';
 ---
 <Base
-  title="Stone Sealing Prices Melbourne | $16–40/m² | Spickle"
-  description="Stone and concrete cleaning and sealing from $16 to $40 per m². What moves the price, the sealer options, and how to get an exact quote."
+  title="Stone Sealing Prices Melbourne | From $15/m² | Spickle"
+  description="Stone and concrete cleaning and sealing from $15 per m². What moves the price, the sealer options, and how to get an exact quote."
 >
   <section class="band light">
     <div class="wrap top-grid">
       <div>
         <p class="kicker">Cleaning and sealing</p>
-        <p class="price">$16–40</p>
+        <p class="price"><span class="from">From</span> $15</p>
         <p class="per">per square metre</p>
       </div>
       <div>
-        <p>Most jobs land in that range. Where yours sits comes down to two things: the sealer you choose, and what the job needs before sealing can start.</p>
+        <p>Where your price sits above that comes down to two things: the sealer you choose, and what the job needs before sealing can start.</p>
         <p class="small">Rural jobs carry a separate travel fee, quoted up front.</p>
         <a class="btn btn-navy" href="/book-now">Book a quote</a>
       </div>
@@ -70,6 +70,7 @@ import Base from '../layouts/Base.astro';
 
 <style>
   .top-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(360px, 100%), 1fr)); gap: clamp(2rem, 6vw, 6rem); align-items: center; }
+  .price .from { display: block; font-family: var(--font); font-size: var(--step-1); font-weight: 600; line-height: 1.2; color: var(--teal-deep); margin-bottom: 0.3rem; }
   .kicker { font-size: var(--step-0); font-weight: 600; color: var(--teal-deep); margin-bottom: 0.3rem; }
   .price { font-family: var(--display); font-size: clamp(3.75rem, 9vw, 8.5rem); line-height: 0.95; color: var(--navy); margin: 0; }
   .per { font-size: var(--step-1); margin: 0.5rem 0 0; }

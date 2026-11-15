@@ -8,7 +8,7 @@ import heroDusk from '../assets/hero-dusk.jpg';
 ---
 <Base
   title="Stone Cleaning & Sealing Melbourne | Spickle"
-  description="Cleaning and sealing for bluestone, limestone, travertine, concrete and more across Melbourne and the Mornington Peninsula. From $16/m². Book a quote."
+  description="Cleaning and sealing for bluestone, limestone, travertine, concrete and more across Melbourne and the Mornington Peninsula. From $15/m². Book a quote."
 >
   <!-- Hero -->
   <section class="hero">
@@ -25,7 +25,7 @@ import heroDusk from '../assets/hero-dusk.jpg';
         <p class="rating"><span class="stars" aria-hidden="true">★★★★★</span> <span class="todo-inline">[rating] from [number] Google reviews</span></p>
       </div>
       <dl class="facts">
-        <div><dt>From $16/m²</dt><dd>cleaning and sealing</dd></div>
+        <div><dt>From $15/m²</dt><dd>cleaning and sealing</dd></div>
         <div><dt>Two sealer types</dt><dd>penetrating and topical</dd></div>
         <div><dt>115 suburbs</dt><dd>Melbourne and the Peninsula</dd></div>
       </dl>
@@ -98,11 +98,11 @@ import heroDusk from '../assets/hero-dusk.jpg';
     <div class="wrap price-grid">
       <div data-reveal>
         <p class="kicker">What it costs</p>
-        <p class="price">$16–40</p>
+        <p class="price"><span class="from">From</span> $15</p>
         <p class="per">per square metre</p>
       </div>
       <div class="price-copy">
-        <p>Where your job sits in that range comes down to two things:</p>
+        <p>Your price comes down to two things:</p>
         <ol class="price-factors">
           <li>The sealer you choose</li>
           <li>What the job needs</li>
@@ -307,6 +307,7 @@ import heroDusk from '../assets/hero-dusk.jpg';
   /* Pricing */
   .price-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(380px, 100%), 1fr)); gap: clamp(2.25rem, 6vw, 6rem); align-items: center; }
   .kicker { font-size: var(--step-0); font-weight: 600; color: var(--teal-deep); margin-bottom: 0.4rem; }
+  .price .from { display: block; font-family: var(--font); font-size: var(--step-1); font-weight: 600; line-height: 1.2; color: var(--teal-deep); margin-bottom: 0.3rem; }
   .price { font-family: var(--display); font-size: clamp(3.75rem, 9vw, 8.5rem); line-height: 0.95; color: var(--navy); margin: 0; }
   .per { font-size: var(--step-1); margin: 0.5rem 0 0; }
   .price-copy { max-width: 520px; }
