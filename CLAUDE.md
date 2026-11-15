@@ -24,3 +24,4 @@ The June React build was replaced on `master` on 15 Nov 2026 (still in history a
 ## Business info
 - Phone: 1300 22 00 45 · Email: info@spickle.com.au
 - Pricing: from $15 per m² (no upper figure on the site: bigger or more demanding jobs can go higher), depending on the sealer and the job; rural travel is a separate fee.
+- Cleaning only (e.g. end of lease) is usually around $15 per m² and can be cheaper depending on location, dirtiness and access. End of lease jobs can be booked within a few days and come with an invoice and before/after photos.

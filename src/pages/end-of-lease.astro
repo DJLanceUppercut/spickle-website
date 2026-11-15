@@ -1,0 +1,193 @@
+---
+import Base from '../layouts/Base.astro';
+import { SITE } from '../config/site.js';
+
+const flagged = [
+  'Oil and fluid drips on the driveway or carport',
+  'Barbecue grease and food stains on the patio or alfresco',
+  'Rust rings from pot plants and outdoor furniture',
+  'Mould, moss and algae on shaded paths',
+  'Leaf and tannin stains on paving',
+  'General grime on pool surrounds, steps and paths',
+];
+
+const steps = [
+  { h: 'Send photos and your date', p: 'Photos of the outdoor areas, the rough size, and your move-out or inspection date.' },
+  { h: 'Book in', p: 'We can book you in within a few days, so the clean lands before your inspection.' },
+  { h: 'We clean', p: 'Driveways, paving, patios and paths, with cleaners matched to the surface. Where a stain needs it, we test a patch first.' },
+  { h: 'Invoice and photos', p: 'You get an invoice and before and after photos to show your property manager.' },
+];
+
+const faqs = [
+  {
+    q: 'Will this get my bond back?',
+    a: 'We can’t speak for your property manager, but we clean the outdoor marks that final inspections pick up, and you get an invoice and before and after photos as evidence the work was done.',
+  },
+  {
+    q: 'How soon can you come?',
+    a: 'We can book you in within a few days. Tell us your move-out or inspection date when you send photos and we’ll work to it.',
+  },
+  {
+    q: 'What does an end of lease clean cost?',
+    a: 'Cleaning on its own is usually around $15 per square metre, and can come in under that depending on the location, how dirty the area is and how easy it is to get to. We price it from your photos before you book.',
+  },
+  {
+    q: 'Can you get old oil stains out of the driveway?',
+    a: 'Most improve a lot and many come out completely. A stain that has sat for months doesn’t always leave entirely, and we’ll tell you what’s realistic from your photos, before the job.',
+  },
+  {
+    q: 'Do I need sealing as well?',
+    a: 'Not for an end of lease clean. Sealing is an option for landlords who want the paving protected for the next tenant.',
+  },
+];
+
+const schema = [
+  {
+    '@type': 'Service',
+    name: 'End of lease paving and driveway cleaning',
+    serviceType: 'Outdoor paving and driveway cleaning',
+    url: `${SITE}/end-of-lease`,
+    provider: { '@type': 'HomeAndConstructionBusiness', name: 'Spickle Cleaning & Sealing', url: SITE, telephone: '+61 1300 22 00 45' },
+    areaServed: [{ '@type': 'City', name: 'Melbourne' }, { '@type': 'Place', name: 'Mornington Peninsula' }],
+  },
+  {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE}/` },
+      { '@type': 'ListItem', position: 2, name: 'End of lease cleaning', item: `${SITE}/end-of-lease` },
+    ],
+  },
+  {
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+  },
+];
+---
+<Base
+  title="End of Lease Paving & Driveway Cleaning Melbourne | Spickle"
+  description="End of lease cleaning for driveways, paving and patios. Oil, grease and rust stains cleaned before your inspection, with invoice and before/after photos."
+  schema={schema}
+>
+  <section class="band hairline-top">
+    <div class="wrap">
+      <p class="crumb"><a href="/services">Services</a></p>
+      <h1>End of lease paving and driveway cleaning</h1>
+      <p class="lede">Oil on the driveway, barbecue grease on the patio, rust rings from pot plants. The outdoor marks that cost tenants their bond, cleaned before the final inspection.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="/book-now">Book a clean</a>
+        <a class="tlink" href="tel:1300220045">Call 1300 22 00 45</a>
+      </div>
+      <dl class="facts">
+        <div><dt>Within a few days</dt><dd>booked in before your inspection</dd></div>
+        <div><dt>Invoice and photos</dt><dd>before and after, for your property manager</dd></div>
+        <div><dt>Around $15/m²</dt><dd>for cleaning, sometimes less</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="band panel">
+    <div class="wrap two">
+      <div>
+        <h2 data-reveal>What gets flagged at the final inspection</h2>
+        <p>Indoor end of lease cleaners do the carpets and the oven. The driveway, patio and paths usually get left, and they're where stains show up on the inspection report.</p>
+      </div>
+      <ul class="flagged" data-reveal>
+        {flagged.map((f) => <li>{f}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <h2 data-reveal>How it works</h2>
+      <ol class="steps" data-reveal>
+        {steps.map((s, i) => (
+          <li>
+            <span class="step-n" aria-hidden="true">{i + 1}</span>
+            <h3>{s.h}</h3>
+            <p>{s.p}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="band dark">
+    <div class="wrap two">
+      <div>
+        <h2 data-reveal>Property managers and landlords</h2>
+        <p>We clean outdoor areas between tenants, before re-leasing photos, and ahead of a sale. Send the address and photos, and we'll quote and book it in.</p>
+        <p>Every job comes with an invoice and before and after photos, so you have a record for the property file. If you want the paving protected for the next tenant, we can seal it at the same visit.</p>
+      </div>
+      <div class="pm-cta">
+        <a class="btn btn-primary" href="/book-now">Book a clean</a>
+        <a class="tlink" href="mailto:info@spickle.com.au">info@spickle.com.au</a>
+        <a class="tlink" href="tel:1300220045">1300 22 00 45</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap two">
+      <div>
+        <h2 data-reveal>What it costs</h2>
+        <p>Cleaning on its own is usually around <strong>$15 per m²</strong>, and can come in under that depending on the location, how dirty the area is and how easy it is to get to. We price it from your photos, before you book.</p>
+        <a class="tlink" href="/book-now#area">Work out your area</a>
+      </div>
+      <dl class="faqs">
+        {faqs.map((f) => (
+          <div>
+            <dt>{f.q}</dt>
+            <dd>{f.a}</dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+  </section>
+
+  <section class="band panel">
+    <div class="wrap book-row">
+      <div>
+        <h2>Moving out soon?</h2>
+        <p>Send photos, the rough size and your inspection date.</p>
+      </div>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="/book-now">Book a clean</a>
+        <a class="tlink" href="tel:1300220045">Call 1300 22 00 45</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .crumb { margin: 0 0 1rem; font-size: var(--step--1); }
+  .crumb a { color: var(--muted); }
+  h1 { max-width: 16ch; }
+  .lede { font-size: var(--step-1); color: var(--lede); max-width: 38ch; }
+  .cta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.9rem 1.6rem; }
+  .facts {
+    margin: clamp(2rem, 4vw, 3rem) 0 0; padding-top: 1.4rem; border-top: 1px solid var(--hairline);
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+  }
+  .facts dt { font-family: var(--display); font-size: var(--step-2); color: var(--strong); line-height: 1.15; }
+  .facts dd { margin: 0.3rem 0 0; color: var(--muted); font-size: var(--step--1); }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 5rem); align-items: start; }
+  .flagged { list-style: none; margin: 0; padding: 0; }
+  .flagged li { position: relative; padding: 0.8rem 0 0.8rem 1.6rem; border-top: 1px solid var(--hairline); color: var(--text); }
+  .flagged li:last-child { border-bottom: 1px solid var(--hairline); }
+  .flagged li::before { content: ''; position: absolute; left: 0; top: 1.4em; width: 0.8rem; height: 2px; background: var(--teal); }
+  .steps { list-style: none; margin: clamp(1.5rem, 3vw, 2.5rem) 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(1.5rem, 3vw, 2.5rem); }
+  .steps li { border-top: 2px solid var(--teal); padding-top: 1.25rem; }
+  .step-n { font-family: var(--display); font-size: 2.6rem; line-height: 1; color: var(--accent); display: block; margin-bottom: 0.6rem; }
+  .steps h3 { margin-bottom: 0.35em; }
+  .pm-cta { display: flex; flex-direction: column; align-items: flex-start; gap: 0.6rem; align-self: center; }
+  .faqs { margin: 0; display: grid; gap: 1.4rem; }
+  .faqs dt { font-weight: 700; color: var(--strong); margin-bottom: 0.3rem; }
+  .faqs dd { margin: 0; color: var(--muted); }
+  .book-row { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1.5rem 3rem; }
+  .book-row h2 { margin-bottom: 0.3em; }
+  .book-row p { margin: 0; }
+  @media (max-width: 900px) { .steps { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 760px) { .two, .facts { grid-template-columns: 1fr; } }
+  @media (max-width: 480px) { .steps { grid-template-columns: 1fr; } }
+</style>
