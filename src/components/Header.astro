@@ -1,4 +1,5 @@
 ---
+import { BOOKING_URL } from '../config/site.js';
 const links = [
   { href: '/#stones', label: 'Stones' },
   { href: '/services', label: 'Services' },
@@ -27,7 +28,7 @@ const isCurrent = (href: string) => {
     </nav>
     <div class="actions">
       <a class="phone" href="tel:1300220045">1300 22 00 45</a>
-      <a class="btn btn-primary" href="/book-now">Book a quote</a>
+      <a class="btn btn-primary" href={BOOKING_URL}>Book a quote</a>
     </div>
     <button class="menu-btn" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="mobile-menu">
       <span class="menu-label">Menu</span>
@@ -57,14 +58,14 @@ const isCurrent = (href: string) => {
     </ul>
   </nav>
   <div class="mm-foot">
-    <a class="btn btn-primary" href="/book-now">Book a quote</a>
+    <a class="btn btn-primary" href={BOOKING_URL}>Book a quote</a>
     <a class="tlink" href="tel:1300220045">Call 1300 22 00 45</a>
   </div>
 </dialog>
 
 <div class="mobile-bar" role="navigation" aria-label="Quick contact">
   <a href="tel:1300220045">Call 1300 22 00 45</a>
-  <a href="/book-now" class="mb-quote">Book a quote</a>
+  <a href={BOOKING_URL} class="mb-quote">Book a quote</a>
 </div>
 
 <script>

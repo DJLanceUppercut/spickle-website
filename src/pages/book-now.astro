@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import AreaCalc from '../components/AreaCalc.astro';
+import BookingCard from '../components/BookingCard.astro';
 ---
 <Base
   title="Book a Stone Sealing Quote | Spickle"
@@ -27,13 +28,14 @@ import AreaCalc from '../components/AreaCalc.astro';
         <p class="small">Once we've sealed for you, the job goes in our reseal diary: we'll get in touch when yours is coming due, so you never have to track it.</p>
         <AreaCalc />
       </div>
-      <div class="todo embed">ServiceM8 booking form<br />[Embed from ServiceM8 goes here: name, phone, email, address, approximate m², paving type, photos. Waiting on the embed code from Lukey.]</div>
+      <BookingCard />
     </div>
   </section>
 </Base>
 
 <style>
   .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(400px, 100%), 1fr)); gap: clamp(2.5rem, 6vw, 6rem); align-items: start; }
+  @media (min-width: 900px) { .grid > :global(.booking-card) { position: sticky; top: 100px; } }
   .lede { font-size: var(--step-1); color: var(--lede); }
   .sub { font-size: var(--step-1); margin-top: 1.5em; }
   .list { margin: 0 0 1.5em; padding: 0; list-style: none; max-width: var(--measure); }

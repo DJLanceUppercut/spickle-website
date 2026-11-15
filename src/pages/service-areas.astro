@@ -1,4 +1,5 @@
 ---
+import { BOOKING_URL } from '../config/site.js';
 import Base from '../layouts/Base.astro';
 import { regions } from '../data/serviceAreas.js';
 import { suburbs } from '../data/suburbs.js';
@@ -35,7 +36,7 @@ import { suburbs } from '../data/suburbs.js';
         <p>Send photos and a rough size and we'll price your job.</p>
       </div>
       <div class="cta-row">
-        <a class="btn btn-primary" href="/book-now">Book a quote</a>
+        <a class="btn btn-primary" href={BOOKING_URL}>Book a quote</a>
         <a class="tlink" href="tel:1300220045">Call 1300 22 00 45</a>
       </div>
     </div>

@@ -1,4 +1,5 @@
 ---
+import { BOOKING_URL } from '../config/site.js';
 import Base from '../layouts/Base.astro';
 ---
 <Base title="Page not found | Spickle Cleaning & Sealing" description="We couldn't find that page. Head to stone cleaning and sealing services, pricing or book a quote." noindex>
@@ -11,7 +12,7 @@ import Base from '../layouts/Base.astro';
       <li><a class="tlink" href="/#stones">Stones we work with</a></li>
       <li><a class="tlink" href="/faq">FAQ</a></li>
     </ul>
-    <p><a class="btn btn-primary" href="/book-now">Book a quote</a></p>
+    <p><a class="btn btn-primary" href={BOOKING_URL}>Book a quote</a></p>
   </section>
 </Base>
 

@@ -1,4 +1,5 @@
 ---
+import { BOOKING_URL } from '../config/site.js';
 import { Image } from 'astro:assets';
 import { stones } from '../data/stones.js';
 
@@ -16,7 +17,7 @@ const stonePairs = pairs.filter((p) => p.stone === s.slug);
       <h1>{s.name}</h1>
       <p class="lede">{s.tagline}</p>
       <div class="cta-row">
-        <a class="btn btn-primary" href="/book-now">Book a quote</a>
+        <a class="btn btn-primary" href={BOOKING_URL}>Book a quote</a>
         <a class="tlink" href="tel:1300220045">Call 1300 22 00 45</a>
       </div>
     </div>
@@ -71,7 +72,7 @@ const stonePairs = pairs.filter((p) => p.stone === s.slug);
       <p>Send a few photos and the rough size of the area, and we'll come back with a price.</p>
     </div>
     <div class="cta-row">
-      <a class="btn btn-primary" href="/book-now">Book a quote</a>
+      <a class="btn btn-primary" href={BOOKING_URL}>Book a quote</a>
       <a class="tlink" href="tel:1300220045">Call 1300 22 00 45</a>
     </div>
   </div>

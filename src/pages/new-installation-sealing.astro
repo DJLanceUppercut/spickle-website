@@ -1,4 +1,5 @@
 ---
+import { BOOKING_URL } from '../config/site.js';
 import Base from '../layouts/Base.astro';
 ---
 <Base
@@ -11,7 +12,7 @@ import Base from '../layouts/Base.astro';
         <h1>Just had new paving laid? Seal it now.</h1>
         <p class="lede">New stone has no protection the day it's laid, and the first barbecue is rarely far away.</p>
         <div class="cta-row">
-          <a class="btn btn-primary" href="/book-now">Book a quote</a>
+          <a class="btn btn-primary" href={BOOKING_URL}>Book a quote</a>
           <a class="tlink" href="tel:1300220045">Call 1300 22 00 45</a>
         </div>
       </div>
@@ -79,7 +80,7 @@ import Base from '../layouts/Base.astro';
       <div>
         <p>Your price depends on the sealer you choose and what the job needs. Rural jobs carry a separate travel fee, quoted up front.</p>
         <div class="cta-row">
-          <a class="btn btn-navy" href="/book-now">Book a quote</a>
+          <a class="btn btn-navy" href={BOOKING_URL}>Book a quote</a>
           <a class="tlink" href="/pricing">See pricing in detail</a>
         </div>
       </div>

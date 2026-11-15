@@ -1,4 +1,5 @@
 ---
+import { BOOKING_URL } from '../config/site.js';
 import { Image } from 'astro:assets';
 import Base from '../layouts/Base.astro';
 import SealDemo from '../components/SealDemo.astro';
@@ -7,6 +8,7 @@ import { stones } from '../data/stones.js';
 import heroDusk from '../assets/hero-dusk.jpg';
 import { pairs } from '../data/gallery.js';
 import BeforeAfter from '../components/BeforeAfter.astro';
+import BookingCard from '../components/BookingCard.astro';
 ---
 <Base
   title="Stone Cleaning & Sealing Melbourne | Spickle"
@@ -21,7 +23,7 @@ import BeforeAfter from '../components/BeforeAfter.astro';
         <h1>Natural stone, sealed properly.</h1>
         <p class="lede">Cleaning and sealing for bluestone, limestone, travertine and every other natural stone, across Melbourne and the Mornington Peninsula.</p>
         <div class="cta-row">
-          <a class="btn btn-primary" href="/book-now">Book a quote</a>
+          <a class="btn btn-primary" href={BOOKING_URL}>Book a quote</a>
           <a class="tlink" href="tel:1300220045">Call 1300 22 00 45</a>
         </div>
         <p class="rating"><span class="stars" aria-hidden="true">★★★★★</span> <span class="todo-inline">[rating] from [number] Google reviews</span></p>
@@ -115,7 +117,7 @@ import BeforeAfter from '../components/BeforeAfter.astro';
         </ol>
         <p class="small">Rural jobs carry a separate travel fee, quoted up front.</p>
         <div class="cta-row">
-          <a class="btn btn-navy" href="/book-now">Book a quote</a>
+          <a class="btn btn-navy" href={BOOKING_URL}>Book a quote</a>
           <a class="tlink" href="/pricing">See pricing in detail</a>
         </div>
       </div>
@@ -207,7 +209,7 @@ import BeforeAfter from '../components/BeforeAfter.astro';
           <a class="tlink" href="mailto:info@spickle.com.au">info@spickle.com.au</a>
         </div>
       </div>
-      <div class="todo book-embed">ServiceM8 booking form<br />[Embed from ServiceM8 goes here: name, phone, email, address, approximate m², paving type, photos]</div>
+      <BookingCard />
     </div>
   </section>
 </Base>

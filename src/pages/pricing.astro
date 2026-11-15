@@ -1,4 +1,5 @@
 ---
+import { BOOKING_URL } from '../config/site.js';
 import Base from '../layouts/Base.astro';
 ---
 <Base
@@ -15,7 +16,7 @@ import Base from '../layouts/Base.astro';
       <div>
         <p>Where your price sits above that comes down to two things: the sealer you choose, and what the job needs before sealing can start.</p>
         <p class="small">Rural jobs carry a separate travel fee, quoted up front.</p>
-        <a class="btn btn-navy" href="/book-now">Book a quote</a>
+        <a class="btn btn-navy" href={BOOKING_URL}>Book a quote</a>
       </div>
     </div>
   </section>
@@ -60,7 +61,7 @@ import Base from '../layouts/Base.astro';
         <p>Send a few photos and the rough size of the area. That's enough for us to see the stone, its condition and what it needs, and come back with a number.</p>
       </div>
       <div class="cta-row">
-        <a class="btn btn-primary" href="/book-now">Book a quote</a>
+        <a class="btn btn-primary" href={BOOKING_URL}>Book a quote</a>
         <a class="tlink" href="tel:1300220045">Call 1300 22 00 45</a>
         <a class="tlink" href="mailto:info@spickle.com.au">Email photos</a>
         <a class="tlink" href="/book-now#area">Work out your area</a>

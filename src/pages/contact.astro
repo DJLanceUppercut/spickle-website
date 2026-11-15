@@ -1,4 +1,5 @@
 ---
+import { BOOKING_URL } from '../config/site.js';
 import Base from '../layouts/Base.astro';
 ---
 <Base
@@ -23,7 +24,7 @@ import Base from '../layouts/Base.astro';
         <p>Melbourne's inner, eastern and south-east suburbs and the Mornington Peninsula, from Abbotsford to Sorrento. We cover 115 suburbs as standard; further out, we travel for a separate fee, quoted up front.</p>
         <a class="tlink" href="/service-areas">See all 115 suburbs</a>
         <h2 class="sub">Prefer to book straight in?</h2>
-        <p><a class="btn btn-primary" href="/book-now">Book a quote</a></p>
+        <p><a class="btn btn-primary" href={BOOKING_URL}>Book a quote</a></p>
       </div>
     </div>
   </section>

@@ -1,4 +1,5 @@
 ---
+import { BOOKING_URL } from '../config/site.js';
 import Base from '../layouts/Base.astro';
 import SealDemo from '../components/SealDemo.astro';
 
@@ -148,7 +149,7 @@ const tiles = [
         <p>Photos and the rough size of the area are all we need to price it.</p>
       </div>
       <div class="cta-row">
-        <a class="btn btn-primary" href="/book-now">Book a quote</a>
+        <a class="btn btn-primary" href={BOOKING_URL}>Book a quote</a>
         <a class="tlink" href="tel:1300220045">Call 1300 22 00 45</a>
       </div>
     </div>

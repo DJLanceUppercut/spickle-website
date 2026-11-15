@@ -13,7 +13,7 @@ The June React build was replaced on `master` on 15 Nov 2026 (still in history a
 - Logos: `public/logo-colour.png`, `public/logo-white.png`
 
 ## Rules
-- Bookings go through ServiceM8 (embed or hosted link). Do not build a custom booking form.
+- Bookings go through ServiceM8's hosted form: `BOOKING_URL` in `src/config/site.js` (it can't be embedded). Every button-style "Book a quote" links straight to it; `/book-now` keeps the calculator and the `BookingCard` component. Do not build a custom booking form.
 - Keep the old Strikingly page addresses (/bluestone, /limestone, /granite, /travertine, /slate, /aggregate, /services, /faq, /book-now, /contact) so rankings carry over.
 - Anything still needed from Lukey is shown in a `.todo` dashed block. Don't invent facts (years in business, insurance, review counts).
 - Pre-launch noindex is controlled by `PRELAUNCH` in `src/config/site.js`. Set it to `false` at cutover. `/404` and `/thank-you` pass `noindex` to Base so they stay out of Google after launch.
