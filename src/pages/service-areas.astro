@@ -1,28 +1,29 @@
 ---
 import Base from '../layouts/Base.astro';
+import { regions } from '../data/serviceAreas.js';
+import { suburbs } from '../data/suburbs.js';
 ---
 <Base
-  title="Areas We Service | Stone Sealing Melbourne & Mornington Peninsula | Spickle"
-  description="Spickle cleans and seals stone across 115 suburbs: Melbourne's inner and south-east suburbs and the Mornington Peninsula, from Abbotsford to Sorrento."
+  title="Service Areas: Melbourne & Mornington Peninsula | Spickle"
+  description="Spickle cleans and seals stone across 115 suburbs in inner, eastern and south-east Melbourne and the Mornington Peninsula, from Abbotsford to Sorrento."
 >
   <section class="band hairline-top">
     <div class="wrap">
       <h1>Where we work</h1>
-      <p class="lede">115 suburbs: Melbourne's inner and south-east suburbs and the Mornington Peninsula, from Abbotsford to Sorrento.</p>
+      <p class="lede">115 suburbs across inner, eastern and south-east Melbourne and the Mornington Peninsula, from Abbotsford to Sorrento.</p>
       <div class="regions">
-        <div>
-          <h2>Inner Melbourne</h2>
-          <div class="todo">[Inner Melbourne suburbs from the 115-suburb list on the current site's contact page]</div>
-        </div>
-        <div>
-          <h2>South-east suburbs</h2>
-          <div class="todo">[South-east suburbs from the same list]</div>
-        </div>
-        <div>
-          <h2>Mornington Peninsula</h2>
-          <div class="todo">[Peninsula suburbs from the same list]</div>
-        </div>
+        {regions.map((r) => (
+          <div>
+            <h2>{r.name}</h2>
+            <ul class="burbs">
+              {r.suburbs.map((n) => <li>{n}</li>)}
+            </ul>
+          </div>
+        ))}
       </div>
+      {suburbs.length > 0 && (
+        <p class="local">Local pages: {suburbs.map((sub, i) => <>{i > 0 && ', '}<a class="tlink" href={`/${sub.slug}`}>{sub.name}</a></>)}</p>
+      )}
       <p class="rural">Outside these areas, we still travel. Rural jobs carry a separate travel fee, quoted up front, so you'll know the full price before you book.</p>
     </div>
   </section>
@@ -45,6 +46,9 @@ import Base from '../layouts/Base.astro';
   .lede { font-size: var(--step-1); color: #d6e8ee; margin-bottom: clamp(2rem, 4vw, 3rem); max-width: 40ch; }
   .regions { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: clamp(1.75rem, 3vw, 2.75rem); }
   .regions h2 { font-size: var(--step-1); }
+  .burbs { list-style: none; margin: 0; padding: 0; columns: 2 10rem; column-gap: 1.5rem; }
+  .burbs li { padding: 0.28rem 0; color: var(--muted); break-inside: avoid; font-size: 1rem; }
+  .local { margin-top: 1.5rem; }
   .rural { margin-top: clamp(2rem, 4vw, 3rem); padding-top: 1.4rem; border-top: 1px solid var(--hairline); }
   .book-row { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1.5rem 3rem; }
   .book-row h2 { margin-bottom: 0.3em; }

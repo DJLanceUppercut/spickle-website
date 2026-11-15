@@ -16,7 +16,7 @@ const { kind, s, sub } = Astro.props;
 
 const title =
   kind === 'stone'
-    ? `${s.name} Cleaning & Sealing Melbourne | Spickle`
+    ? `${s.seoName ?? s.name} Cleaning & Sealing Melbourne | Spickle`
     : `Driveway & Paving Cleaning ${sub.name} | Spickle`;
 const description =
   kind === 'stone'

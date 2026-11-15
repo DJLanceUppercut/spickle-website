@@ -1,14 +1,21 @@
 ---
 import Base from '../layouts/Base.astro';
 ---
-<Base title="Page coming soon | Spickle" description="This page is part of the Spickle website rebuild.">
+<Base title="Page not found | Spickle Cleaning & Sealing" description="We couldn't find that page. Head to stone cleaning and sealing services, pricing or book a quote." noindex>
   <section class="wrap nf">
-    <h1>This page is coming soon</h1>
-    <p>It's part of the next stage of the build. For now, head back to the homepage or call us on <a href="tel:1300220045">1300 22 00 45</a>.</p>
-    <p><a class="btn btn-primary" href="/">Back to the homepage</a></p>
+    <h1>We couldn't find that page</h1>
+    <p>The link may be old or mistyped. These are the pages most people are after, or call us on <a href="tel:1300220045">1300 22 00 45</a>.</p>
+    <ul class="nf-links">
+      <li><a class="tlink" href="/services">Services</a></li>
+      <li><a class="tlink" href="/pricing">Pricing</a></li>
+      <li><a class="tlink" href="/#stones">Stones we work with</a></li>
+      <li><a class="tlink" href="/faq">FAQ</a></li>
+    </ul>
+    <p><a class="btn btn-primary" href="/book-now">Book a quote</a></p>
   </section>
 </Base>
 
 <style>
   .nf { padding-block: 6rem 8rem; }
+  .nf-links { list-style: none; margin: 0 0 1.5rem; padding: 0; display: flex; flex-wrap: wrap; gap: 0.25rem 1.75rem; }
 </style>

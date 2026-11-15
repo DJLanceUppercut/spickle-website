@@ -106,6 +106,7 @@ export const stones = [
   {
     slug: 'aggregate',
     name: 'Concrete & exposed aggregate',
+    seoName: 'Concrete & Aggregate',
     image: aggregateImg,
     tagline: 'Not stone, but it stains like it. Driveways are where sealing pays for itself.',
     what: 'Exposed aggregate and plain concrete cover more Melbourne driveways than any stone. Concrete is porous, and the textured face of exposed aggregate gives oil and dirt plenty to hold on to.',

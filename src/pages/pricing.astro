@@ -8,7 +8,7 @@ import Base from '../layouts/Base.astro';
   <section class="band light">
     <div class="wrap top-grid">
       <div>
-        <p class="kicker">Cleaning and sealing</p>
+        <h1 class="kicker">Cleaning and sealing prices</h1>
         <p class="price"><span class="from">From</span> $15</p>
         <p class="per">per square metre</p>
       </div>
@@ -71,7 +71,8 @@ import Base from '../layouts/Base.astro';
 <style>
   .top-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(360px, 100%), 1fr)); gap: clamp(2rem, 6vw, 6rem); align-items: center; }
   .price .from { display: block; font-family: var(--font); font-size: var(--step-1); font-weight: 600; line-height: 1.2; color: var(--teal-deep); margin-bottom: 0.3rem; }
-  .kicker { font-size: var(--step-0); font-weight: 600; color: var(--teal-deep); margin-bottom: 0.3rem; }
+  .kicker { font-family: var(--font); font-size: var(--step-0); font-weight: 600; line-height: 1.4; color: var(--teal-deep); margin: 0 0 0.3rem; }
+  .band.light h1.kicker { color: var(--teal-deep); }
   .price { font-family: var(--display); font-size: clamp(3.75rem, 9vw, 8.5rem); line-height: 0.95; color: var(--navy); margin: 0; }
   .per { font-size: var(--step-1); margin: 0.5rem 0 0; }
   .small { font-size: var(--step--1); }
