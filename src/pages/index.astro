@@ -13,7 +13,7 @@ import BeforeAfter from '../components/BeforeAfter.astro';
   description="Cleaning and sealing for bluestone, limestone, travertine, concrete and more across Melbourne and the Mornington Peninsula. From $15/m². Book a quote."
 >
   <!-- Hero -->
-  <section class="hero">
+  <section class="hero dark">
     <Image class="hero-bg" src={heroDusk} alt="" widths={[768, 1280, 1920]} sizes="100vw" loading="eager" fetchpriority="high" />
     <div class="hero-shade" aria-hidden="true"></div>
     <div class="wrap hero-inner">
@@ -51,7 +51,7 @@ import BeforeAfter from '../components/BeforeAfter.astro';
   </section>
 
   <!-- Sealing -->
-  <section class="band panel" id="sealing">
+  <section class="band dark" id="sealing">
     <div class="wrap">
       <h2 data-reveal>Two ways to seal stone</h2>
       <p class="section-lede" data-reveal style="--delay:0.08s">Drag across the paver. Same water, same stone: the only difference is the sealer. We choose the sealer for the stone and where it's laid, then tell you why.</p>
@@ -197,8 +197,7 @@ import BeforeAfter from '../components/BeforeAfter.astro';
   </section>
 
   <!-- Book -->
-  <section class="band textured" id="quote">
-    <StoneTexture id="tx-book" shade={0.74} />
+  <section class="band panel" id="quote">
     <div class="wrap book-grid">
       <div data-reveal>
         <h2>Book a quote</h2>
@@ -244,15 +243,15 @@ import BeforeAfter from '../components/BeforeAfter.astro';
   }
   .hero-copy { max-width: 820px; display: flex; flex-direction: column; gap: 1.5rem; }
   .hero-copy h1 { margin: 0; }
-  .lede { font-size: var(--step-1); line-height: 1.5; max-width: 34ch; color: #d6e8ee; margin: 0; }
+  .lede { font-size: var(--step-1); line-height: 1.5; max-width: 34ch; color: var(--lede); margin: 0; }
   .rating { margin: 0; font-size: var(--step--1); color: var(--muted); display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; }
-  .stars { color: #f2c94c; letter-spacing: 0.12em; font-size: 1rem; }
+  .stars { color: var(--star); letter-spacing: 0.12em; font-size: 1rem; }
   .cta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.9rem 1.6rem; }
   .facts {
     margin: 0; padding-top: 1.4rem; border-top: 1px solid rgba(255,255,255,0.3);
     display: grid; grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr)); gap: 1.25rem;
   }
-  .facts dt { font-family: var(--display); font-size: var(--step-2); color: var(--white); }
+  .facts dt { font-family: var(--display); font-size: var(--step-2); color: var(--strong); }
   .facts dd { margin: 0.2rem 0 0; font-size: var(--step--1); color: #c3d6dd; }
 
   /* Split sections */
@@ -282,7 +281,7 @@ import BeforeAfter from '../components/BeforeAfter.astro';
   .stone-grid a {
     position: relative; display: block; overflow: hidden; isolation: isolate;
     aspect-ratio: 4 / 5; border-radius: 6px;
-    color: var(--white); text-decoration: none;
+    color: #fff; text-decoration: none;
     box-shadow: 0 18px 40px -24px rgba(0, 0, 0, 0.7);
   }
   .stone-grid :global(img) {
@@ -358,9 +357,9 @@ import BeforeAfter from '../components/BeforeAfter.astro';
   .review { margin: 0; max-width: 980px; position: relative; }
   .quote-mark { display: block; font-family: var(--display); font-size: clamp(5rem, 10vw, 8rem); line-height: 0.6; color: var(--teal-bright); margin-bottom: 0.2rem; }
   .review blockquote { margin: 0; }
-  .quote-text { font-family: var(--display); font-size: clamp(1.6rem, 3vw, 2.6rem); line-height: 1.3; color: var(--white); max-width: none; }
+  .quote-text { font-family: var(--display); font-size: clamp(1.6rem, 3vw, 2.6rem); line-height: 1.3; color: var(--strong); max-width: none; }
   .review figcaption { display: flex; flex-wrap: wrap; gap: 0.4rem 1.5rem; font-size: 1rem; color: var(--muted); }
-  .review .who { font-weight: 600; color: var(--white); }
+  .review .who { font-weight: 600; color: var(--strong); }
   .review .src { display: inline-flex; align-items: center; gap: 0.5rem; }
 
   .two-col { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(360px, 100%), 1fr)); gap: clamp(2rem, 5vw, 5rem); }

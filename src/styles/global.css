@@ -10,11 +10,24 @@
   --panel: #06374f;
   --mint: #e8f5f1;
   --ink: #2d2a26;
-  --text: #eef4f3;
-  --muted: #c3d6dd;
-  --faint: #9fb9c4;
-  --hairline: rgba(255, 255, 255, 0.16);
   --white: #ffffff;
+
+  /* Surface tokens. Light is the default (brand: white and mint grounds,
+     teal for action, navy as the accent). Dark sections override below. */
+  --surface: #ffffff;
+  --strong: var(--navy);      /* headings and emphasis */
+  --text: var(--ink);         /* body copy */
+  --muted: #4b5a61;           /* secondary copy */
+  --lede: #33464f;            /* intro paragraphs */
+  --faint: #66767d;
+  --hairline: rgba(0, 47, 73, 0.14);
+  --line-strong: rgba(0, 47, 73, 0.3);
+  --card: rgba(0, 47, 73, 0.035);
+  --field: #ffffff;
+  --link-hover: var(--teal-deep);
+  --focus: var(--teal-deep);
+  --star: #d99a00;
+  --header-bg: rgba(255, 255, 255, 0.94);
 
   --font: 'Archivo Variable', 'Archivo', system-ui, sans-serif;
   --display: 'Marcellus', Georgia, 'Times New Roman', serif;
@@ -42,17 +55,37 @@ body {
   font-size: var(--step-0);
   line-height: 1.6;
   color: var(--text);
-  background: var(--navy);
+  background: var(--surface);
   -webkit-font-smoothing: antialiased;
 }
+
+/* Dark surfaces: navy ground, light text. Used for the hero, the sealing
+   demo, textured stone bands, the footer and the mobile menu. */
+.dark, .band.dark, .band.textured, .site-footer, .mobile-menu, .mobile-bar {
+  --surface: var(--navy);
+  --strong: #ffffff;
+  --text: #eef4f3;
+  --muted: #c3d6dd;
+  --lede: #d6e8ee;
+  --faint: #9fb9c4;
+  --hairline: rgba(255, 255, 255, 0.16);
+  --line-strong: rgba(255, 255, 255, 0.4);
+  --card: rgba(255, 255, 255, 0.04);
+  --field: rgba(0, 32, 47, 0.6);
+  --link-hover: var(--teal-bright);
+  --focus: var(--teal-bright);
+  --star: #f2c94c;
+  color: var(--text);
+}
+.band.dark { background: var(--navy); }
 
 img { max-width: 100%; height: auto; display: block; }
 
 a { color: var(--muted); text-underline-offset: 0.18em; text-decoration-color: var(--teal); }
-a:hover { color: var(--white); }
+a:hover { color: var(--strong); }
 
 :focus-visible {
-  outline: 3px solid var(--teal-bright);
+  outline: 3px solid var(--focus);
   outline-offset: 3px;
   border-radius: 4px;
 }
@@ -60,7 +93,7 @@ a:hover { color: var(--white); }
 h1, h2, h3 {
   font-family: var(--display);
   font-weight: 400;
-  color: var(--white);
+  color: var(--strong);
   margin: 0 0 0.6em;
   line-height: 1.1;
   letter-spacing: 0.005em;
@@ -80,13 +113,11 @@ p { margin: 0 0 1em; max-width: var(--measure); text-wrap: pretty; color: var(--
 }
 
 .band { padding-block: clamp(3.5rem, 8vw, 7.5rem); }
-.band.panel { background: var(--panel); }
+.band.panel { background: var(--mint); }
 .band.hairline-top { border-top: 1px solid var(--hairline); }
 
-/* Light band (the one bright moment on the page) */
+/* Mint band */
 .band.light { background: var(--mint); }
-.band.light h1, .band.light h2, .band.light h3 { color: var(--navy); }
-.band.light p { color: #3b5563; }
 .band.light a { color: var(--navy); text-decoration-color: var(--teal); }
 .band.light a:hover { color: var(--teal-deep); }
 
@@ -114,19 +145,17 @@ p { margin: 0 0 1em; max-width: var(--measure); text-wrap: pretty; color: var(--
 .btn-primary:hover { background: var(--teal-bright); color: var(--navy-deep); }
 .btn-navy, .band.light .btn-navy { background: var(--navy); color: var(--white); text-decoration: none; }
 .btn-navy:hover, .band.light .btn-navy:hover { background: var(--navy-deep); color: var(--white); }
-.btn-outline { border-color: rgba(255,255,255,0.6); color: var(--white); background: transparent; }
-.btn-outline:hover { background: var(--white); color: var(--navy); border-color: var(--white); }
+.btn-outline { border-color: var(--line-strong); color: var(--strong); background: transparent; }
+.btn-outline:hover { background: var(--strong); color: var(--surface); border-color: var(--strong); }
 
 /* Underlined text links in the Dusk style */
 .tlink {
   display: inline-flex; align-items: center; min-height: 44px;
-  color: var(--white); font-weight: 600; text-decoration: underline;
+  color: var(--strong); font-weight: 600; text-decoration: underline;
   text-decoration-color: var(--teal); text-decoration-thickness: 2px; text-underline-offset: 6px;
 }
-.tlink:hover { color: var(--teal-bright); }
+.tlink:hover { color: var(--link-hover); }
 p .tlink { display: inline; min-height: 0; }
-.band.light .tlink { color: var(--navy); }
-.band.light .tlink:hover { color: var(--teal-deep); }
 
 /* Placeholder blocks: things Lukey still needs to supply */
 .todo {
@@ -138,7 +167,6 @@ p .tlink { display: inline; min-height: 0; }
   font-size: var(--step--1);
   font-weight: 600;
 }
-.band.light .todo { color: var(--navy); background: rgba(33, 158, 188, 0.1); }
 .todo-inline { background: rgba(33, 158, 188, 0.28); padding: 0 0.3em; border-radius: 3px; }
 
 .visually-hidden {

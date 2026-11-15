@@ -92,9 +92,9 @@ const stonePairs = pairs.filter((p) => p.stone === s.slug);
   .hero-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(400px, 100%), 1fr)); gap: clamp(2rem, 5vw, 5rem); align-items: center; }
   .crumb { font-size: var(--step--1); margin-bottom: 1rem; }
   .crumb a { color: var(--faint); text-decoration: none; }
-  .crumb a:hover { color: var(--white); text-decoration: underline; }
+  .crumb a:hover { color: var(--strong); text-decoration: underline; }
   .hero-copy h1 { margin-bottom: 0.4em; }
-  .lede { font-size: var(--step-1); line-height: 1.45; color: #d6e8ee; max-width: 30ch; }
+  .lede { font-size: var(--step-1); line-height: 1.45; color: var(--lede); max-width: 30ch; }
   .cta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.9rem 1.6rem; margin-top: 1.4rem; }
   .hero-grid :global(.hero-img) { width: 100%; height: clamp(300px, 36vw, 520px); object-fit: cover; border-radius: 2px; }
 
@@ -104,7 +104,7 @@ const stonePairs = pairs.filter((p) => p.stone === s.slug);
   .risks li:last-child { border-bottom: 1px solid var(--hairline); }
   .treat-grid h2 { margin: 0; }
   .price-line { padding-top: 1.2rem; border-top: 1px solid var(--hairline); }
-  .price-line strong { color: var(--white); }
+  .price-line strong { color: var(--strong); }
 
   .book-row { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1.5rem 3rem; }
   .book-row h2 { margin-bottom: 0.3em; }
@@ -116,5 +116,5 @@ const stonePairs = pairs.filter((p) => p.stone === s.slug);
     display: inline-flex; padding: 0.55rem 1rem; border: 1px solid var(--hairline); border-radius: 2px;
     color: var(--muted); text-decoration: none; font-size: 1rem; font-weight: 600;
   }
-  .other-stones a:hover { color: var(--white); border-color: var(--teal); }
+  .other-stones a:hover { color: var(--strong); border-color: var(--teal); }
 </style>

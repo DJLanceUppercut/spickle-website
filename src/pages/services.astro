@@ -73,7 +73,7 @@ const tiles = [
     </div>
   </section>
 
-  <section class="band panel" id="sealing">
+  <section class="band dark" id="sealing">
     <div class="wrap">
       <h2>Sealing</h2>
       <p class="section-lede">Two kinds of sealer, chosen for the stone and where it's laid. We test a patch first, so you see how your stone looks sealed before we do the whole area.</p>
@@ -155,7 +155,7 @@ const tiles = [
 </Base>
 
 <style>
-  .lede { font-size: var(--step-1); color: #d6e8ee; }
+  .lede { font-size: var(--step-1); color: var(--lede); }
   .tiles {
     list-style: none; margin: clamp(2rem, 4vw, 3rem) 0 0; padding: 0;
     display: grid; grid-template-columns: repeat(5, 1fr); gap: clamp(0.75rem, 1.5vw, 1.1rem);
@@ -166,8 +166,8 @@ const tiles = [
   .tiles a {
     position: relative; display: grid; gap: 0.5rem; height: 100%;
     padding: 1.25rem 1.25rem 1.4rem; border-radius: 6px;
-    background: rgba(255, 255, 255, 0.04); border: 1px solid var(--hairline);
-    color: var(--white); text-decoration: none;
+    background: var(--card); border: 1px solid var(--hairline);
+    color: var(--strong); text-decoration: none;
     transition: background-color 0.25s, border-color 0.25s, transform 0.25s;
   }
   .tiles a:hover, .tiles a:focus-visible { background: rgba(33, 158, 188, 0.12); border-color: var(--teal); transform: translateY(-2px); }

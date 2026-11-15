@@ -34,13 +34,13 @@ import AreaCalc from '../components/AreaCalc.astro';
 
 <style>
   .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(400px, 100%), 1fr)); gap: clamp(2.5rem, 6vw, 6rem); align-items: start; }
-  .lede { font-size: var(--step-1); color: #d6e8ee; }
+  .lede { font-size: var(--step-1); color: var(--lede); }
   .sub { font-size: var(--step-1); margin-top: 1.5em; }
   .list { margin: 0 0 1.5em; padding: 0; list-style: none; max-width: var(--measure); }
   .list li { padding: 0.65rem 0; border-top: 1px solid var(--hairline); color: var(--muted); }
   .list li:last-child { border-bottom: 1px solid var(--hairline); }
   .contacts { display: flex; flex-wrap: wrap; gap: 0.9rem 1.8rem; margin-bottom: 1.5rem; }
-  .texty { font-weight: 600; color: var(--white); }
+  .texty { font-weight: 600; color: var(--strong); }
   .small { font-size: var(--step--1); }
   .embed { min-height: 420px; display: flex; flex-direction: column; justify-content: center; line-height: 1.7; }
 </style>

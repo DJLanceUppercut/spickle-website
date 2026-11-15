@@ -92,9 +92,9 @@ const review = reviews[0];
   .hero-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(2rem, 5vw, 5rem); align-items: center; }
   .crumb { margin: 0 0 1rem; font-size: var(--step--1); }
   .crumb a { color: var(--muted); }
-  .lede { font-size: var(--step-1); color: #d6e8ee; }
+  .lede { font-size: var(--step-1); color: var(--lede); }
   .price { color: var(--muted); font-size: var(--step--1); margin-top: 1.25rem; }
-  .price strong { color: var(--white); }
+  .price strong { color: var(--strong); }
   .hero-grid :global(.hero-img) { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 6px; box-shadow: 0 30px 60px -28px rgba(0,0,0,0.7); }
   .cta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.9rem 1.6rem; }
   .two { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 5rem); align-items: start; }
@@ -102,18 +102,18 @@ const review = reviews[0];
   .risks li { position: relative; padding: 0.75rem 0 0.75rem 1.6rem; border-top: 1px solid var(--hairline); }
   .risks li::before { content: ''; position: absolute; left: 0; top: 1.35em; width: 0.8rem; height: 2px; background: var(--teal); }
   .stone-links { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 1rem; }
-  .stone-links a { display: flex; align-items: center; gap: 0.8rem; padding: 0.5rem 1.1rem 0.5rem 0.5rem; border: 1px solid var(--hairline); border-radius: 999px; color: var(--white); text-decoration: none; transition: border-color 0.2s, background-color 0.2s; }
+  .stone-links a { display: flex; align-items: center; gap: 0.8rem; padding: 0.5rem 1.1rem 0.5rem 0.5rem; border: 1px solid var(--hairline); border-radius: 999px; color: var(--strong); text-decoration: none; transition: border-color 0.2s, background-color 0.2s; }
   .stone-links a:hover { border-color: var(--teal); background: rgba(33,158,188,0.1); }
   .stone-links :global(img) { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; }
   .faqs { margin: 0; display: grid; gap: 1.4rem; }
-  .faqs dt { font-weight: 700; color: var(--white); margin-bottom: 0.3rem; }
+  .faqs dt { font-weight: 700; color: var(--strong); margin-bottom: 0.3rem; }
   .faqs dd { margin: 0; }
   .mini-review { margin: 0; align-self: center; }
-  .mini-review blockquote { margin: 0 0 0.8rem; font-family: var(--display); font-size: var(--step-1); line-height: 1.35; color: var(--white); }
+  .mini-review blockquote { margin: 0 0 0.8rem; font-family: var(--display); font-size: var(--step-1); line-height: 1.35; color: var(--strong); }
   .mini-review blockquote p { margin: 0; }
   .mini-review figcaption { color: var(--muted); font-size: 0.95rem; display: flex; flex-wrap: wrap; gap: 0.3rem 0.7rem; align-items: center; }
-  .mini-review strong { color: var(--white); }
-  .stars { color: #f2c94c; letter-spacing: 0.12em; }
+  .mini-review strong { color: var(--strong); }
+  .stars { color: var(--star); letter-spacing: 0.12em; }
   .book-row { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1.5rem 3rem; }
   .book-row h2 { margin-bottom: 0.3em; }
   .book-row p { margin: 0; }

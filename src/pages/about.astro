@@ -66,14 +66,14 @@ const principles = [
 
 <style>
   .grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: clamp(2.5rem, 6vw, 6rem); align-items: start; }
-  .lede { font-size: var(--step-1); color: #d6e8ee; }
+  .lede { font-size: var(--step-1); color: var(--lede); }
   .facts { display: grid; gap: 1.25rem; }
-  .glance { margin: 0; padding: 1.5rem; border: 1px solid var(--hairline); border-radius: 6px; background: rgba(255,255,255,0.03); display: grid; gap: 1rem; }
+  .glance { margin: 0; padding: 1.5rem; border: 1px solid var(--hairline); border-radius: 6px; background: var(--card); display: grid; gap: 1rem; }
   .glance div { display: grid; grid-template-columns: 7.5rem 1fr; gap: 1rem; padding-bottom: 1rem; border-bottom: 1px solid var(--hairline); }
   .glance div:last-child { border-bottom: 0; padding-bottom: 0; }
   .glance dt { color: var(--muted); font-size: 0.95rem; }
-  .glance dd { margin: 0; color: var(--white); }
-  .glance dd a:not(.tlink) { color: var(--white); }
+  .glance dd { margin: 0; color: var(--strong); }
+  .glance dd a:not(.tlink) { color: var(--strong); }
   .principles { list-style: none; margin: clamp(1.5rem, 3vw, 2.5rem) 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); gap: clamp(1.5rem, 3vw, 2.5rem); }
   .principles li { border-top: 2px solid var(--teal); padding-top: 1.25rem; }
   .pn { font-family: var(--display); font-size: 2.4rem; line-height: 1; color: var(--teal-bright); display: block; margin-bottom: 0.6rem; }

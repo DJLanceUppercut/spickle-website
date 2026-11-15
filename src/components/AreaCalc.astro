@@ -78,7 +78,7 @@ const RATE = 15;
   .calc {
     margin-top: 2rem; padding: clamp(1.25rem, 3vw, 1.75rem);
     border: 1px solid var(--hairline); border-radius: 8px;
-    background: rgba(255, 255, 255, 0.03);
+    background: var(--card);
     scroll-margin-top: 90px;
   }
   .calc-title { font-size: var(--step-1); margin: 0 0 0.3rem; }
@@ -89,17 +89,17 @@ const RATE = 15;
   .row label { display: grid; gap: 0.3rem; font-size: 0.82rem; color: var(--muted); }
   .row input {
     width: 100%; min-height: 44px; padding: 0.5rem 0.7rem;
-    font: inherit; font-size: 1rem; color: var(--white);
-    background: rgba(0, 32, 47, 0.6); border: 1px solid rgba(255, 255, 255, 0.25); border-radius: 6px;
+    font: inherit; font-size: 1rem; color: var(--strong);
+    background: var(--field); border: 1px solid var(--line-strong); border-radius: 6px;
   }
   .row input:focus { outline: 2px solid var(--teal-bright); outline-offset: 1px; border-color: transparent; }
   .x { padding-bottom: 0.7rem; color: var(--muted); }
-  .row-area { padding-bottom: 0.7rem; white-space: nowrap; color: var(--white); font-weight: 600; min-width: 4.5rem; text-align: right; }
+  .row-area { padding-bottom: 0.7rem; white-space: nowrap; color: var(--strong); font-weight: 600; min-width: 4.5rem; text-align: right; }
   .rm {
     width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--hairline);
     background: none; color: var(--muted); font-size: 1.2rem; cursor: pointer;
   }
-  .rm:hover { color: var(--white); border-color: var(--white); }
+  .rm:hover { color: var(--strong); border-color: var(--strong); }
   .add {
     margin-top: 1rem; min-height: 44px; padding: 0 1.1rem;
     font: inherit; font-weight: 600; color: var(--teal-bright);
@@ -112,7 +112,7 @@ const RATE = 15;
   }
   .result > div { display: grid; gap: 0.2rem; }
   .r-label { font-size: 0.85rem; color: var(--muted); }
-  .r-val { font-family: var(--display); font-size: clamp(1.8rem, 1.3rem + 1.6vw, 2.6rem); line-height: 1.1; color: var(--white); }
+  .r-val { font-family: var(--display); font-size: clamp(1.8rem, 1.3rem + 1.6vw, 2.6rem); line-height: 1.1; color: var(--strong); }
   .calc-note { margin: 0.9rem 0 0; font-size: 0.85rem; color: var(--muted); }
   .row + :global(.row), .rows > .row:not(:last-child) { padding-bottom: 0.9rem; border-bottom: 1px solid var(--hairline); }
   @media (max-width: 560px) {
