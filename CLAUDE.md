@@ -6,7 +6,7 @@ The June React build was replaced on `master` on 15 Nov 2026 (still in history a
 ## Stack
 - Astro, static output (`npm run build` -> `dist/`). No CSS frameworks. Component-scoped `<style>` plus `src/styles/global.css`.
 - Fonts: Archivo Variable for body/UI (stand-in until a Brother 1816 web licence is bought) and Marcellus for display headings. Both self-hosted via @fontsource.
-- Design direction: "Dusk" (picked 14 Nov from the design canvas). Dark navy ground throughout, Marcellus display type, photo-led hero, mint pricing band as the one light moment. Stone pages generate from `src/data/stones.js` via `src/pages/[stone].astro`.
+- Design direction: Dusk layout with the "light pass" colour balance (approved 15 Nov). White is the default surface, mint (`.band.panel` / `.band.light`) for alternate bands, navy (`.band.dark`, `.band.textured`, the homepage hero, footer, mobile menu) for a few feature moments only, teal for buttons and accents. Roughly 60% light, 30% navy, 10% teal, following the 2022 brand guidelines. Use the surface tokens in global.css (`--strong`, `--text`, `--muted`, `--lede`, `--accent`, `--hairline`, `--card`) rather than hard-coded colours, so text works on both light and dark sections. Stone pages generate from `src/data/stones.js` via `src/pages/[stone].astro`.
 
 ## Brand tokens (src/styles/global.css)
 - `--teal: #219ebc`, `--navy: #002f49`, `--mint: #e8f5f1`, `--ink: #2d2a26` (from the 2022 brand guidelines)
