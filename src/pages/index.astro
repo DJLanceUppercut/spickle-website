@@ -5,6 +5,8 @@ import SealDemo from '../components/SealDemo.astro';
 import StoneTexture from '../components/StoneTexture.astro';
 import { stones } from '../data/stones.js';
 import heroDusk from '../assets/hero-dusk.jpg';
+import { pairs } from '../data/gallery.js';
+import BeforeAfter from '../components/BeforeAfter.astro';
 ---
 <Base
   title="Stone Cleaning & Sealing Melbourne | Spickle"
@@ -145,14 +147,18 @@ import heroDusk from '../assets/hero-dusk.jpg';
     </div>
   </section>
 
-  <!-- Before and after -->
-  <section class="band hairline-top" id="gallery">
-    <div class="wrap">
-      <h2 data-reveal>Before and after</h2>
-      <div class="todo">[Matched before and after photos from real Spickle jobs go here, with the stone and suburb under each pair. Waiting on job photos from Lukey.]</div>
-      <p class="gallery-link"><a class="tlink" href="/gallery">See the gallery</a></p>
-    </div>
-  </section>
+  <!-- Before and after: appears once src/data/gallery.js has pairs -->
+  {pairs.length > 0 && (
+    <section class="band hairline-top" id="gallery">
+      <div class="wrap">
+        <h2 data-reveal>Before and after</h2>
+        <div class="ba-grid">
+          {pairs.slice(0, 2).map((p) => <BeforeAfter before={p.before} after={p.after} caption={`${p.caption}, ${p.suburb}`} />)}
+        </div>
+        <p class="gallery-link"><a class="tlink" href="/gallery">See more of our work</a></p>
+      </div>
+    </section>
+  )}
 
   <!-- Review -->
   <section class="band textured review-band">
@@ -352,6 +358,7 @@ import heroDusk from '../assets/hero-dusk.jpg';
 
   .two-col { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(360px, 100%), 1fr)); gap: clamp(2rem, 5vw, 5rem); }
   .gallery-link { margin: 1.5rem 0 0; }
+  .ba-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr)); gap: clamp(1.5rem, 3vw, 2.5rem); }
 
   /* Book */
   .book-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(400px, 100%), 1fr)); gap: clamp(2rem, 6vw, 6rem); align-items: center; }

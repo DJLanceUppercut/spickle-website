@@ -4,6 +4,9 @@ import { stones } from '../data/stones.js';
 
 const { s } = Astro.props;
 const others = stones.filter((o) => o.slug !== s.slug);
+import { pairs } from '../data/gallery.js';
+import BeforeAfter from './BeforeAfter.astro';
+const stonePairs = pairs.filter((p) => p.stone === s.slug);
 ---
 <!-- Stone hero -->
 <section class="band stone-hero hairline-top">
@@ -48,13 +51,17 @@ const others = stones.filter((o) => o.slug !== s.slug);
   </div>
 </section>
 
-<!-- Photos -->
-<section class="band hairline-top">
-  <div class="wrap">
-    <h2>{s.name} jobs</h2>
-    <div class="todo">[Before and after photos of real Spickle {s.name.toLowerCase()} jobs go here. Waiting on job photos from Lukey.]</div>
-  </div>
-</section>
+<!-- Photos: appears once src/data/gallery.js has a pair for this stone -->
+{stonePairs.length > 0 && (
+  <section class="band hairline-top">
+    <div class="wrap">
+      <h2>{s.name} jobs</h2>
+      <div class="ba-grid">
+        {stonePairs.map((p) => <BeforeAfter before={p.before} after={p.after} caption={`${p.caption}, ${p.suburb}`} />)}
+      </div>
+    </div>
+  </section>
+)}
 
 <!-- Book -->
 <section class="band panel">
@@ -81,6 +88,7 @@ const others = stones.filter((o) => o.slug !== s.slug);
 </section>
 
 <style>
+  .ba-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr)); gap: clamp(1.5rem, 3vw, 2.5rem); }
   .hero-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(400px, 100%), 1fr)); gap: clamp(2rem, 5vw, 5rem); align-items: center; }
   .crumb { font-size: var(--step--1); margin-bottom: 1rem; }
   .crumb a { color: var(--faint); text-decoration: none; }

@@ -1,5 +1,7 @@
 ---
 const { sub } = Astro.props;
+import { reviews } from '../data/reviews.js';
+const review = reviews[0];
 ---
 <section class="band hairline-top">
   <div class="wrap hero-grid">
@@ -30,13 +32,22 @@ const { sub } = Astro.props;
       <a class="tlink" href="/#stones">See the stones we work with</a>
     </div>
     <div>
-      <h2>Local proof</h2>
-      <div class="todo">{sub.proofTodo}</div>
+      <h2>From a customer nearby</h2>
+      <figure class="mini-review">
+        <blockquote><p>{review.text}</p></blockquote>
+        <figcaption><strong>{review.name}, {review.suburb}</strong> <span class="stars" role="img" aria-label={`${review.stars} out of 5 stars`}>{'★'.repeat(review.stars)}</span> {review.source}</figcaption>
+      </figure>
     </div>
   </div>
 </section>
 
 <style>
+  .mini-review { margin: 0; }
+  .mini-review blockquote { margin: 0 0 0.8rem; font-family: var(--display); font-size: var(--step-1); line-height: 1.35; color: var(--white); }
+  .mini-review blockquote p { margin: 0; }
+  .mini-review figcaption { color: var(--muted); font-size: 0.95rem; display: flex; flex-wrap: wrap; gap: 0.3rem 0.7rem; align-items: center; }
+  .mini-review strong { color: var(--white); }
+  .mini-review .stars { color: #f2c94c; letter-spacing: 0.12em; }
   .hero-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: clamp(2.5rem, 6vw, 6rem); align-items: start; }
   .crumb { font-size: var(--step--1); font-weight: 700; color: var(--teal-bright); margin-bottom: 0.9rem; letter-spacing: 0.04em; }
   .lede { font-size: var(--step-1); color: #d6e8ee; max-width: 34ch; }

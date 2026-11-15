@@ -1,29 +1,75 @@
 ---
 import Base from '../layouts/Base.astro';
 import BeforeAfter from '../components/BeforeAfter.astro';
+import SealDemo from '../components/SealDemo.astro';
+import StoneTexture from '../components/StoneTexture.astro';
+import { pairs } from '../data/gallery.js';
+import { reviews } from '../data/reviews.js';
 ---
 <Base
-  title="Before & After Gallery | Stone Cleaning & Sealing | Spickle"
-  description="Before and after photos of stone and concrete cleaning and sealing jobs across Melbourne and the Mornington Peninsula."
+  title="Our Work | Stone Cleaning & Sealing Melbourne | Spickle"
+  description="What a Spickle clean and seal does to natural stone and concrete, what customers say, and recent jobs across Melbourne and the Mornington Peninsula."
 >
   <section class="band hairline-top">
     <div class="wrap">
-      <h1>Before and after</h1>
-      <p class="lede">Same stone, same spot, one visit apart. Each pair is labelled with the stone and the suburb.</p>
-      <BeforeAfter caption="[The slider, working and waiting for real photos. Each pair gets one of these, captioned with the stone and suburb.]" />
-      <div class="pairs">
-        <div class="todo pair">[Before/after pair 2: photos, stone and suburb. Waiting on job photos from Lukey.]</div>
-        <div class="todo pair">[Before/after pair 3]</div>
-        <div class="todo pair">[Before/after pair 4]</div>
+      <h1>Our work</h1>
+      <p class="lede">Every job ends the same way: stone that's clean, protected, and shrugs off the next spill.</p>
+
+      {pairs.length > 0 ? (
+        <div class="ba-grid">
+          {pairs.map((p) => <BeforeAfter before={p.before} after={p.after} caption={`${p.caption}, ${p.suburb}`} />)}
+        </div>
+      ) : (
+        <div class="demo-grid">
+          <SealDemo />
+          <div>
+            <h2>What sealing changes</h2>
+            <p>Drag across the paver. Left of the line, water soaks into unsealed stone and darkens it, and oil, wine and leaf tannins do the same. Right of the line, the same water sits on top in beads and wipes away.</p>
+            <p>That's the difference a seal makes on the day, and for years after. We choose the sealer for your stone and where it's laid, then tell you why.</p>
+            <a class="tlink" href="/services#sealing">How we seal</a>
+          </div>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <section class="band textured">
+    <StoneTexture id="tx-gallery" shade={0.66} />
+    <div class="wrap">
+      <h2 class="h-small">What customers say</h2>
+      <div class="reviews">
+        {reviews.map((r) => (
+          <figure class="review" data-reveal>
+            <blockquote><p>{r.text}</p></blockquote>
+            <figcaption>
+              <strong>{r.name}, {r.suburb}</strong>
+              <span class="stars" role="img" aria-label={`${r.stars} out of 5 stars`}>{'★'.repeat(r.stars)}</span>
+              <span>{r.source}</span>
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap split">
+      <div>
+        <h2>Recent jobs</h2>
+        <p>We post jobs as we finish them on Instagram and Facebook.</p>
+      </div>
+      <div class="cta-row">
+        <a class="btn btn-outline" href="https://instagram.com/spickle_sealing">Spickle on Instagram</a>
+        <a class="tlink" href="https://www.facebook.com/profile.php?id=100088685563706">Facebook</a>
       </div>
     </div>
   </section>
 
   <section class="band panel">
-    <div class="wrap book-row">
+    <div class="wrap split">
       <div>
-        <h2>Yours could be the next pair</h2>
-        <p>Send photos of your stone as it is now, and we'll price the after.</p>
+        <h2>Want yours done?</h2>
+        <p>Send photos of your stone as it is now and the rough size of the area, and we'll price it.</p>
       </div>
       <div class="cta-row">
         <a class="btn btn-primary" href="/book-now">Book a quote</a>
@@ -34,11 +80,21 @@ import BeforeAfter from '../components/BeforeAfter.astro';
 </Base>
 
 <style>
-  .lede { font-size: var(--step-1); color: #d6e8ee; margin-bottom: clamp(2rem, 4vw, 3rem); }
-  .pairs { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr)); gap: clamp(1.5rem, 3vw, 2.5rem); margin-top: clamp(1.5rem, 3vw, 2.5rem); }
-  .pair { min-height: 260px; display: flex; align-items: center; justify-content: center; text-align: center; }
-  .book-row { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1.5rem 3rem; }
-  .book-row h2 { margin-bottom: 0.3em; }
-  .book-row p { margin: 0; }
+  .lede { font-size: var(--step-1); color: #d6e8ee; margin-bottom: clamp(2rem, 4vw, 3rem); max-width: 40ch; }
+  .ba-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr)); gap: clamp(1.5rem, 3vw, 2.5rem); }
+  .demo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr)); gap: clamp(2rem, 4vw, 4rem); align-items: center; }
+  .demo-grid h2 { font-size: var(--step-2); }
+  .textured { position: relative; isolation: isolate; }
+  .h-small { font-size: var(--step-1); color: var(--muted); font-family: var(--font); font-weight: 600; margin-bottom: 1.5rem; }
+  .reviews { display: grid; gap: 2.5rem; }
+  .review { margin: 0; max-width: 900px; }
+  .review blockquote { margin: 0 0 1rem; }
+  .review blockquote p { margin: 0; font-family: var(--display); font-size: clamp(1.6rem, 1.1rem + 1.8vw, 2.6rem); line-height: 1.25; color: var(--white); }
+  .review figcaption { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem 1rem; color: var(--muted); }
+  .review strong { color: var(--white); }
+  .stars { color: #f2c94c; letter-spacing: 0.12em; }
+  .split { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1.5rem 3rem; }
+  .split h2 { margin-bottom: 0.3em; }
+  .split p { margin: 0; }
   .cta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.9rem 1.6rem; }
 </style>
