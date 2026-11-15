@@ -20,7 +20,7 @@ const stonePairs = pairs.filter((p) => p.stone === s.slug);
         <a class="tlink" href="tel:1300220045">Call 1300 22 00 45</a>
       </div>
     </div>
-    <Image class="hero-img" src={s.image} alt={`${s.name} surface`} widths={[480, 900]} sizes="(max-width: 900px) 100vw, 50vw" />
+    <Image class="hero-img" src={s.image} alt={`${s.name} surface`} widths={[480, 900]} sizes="(max-width: 900px) 100vw, 50vw" loading="eager" fetchpriority="high" />
   </div>
 </section>
 
