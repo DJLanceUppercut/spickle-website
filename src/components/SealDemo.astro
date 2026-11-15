@@ -108,6 +108,8 @@ for (let row = 0; row < 6; row++) {
     const set = (v: number) => {
       stage.style.setProperty('--pos', v + '%');
       reveal.setAttribute('width', String((640 * v) / 100));
+      // Screen readers hear what the value means, not a bare number.
+      range.setAttribute('aria-valuetext', `${v}% unsealed, ${100 - v}% sealed`);
     };
     range.addEventListener('input', () => set(Number(range.value)));
     set(Number(range.value));

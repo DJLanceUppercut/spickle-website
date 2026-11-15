@@ -112,7 +112,7 @@ const RATE = 15;
   }
   .result > div { display: grid; gap: 0.2rem; }
   .r-label { font-size: 0.85rem; color: var(--muted); }
-  .r-val { font-family: var(--display); font-size: clamp(1.8rem, 1.3rem + 1.6vw, 2.6rem); line-height: 1.1; color: var(--strong); }
+  .r-val { font-family: var(--display); font-size-adjust: var(--display-adjust); font-size: clamp(1.8rem, 1.3rem + 1.6vw, 2.6rem); line-height: 1.1; color: var(--strong); }
   .calc-note { margin: 0.9rem 0 0; font-size: 0.85rem; color: var(--muted); }
   .row + :global(.row), .rows > .row:not(:last-child) { padding-bottom: 0.9rem; border-bottom: 1px solid var(--hairline); }
   @media (max-width: 560px) {
