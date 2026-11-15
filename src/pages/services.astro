@@ -7,6 +7,7 @@ const tiles = [
   { href: '#cleaning', n: '02', name: 'Cleaning', line: 'Grime, mould and residue, with cleaners matched to the stone.' },
   { href: '#sealing', n: '03', name: 'Sealing', line: 'Penetrating or topical, chosen for the stone and where it is.' },
   { href: '#stains', n: '04', name: 'Stain removal', line: 'Oil, rust, tannins and more, drawn out without damage.' },
+  { href: '#stripping', n: '05', name: 'Sealer stripping', line: 'Failed, peeling or patchy sealer taken back and redone.' },
 ];
 ---
 <Base
@@ -16,7 +17,7 @@ const tiles = [
   <section class="band hairline-top">
     <div class="wrap">
       <h1>What we do</h1>
-      <p class="lede">Four services, one aim: stone that looks the way it did the day it was laid.</p>
+      <p class="lede">Five services, one aim: stone that looks the way it did the day it was laid.</p>
       <ul class="tiles">
         {tiles.map((t, i) => (
           <li data-reveal style={`--delay:${i * 0.07}s`}>
@@ -43,7 +44,7 @@ const tiles = [
         <h2 class="h-follow">When to book it</h2>
         <p>Soon after laying, once curing is done. Tell us when the job finished and we'll tell you the right window for your stone and sealer.</p>
         <ul class="covers">
-          <li>Installation residue and efflorescence cleaned off</li>
+          <li>Grout haze, installation residue and efflorescence cleaned off</li>
           <li>Sealed once stone and grout have cured</li>
           <li>Handover sealing for landscapers and builders</li>
         </ul>
@@ -56,7 +57,7 @@ const tiles = [
     <div class="wrap svc">
       <div>
         <h2>Cleaning</h2>
-        <p>Dirt, mould, moss, efflorescence and general grime, lifted with cleaners matched to the surface. That matching matters: a cleaner that's routine on granite can permanently etch limestone or travertine.</p>
+        <p>Dirt, mould, moss, efflorescence and general grime, lifted with cleaners matched to the surface: natural stone, concrete, marble, porcelain or terracotta. That matching matters: a cleaner that's routine on granite can permanently etch limestone or travertine.</p>
         <p>We use controlled pressure cleaning where the stone can take it and gentler methods where it can't, so soft stone like sandstone keeps its face.</p>
       </div>
       <div>
@@ -75,7 +76,7 @@ const tiles = [
   <section class="band panel" id="sealing">
     <div class="wrap">
       <h2>Sealing</h2>
-      <p class="section-lede">Two kinds of sealer, chosen for the stone and where it's laid.</p>
+      <p class="section-lede">Two kinds of sealer, chosen for the stone and where it's laid. We test a patch first, so you see how your stone looks sealed before we do the whole area.</p>
       <div class="seal-grid">
         <SealDemo />
         <div class="seal-types">
@@ -97,12 +98,44 @@ const tiles = [
     <div class="wrap svc">
       <div>
         <h2>Stain removal</h2>
-        <p>Oil and grease, leaf tannins, rust, mould and efflorescence. We identify the stain and the stone, then use the treatment that draws it out without damaging the surface.</p>
+        <p>Oil and grease, leaf tannins, timber stains from decks and furniture, rust, mould, efflorescence and grout haze. We identify the stain and the stone, then use the treatment that draws it out without damaging the surface.</p>
       </div>
       <div>
         <h2 class="h-follow">An honest note</h2>
         <p>Most stains can be improved and many removed entirely, but a stain that has had months to set in porous stone doesn't always come out fully. We'll tell you what's realistic when we see the photos, not after the job.</p>
         <p class="links"><a class="tlink" href="/guides/oil-stains-on-bluestone">Oil on bluestone</a><a class="tlink" href="/guides/oil-stains-on-exposed-aggregate">Oil on aggregate driveways</a><a class="tlink" href="/guides/limestone-etching">Dull marks on limestone</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band panel" id="stripping">
+    <div class="wrap svc">
+      <div>
+        <h2>Sealer stripping and resealing</h2>
+        <p>Sealer that's peeling, patchy, yellowed, or wearing off unevenly, often from a cheap product or a rushed job. Putting a new coat over the top doesn't fix it: the new sealer only bonds as well as the failing one underneath.</p>
+        <p>We strip the old sealer back to bare stone, clean it, test a patch, then reseal with a product that suits the stone and where it's laid. We fix other people's jobs as well as our own.</p>
+      </div>
+      <div>
+        <h2 class="h-follow">Signs it's failing</h2>
+        <ul class="covers">
+          <li>Flaking or peeling, especially where cars or feet go</li>
+          <li>Cloudy, white or yellowed patches</li>
+          <li>Water soaking in on some areas and beading on others</li>
+        </ul>
+        <p class="links"><a class="tlink" href="/driveways">Driveway sealing</a><a class="tlink" href="/guides/how-often-to-reseal">How often to reseal</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap book-row">
+      <div>
+        <h2>By area</h2>
+        <p>Pool surrounds and driveways each bring their own problems.</p>
+      </div>
+      <div class="cta-row">
+        <a class="btn btn-outline" href="/pool-surrounds">Pool surrounds</a>
+        <a class="btn btn-outline" href="/driveways">Driveways</a>
       </div>
     </div>
   </section>
@@ -125,9 +158,10 @@ const tiles = [
   .lede { font-size: var(--step-1); color: #d6e8ee; }
   .tiles {
     list-style: none; margin: clamp(2rem, 4vw, 3rem) 0 0; padding: 0;
-    display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(0.75rem, 1.5vw, 1.1rem);
+    display: grid; grid-template-columns: repeat(5, 1fr); gap: clamp(0.75rem, 1.5vw, 1.1rem);
   }
-  @media (max-width: 900px) { .tiles { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 1100px) { .tiles { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 760px) { .tiles { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 480px) { .tiles { grid-template-columns: 1fr; } }
   .tiles a {
     position: relative; display: grid; gap: 0.5rem; height: 100%;

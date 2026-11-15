@@ -92,6 +92,10 @@ import BeforeAfter from '../components/BeforeAfter.astro';
           </li>
         ))}
       </ul>
+      <div class="also" data-reveal>
+        <p>We also clean and seal marble, porcelain and terracotta.</p>
+        <p class="also-links">By area: <a class="tlink" href="/pool-surrounds">Pool surrounds</a> <a class="tlink" href="/driveways">Driveways</a></p>
+      </div>
     </div>
   </section>
 
@@ -135,8 +139,8 @@ import BeforeAfter from '../components/BeforeAfter.astro';
         </li>
         <li>
           <span class="step-n" aria-hidden="true">3</span>
-          <h3>Clean, treat, seal</h3>
-          <p>We clean the stone, lift any stains, then apply the sealer.</p>
+          <h3>Test, clean, seal</h3>
+          <p>We test a patch first so you see the result, then clean, lift any stains and seal.</p>
         </li>
         <li>
           <span class="step-n" aria-hidden="true">4</span>
@@ -266,6 +270,9 @@ import BeforeAfter from '../components/BeforeAfter.astro';
   /* Stones */
   .row-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 1rem 3rem; margin-bottom: clamp(2rem, 4vw, 3.25rem); }
   .row-head h2 { margin: 0; }
+  .also { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 0.5rem 2rem; margin-top: clamp(1.5rem, 3vw, 2.25rem); padding-top: 1.25rem; border-top: 1px solid var(--hairline); }
+  .also p { margin: 0; }
+  .also-links { display: flex; flex-wrap: wrap; align-items: center; gap: 0 1.4rem; color: var(--muted); }
   .row-head p { margin: 0; max-width: 46ch; }
   .stone-grid {
     list-style: none; margin: 0; padding: 0;

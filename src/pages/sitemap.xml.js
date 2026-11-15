@@ -13,6 +13,8 @@ export async function GET({ site }) {
   const { stones } = await import('../data/stones.js');
   const { suburbs } = await import('../data/suburbs.js');
   const { guides } = await import('../data/guides.js');
+  const { areas } = await import('../data/areas.js');
+  areas.forEach((a) => paths.add(`/${a.slug}`));
   stones.forEach((s) => paths.add(`/${s.slug}`));
   suburbs.forEach((s) => paths.add(`/${s.slug}`));
   guides.forEach((g) => paths.add(`/guides/${g.slug}`));
