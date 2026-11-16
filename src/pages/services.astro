@@ -1,7 +1,9 @@
 ---
 import { BOOKING_URL } from '../config/site.js';
 import Base from '../layouts/Base.astro';
+import { Image } from 'astro:assets';
 import SealDemo from '../components/SealDemo.astro';
+import action from '../assets/action-cleaner.jpg';
 
 const tiles = [
   { href: '#cleaning', n: '01', name: 'Cleaning', line: 'Grime, mould and residue, with cleaners matched to the stone.' },
@@ -39,6 +41,7 @@ const tiles = [
         <h2>Cleaning</h2>
         <p>Dirt, mould, moss, efflorescence and general grime, lifted with cleaners matched to the surface: natural stone, concrete, marble, porcelain or terracotta. That matching matters: a cleaner that's routine on granite can permanently etch limestone or travertine.</p>
         <p>We use controlled pressure cleaning where the stone can take it and gentler methods where it can't, so soft stone like sandstone keeps its face.</p>
+        <Image class="action" src={action} alt="A Spickle cleaner working a rotary surface cleaner across paving beside a sliding door" widths={[480, 720]} sizes="(max-width: 860px) 100vw, 360px" quality={72} loading="lazy" />
       </div>
       <div>
         <h2 class="h-follow">On its own or before sealing</h2>
@@ -140,6 +143,7 @@ const tiles = [
 </Base>
 
 <style>
+  .action { display: block; width: 100%; max-width: 360px; height: auto; border-radius: 6px; margin-top: 1.75rem; }
   .lede { font-size: var(--step-1); color: var(--lede); }
   .tiles {
     list-style: none; margin: clamp(2rem, 4vw, 3rem) 0 0; padding: 0;
