@@ -4,21 +4,20 @@ import Base from '../layouts/Base.astro';
 import SealDemo from '../components/SealDemo.astro';
 
 const tiles = [
-  { href: '#new-install', n: '01', name: 'New installation sealing', line: 'Protection from day one, before the first spill.' },
-  { href: '#cleaning', n: '02', name: 'Cleaning', line: 'Grime, mould and residue, with cleaners matched to the stone.' },
-  { href: '#sealing', n: '03', name: 'Sealing', line: 'Penetrating or topical, chosen for the stone and where it is.' },
-  { href: '#stains', n: '04', name: 'Stain removal', line: 'Oil, rust, tannins and more, drawn out without damage.' },
-  { href: '#stripping', n: '05', name: 'Sealer stripping', line: 'Failed, peeling or patchy sealer taken back and redone.' },
+  { href: '#cleaning', n: '01', name: 'Cleaning', line: 'Grime, mould and residue, with cleaners matched to the stone.' },
+  { href: '#sealing', n: '02', name: 'Sealing', line: 'New or old, penetrating or topical, chosen for the stone.' },
+  { href: '#stains', n: '03', name: 'Stain removal', line: 'Oil, rust, tannins and more, drawn out without damage.' },
+  { href: '#stripping', n: '04', name: 'Sealer stripping', line: 'Failed, peeling or patchy sealer taken back and redone.' },
 ];
 ---
 <Base
   title="Stone Cleaning, Sealing & Stain Removal | Spickle"
-  description="Cleaning, sealing, stain removal and new installation sealing for natural stone and concrete across Melbourne and the Mornington Peninsula."
+  description="Cleaning, sealing, stain removal and sealer stripping for natural stone and concrete across Melbourne and the Mornington Peninsula."
 >
   <section class="band hairline-top">
     <div class="wrap">
       <h1>What we do</h1>
-      <p class="lede">Five services, one aim: stone that looks the way it did the day it was laid.</p>
+      <p class="lede">Four services, one aim: stone that looks the way it did the day it was laid.</p>
       <ul class="tiles">
         {tiles.map((t, i) => (
           <li data-reveal style={`--delay:${i * 0.07}s`}>
@@ -34,27 +33,7 @@ const tiles = [
     </div>
   </section>
 
-  <section class="band panel" id="new-install">
-    <div class="wrap svc">
-      <div>
-        <h2>New installation sealing</h2>
-        <p>New stone has no protection the day it's laid, and the first barbecue is rarely far away. Once the stone and grout have cured, we clean off installation residue and efflorescence, then seal, so the surface starts life protected.</p>
-        <p>For landscapers and builders we seal before handover: your client gets a finished result, and you don't get the call about the first stain.</p>
-      </div>
-      <div>
-        <h2 class="h-follow">When to book it</h2>
-        <p>Soon after laying, once curing is done. Tell us when the job finished and we'll tell you the right window for your stone and sealer.</p>
-        <ul class="covers">
-          <li>Grout haze, installation residue and efflorescence cleaned off</li>
-          <li>Sealed once stone and grout have cured</li>
-          <li>Handover sealing for landscapers and builders</li>
-        </ul>
-        <p class="links"><a class="tlink" href="/new-installation-sealing">More on new installation sealing</a><a class="tlink" href="/guides/white-haze-on-new-paving">White haze on new paving</a></p>
-      </div>
-    </div>
-  </section>
-
-  <section class="band" id="cleaning">
+  <section class="band panel" id="cleaning">
     <div class="wrap svc">
       <div>
         <h2>Cleaning</h2>
@@ -77,7 +56,7 @@ const tiles = [
   <section class="band dark" id="sealing">
     <div class="wrap">
       <h2>Sealing</h2>
-      <p class="section-lede">Two kinds of sealer, chosen for the stone and where it's laid. We test a patch first, so you see how your stone looks sealed before we do the whole area.</p>
+      <p class="section-lede">New or old, we seal it. Two kinds of sealer, chosen for the stone and where it's laid. We test a patch first, so you see how your stone looks sealed before we do the whole area.</p>
       <div class="seal-grid">
         <SealDemo />
         <div class="seal-types">
@@ -89,7 +68,11 @@ const tiles = [
             <h3>Topical sealer</h3>
             <p>Sits on the surface as a thin film and gives the stone a matte, satin or gloss finish. We'll tell you where a topical finish suits and where it doesn't, before you choose.</p>
           </div>
-          <p class="links"><a class="tlink" href="/guides/how-often-to-reseal">How often does stone need resealing?</a></p>
+          <div>
+            <h3>New stone</h3>
+            <p>Seal soon after laying, once the stone and grout have cured. Tell us when the job finished and we'll tell you the right window. We also seal for landscapers and builders before handover.</p>
+          </div>
+          <p class="links"><a class="tlink" href="/guides/how-often-to-reseal">How often does stone need resealing?</a><a class="tlink" href="/guides/white-haze-on-new-paving">White haze on new paving</a></p>
         </div>
       </div>
     </div>
@@ -160,9 +143,9 @@ const tiles = [
   .lede { font-size: var(--step-1); color: var(--lede); }
   .tiles {
     list-style: none; margin: clamp(2rem, 4vw, 3rem) 0 0; padding: 0;
-    display: grid; grid-template-columns: repeat(5, 1fr); gap: clamp(0.75rem, 1.5vw, 1.1rem);
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(0.75rem, 1.5vw, 1.1rem);
   }
-  @media (max-width: 1100px) { .tiles { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 1100px) { .tiles { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 760px) { .tiles { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 480px) { .tiles { grid-template-columns: 1fr; } }
   .tiles a {
