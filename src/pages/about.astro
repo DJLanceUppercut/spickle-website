@@ -2,7 +2,7 @@
 import { BOOKING_URL } from '../config/site.js';
 import { Image } from 'astro:assets';
 import Base from '../layouts/Base.astro';
-import van from '../assets/spickle-van.png';
+import van from '../assets/van-side.jpg';
 import { ABN } from '../config/site.js';
 
 const principles = [
@@ -39,7 +39,7 @@ const principles = [
 
   <section class="band van-band">
     <div class="wrap">
-      <Image class="van" src={van} alt="A Spickle van parked outside a home, with pressure-cleaning equipment set up on the paving beside it" widths={[640, 960, 1400]} sizes="(max-width: 1200px) 100vw, 1200px" quality={70} loading="lazy" />
+      <Image class="van" src={van} alt="The Spickle van, wrapped in blue and white with the Spickle logo, the Cleaning and Sealing icons and the 1300 22 00 45 number" widths={[640, 960, 1400]} sizes="(max-width: 1200px) 100vw, 1200px" quality={72} loading="lazy" />
     </div>
   </section>
 
@@ -74,7 +74,7 @@ const principles = [
 
 <style>
   .van-band { padding-block: clamp(1rem, 3vw, 2rem); }
-  .van { display: block; width: 100%; height: auto; border-radius: 6px; }
+  .van { display: block; width: 100%; max-width: 860px; height: auto; border-radius: 6px; margin-inline: auto; }
   .grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: clamp(2.5rem, 6vw, 6rem); align-items: start; }
   .lede { font-size: var(--step-1); color: var(--lede); }
   .facts { display: grid; gap: 1.25rem; }

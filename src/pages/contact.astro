@@ -1,6 +1,8 @@
 ---
 import { BOOKING_URL, SHOW_SOCIAL } from '../config/site.js';
+import { Image } from 'astro:assets';
 import Base from '../layouts/Base.astro';
+import van from '../assets/van-close.jpg';
 ---
 <Base
   title="Contact Spickle | Stone Cleaning & Sealing Melbourne"
@@ -25,6 +27,7 @@ import Base from '../layouts/Base.astro';
         <a class="tlink" href="/service-areas">See all 115 suburbs</a>
         <h2 class="sub">Prefer to book straight in?</h2>
         <p><a class="btn btn-primary" href={BOOKING_URL}>Book a quote</a></p>
+        <Image class="van" src={van} alt="The side of the Spickle van, showing the Cleaning and Sealing icons, 1300 22 00 45 and spickle.com.au" widths={[480, 760]} sizes="(max-width: 700px) 100vw, 380px" quality={72} loading="lazy" />
       </div>
     </div>
   </section>
@@ -38,4 +41,5 @@ import Base from '../layouts/Base.astro';
   .details dt { font-size: var(--step--1); color: var(--faint); font-weight: 600; }
   .details dd { margin: 0; }
   .sub { margin-top: 1.5em; }
+  .van { display: block; width: 100%; max-width: 380px; height: auto; border-radius: 6px; margin-top: 2rem; }
 </style>
