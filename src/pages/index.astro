@@ -6,7 +6,7 @@ import SealDemo from '../components/SealDemo.astro';
 import StoneTexture from '../components/StoneTexture.astro';
 import { stones } from '../data/stones.js';
 import heroDusk from '../assets/hero-dusk.jpg';
-import { pairs } from '../data/gallery.js';
+import { pairs, captionFor } from '../data/gallery.js';
 import BeforeAfter from '../components/BeforeAfter.astro';
 import BookingCard from '../components/BookingCard.astro';
 ---
@@ -161,7 +161,7 @@ import BookingCard from '../components/BookingCard.astro';
       <div class="wrap">
         <h2 data-reveal>Before and after</h2>
         <div class="ba-grid">
-          {pairs.slice(0, 2).map((p) => <BeforeAfter before={p.before} after={p.after} caption={`${p.caption}, ${p.suburb}`} />)}
+          {pairs.slice(0, 2).map((p) => <BeforeAfter before={p.before} after={p.after} image={p.image} alt={p.alt} caption={captionFor(p)} />)}
         </div>
         <p class="gallery-link"><a class="tlink" href="/gallery">See more of our work</a></p>
       </div>

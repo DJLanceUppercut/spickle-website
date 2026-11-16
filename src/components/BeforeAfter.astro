@@ -5,11 +5,16 @@
 interface Props {
   before?: string;
   after?: string;
+  image?: string; // one ready-made side-by-side photo; no slider
+  alt?: string;
   caption?: string;
 }
-const { before, after, caption } = Astro.props;
+const { before, after, image, alt, caption } = Astro.props;
 ---
 <figure class="ba">
+  {image ? (
+    <img class="ba-single" src={image} alt={alt ?? 'Before and after'} width="960" height="960" loading="lazy" decoding="async" />
+  ) : (
   <div class="ba-stage" data-ba>
     <div class="ba-layer ba-before">
       {before ? <img src={before} alt="Before" loading="lazy" /> : <div class="ph ph-before">Before</div>}
@@ -20,11 +25,13 @@ const { before, after, caption } = Astro.props;
     <div class="ba-line" data-ba-line aria-hidden="true"><span class="ba-knob"></span></div>
     <input class="ba-range" type="range" min="0" max="100" value="50" data-ba-range aria-label="Drag to compare before and after" aria-valuetext="50% before, 50% after" />
   </div>
+  )}
   {caption && <figcaption>{caption}</figcaption>}
 </figure>
 
 <style>
   .ba { margin: 0; }
+  .ba-single { display: block; width: 100%; height: auto; aspect-ratio: 1 / 1; border-radius: 2px; object-fit: cover; }
   .ba-stage { position: relative; height: clamp(260px, 42vw, 560px); border-radius: 2px; overflow: hidden; }
   .ba-layer { position: absolute; inset: 0; }
   .ba-layer img { width: 100%; height: 100%; object-fit: cover; display: block; }

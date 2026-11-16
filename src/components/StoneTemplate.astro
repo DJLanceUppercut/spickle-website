@@ -5,7 +5,7 @@ import { stones } from '../data/stones.js';
 
 const { s } = Astro.props;
 const others = stones.filter((o) => o.slug !== s.slug);
-import { pairs } from '../data/gallery.js';
+import { pairs, captionFor } from '../data/gallery.js';
 import BeforeAfter from './BeforeAfter.astro';
 const stonePairs = pairs.filter((p) => p.stone === s.slug);
 ---
@@ -58,7 +58,7 @@ const stonePairs = pairs.filter((p) => p.stone === s.slug);
     <div class="wrap">
       <h2>{s.name} jobs</h2>
       <div class="ba-grid">
-        {stonePairs.map((p) => <BeforeAfter before={p.before} after={p.after} caption={`${p.caption}, ${p.suburb}`} />)}
+        {stonePairs.map((p) => <BeforeAfter before={p.before} after={p.after} image={p.image} alt={p.alt} caption={captionFor(p)} />)}
       </div>
     </div>
   </section>

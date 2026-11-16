@@ -4,7 +4,7 @@ import Base from '../layouts/Base.astro';
 import BeforeAfter from '../components/BeforeAfter.astro';
 import SealDemo from '../components/SealDemo.astro';
 import StoneTexture from '../components/StoneTexture.astro';
-import { pairs } from '../data/gallery.js';
+import { pairs, captionFor } from '../data/gallery.js';
 import { reviews } from '../data/reviews.js';
 ---
 <Base
@@ -18,7 +18,7 @@ import { reviews } from '../data/reviews.js';
 
       {pairs.length > 0 ? (
         <div class="ba-grid">
-          {pairs.map((p) => <BeforeAfter before={p.before} after={p.after} caption={`${p.caption}, ${p.suburb}`} />)}
+          {pairs.map((p) => <BeforeAfter before={p.before} after={p.after} image={p.image} alt={p.alt} caption={captionFor(p)} />)}
         </div>
       ) : (
         <div class="demo-grid">
