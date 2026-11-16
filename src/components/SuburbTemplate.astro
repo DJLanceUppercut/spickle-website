@@ -8,9 +8,8 @@ const review = reviews[0];
   <div class="wrap hero-grid">
     <div>
       <p class="crumb">{sub.name}</p>
-      <h1>Got our flyer? Your street's clean day is coming up.</h1>
-      <p class="lede">We clean and seal driveways and paving street by street, so your neighbours' jobs and yours share the travel.</p>
-      <div class="todo offer">{sub.offerTodo}</div>
+      <h1>Cleaning and sealing in {sub.name}</h1>
+      <p class="lede">Seen our flyer? We clean and seal driveways and paving street by street, so your neighbours' jobs and yours share the travel.</p>
       <div class="cta-row">
         <a class="btn btn-primary" href="tel:1300220045">Call 1300 22 00 45</a>
         <a class="tlink" href={BOOKING_URL}>Book online</a>
@@ -29,7 +28,7 @@ const review = reviews[0];
   <div class="wrap grid2">
     <div>
       <h2>More than driveways</h2>
-      <p>We clean and seal natural stone too: bluestone, limestone, travertine and the rest. If your paving or pool surround needs attention, ask while we're on your street.</p>
+      <p>We clean and seal natural stone too: bluestone, limestone, travertine and the rest. If your paving or pool surround needs attention, ask when you book.</p>
       <a class="tlink" href="/#stones">See the stones we work with</a>
     </div>
     {SHOW_REVIEWS && (
@@ -54,7 +53,6 @@ const review = reviews[0];
   .hero-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: clamp(2.5rem, 6vw, 6rem); align-items: start; }
   .crumb { font-size: var(--step--1); font-weight: 700; color: var(--accent); margin-bottom: 0.9rem; letter-spacing: 0.04em; }
   .lede { font-size: var(--step-1); color: var(--lede); max-width: 34ch; }
-  .offer { margin: 1.25rem 0; }
   .cta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.9rem 1.6rem; }
   .points { margin: 0; padding: 0; list-style: none; }
   .points li { padding: 0.8rem 0; border-top: 1px solid var(--hairline); color: var(--muted); }
