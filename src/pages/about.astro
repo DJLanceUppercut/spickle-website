@@ -1,6 +1,8 @@
 ---
 import { BOOKING_URL } from '../config/site.js';
+import { Image } from 'astro:assets';
 import Base from '../layouts/Base.astro';
+import van from '../assets/spickle-van.png';
 import { ABN } from '../config/site.js';
 
 const principles = [
@@ -35,6 +37,12 @@ const principles = [
     </div>
   </section>
 
+  <section class="band van-band">
+    <div class="wrap">
+      <Image class="van" src={van} alt="A Spickle van parked outside a home, with pressure-cleaning equipment set up on the paving beside it" widths={[640, 960, 1400]} sizes="(max-width: 1200px) 100vw, 1200px" quality={70} loading="lazy" />
+    </div>
+  </section>
+
   <section class="band panel">
     <div class="wrap">
       <h2 data-reveal>How we work</h2>
@@ -65,6 +73,8 @@ const principles = [
 </Base>
 
 <style>
+  .van-band { padding-block: clamp(1rem, 3vw, 2rem); }
+  .van { display: block; width: 100%; height: auto; border-radius: 6px; }
   .grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: clamp(2.5rem, 6vw, 6rem); align-items: start; }
   .lede { font-size: var(--step-1); color: var(--lede); }
   .facts { display: grid; gap: 1.25rem; }
