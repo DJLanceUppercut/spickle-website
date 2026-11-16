@@ -8,6 +8,11 @@ export const PRELAUNCH = true;
 // rating and review band, the area and suburb page reviews, and /gallery reviews.
 export const SHOW_REVIEWS = false;
 
+// Instagram and Facebook links stay hidden until the pages have regular recent
+// posts. Flip to true to bring back the footer, /contact and /gallery links and
+// the sameAs entries in the site's structured data.
+export const SHOW_SOCIAL = false;
+
 // From the ABN register (SPICKLE PTY LTD, VIC 3166). Confirmed by Lukey 16 Nov 2026.
 export const ABN = '25 663 619 583';
 export const SITE = 'https://www.spickle.com.au';

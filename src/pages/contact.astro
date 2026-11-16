@@ -1,5 +1,5 @@
 ---
-import { BOOKING_URL } from '../config/site.js';
+import { BOOKING_URL, SHOW_SOCIAL } from '../config/site.js';
 import Base from '../layouts/Base.astro';
 ---
 <Base
@@ -15,8 +15,8 @@ import Base from '../layouts/Base.astro';
           <div><dt>Phone</dt><dd><a class="tlink" href="tel:1300220045">1300 22 00 45</a></dd></div>
           <div><dt>Email</dt><dd><a class="tlink" href="mailto:info@spickle.com.au">info@spickle.com.au</a></dd></div>
           <div><dt>Hours</dt><dd>By appointment, usually Monday to Friday. Weekends can be arranged if needed.</dd></div>
-          <div><dt>Instagram</dt><dd><a class="tlink" href="https://instagram.com/spickle_sealing">@spickle_sealing</a></dd></div>
-          <div><dt>Facebook</dt><dd><a class="tlink" href="https://www.facebook.com/profile.php?id=100088685563706">Spickle Cleaning &amp; Sealing</a></dd></div>
+          {SHOW_SOCIAL && <div><dt>Instagram</dt><dd><a class="tlink" href="https://instagram.com/spickle_sealing">@spickle_sealing</a></dd></div>}
+          {SHOW_SOCIAL && <div><dt>Facebook</dt><dd><a class="tlink" href="https://www.facebook.com/profile.php?id=100088685563706">Spickle Cleaning &amp; Sealing</a></dd></div>}
         </dl>
       </div>
       <div>

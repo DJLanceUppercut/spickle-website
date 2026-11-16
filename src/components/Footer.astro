@@ -1,5 +1,5 @@
 ---
-import { ABN } from '../config/site.js';
+import { ABN, SHOW_SOCIAL } from '../config/site.js';
 const year = new Date().getFullYear();
 ---
 <footer class="site-footer">
@@ -13,8 +13,8 @@ const year = new Date().getFullYear();
       <ul>
         <li><a href="tel:1300220045">1300 22 00 45</a></li>
         <li><a href="mailto:info@spickle.com.au">info@spickle.com.au</a></li>
-        <li><a href="https://instagram.com/spickle_sealing">Instagram</a></li>
-        <li><a href="https://www.facebook.com/profile.php?id=100088685563706">Facebook</a></li>
+        {SHOW_SOCIAL && <li><a href="https://instagram.com/spickle_sealing">Instagram</a></li>}
+        {SHOW_SOCIAL && <li><a href="https://www.facebook.com/profile.php?id=100088685563706">Facebook</a></li>}
       </ul>
     </div>
     <div>
