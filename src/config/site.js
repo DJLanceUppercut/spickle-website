@@ -3,6 +3,11 @@
 // indexed (404, thank-you) pass `noindex` to Base themselves.
 export const PRELAUNCH = true;
 
+// Reviews and the star rating stay hidden until there are enough Google
+// reviews to show (only one so far). Flip to true to bring back the homepage
+// rating and review band, the area and suburb page reviews, and /gallery reviews.
+export const SHOW_REVIEWS = false;
+
 // From the ABN register (SPICKLE PTY LTD, VIC 3166). Confirmed by Lukey 16 Nov 2026.
 export const ABN = '25 663 619 583';
 export const SITE = 'https://www.spickle.com.au';

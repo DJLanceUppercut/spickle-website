@@ -1,5 +1,5 @@
 ---
-import { BOOKING_URL } from '../config/site.js';
+import { BOOKING_URL, SHOW_REVIEWS } from '../config/site.js';
 import { Image } from 'astro:assets';
 import Base from '../layouts/Base.astro';
 import SealDemo from '../components/SealDemo.astro';
@@ -26,7 +26,9 @@ import BookingCard from '../components/BookingCard.astro';
           <a class="btn btn-primary" href={BOOKING_URL}>Book a quote</a>
           <a class="tlink" href="tel:1300220045">Call 1300 22 00 45</a>
         </div>
-        <p class="rating"><span class="stars" aria-hidden="true">★★★★★</span> <span class="todo-inline">[rating] from [number] Google reviews</span></p>
+        {SHOW_REVIEWS && (
+          <p class="rating"><span class="stars" aria-hidden="true">★★★★★</span> <span class="todo-inline">[rating] from [number] Google reviews</span></p>
+        )}
       </div>
       <dl class="facts">
         <div><dt>From $15/m²</dt><dd>cleaning and sealing</dd></div>
@@ -167,6 +169,7 @@ import BookingCard from '../components/BookingCard.astro';
   )}
 
   <!-- Review -->
+  {SHOW_REVIEWS && (
   <section class="band textured review-band">
     <StoneTexture id="tx-review" shade={0.62} />
     <div class="wrap">
@@ -182,6 +185,7 @@ import BookingCard from '../components/BookingCard.astro';
       </figure>
     </div>
   </section>
+  )}
 
   <!-- Who and where -->
   <section class="band">

@@ -1,5 +1,5 @@
 ---
-import { BOOKING_URL } from '../config/site.js';
+import { BOOKING_URL, SHOW_REVIEWS } from '../config/site.js';
 const { sub } = Astro.props;
 import { reviews } from '../data/reviews.js';
 const review = reviews[0];
@@ -32,6 +32,7 @@ const review = reviews[0];
       <p>We clean and seal natural stone too: bluestone, limestone, travertine and the rest. If your paving or pool surround needs attention, ask while we're on your street.</p>
       <a class="tlink" href="/#stones">See the stones we work with</a>
     </div>
+    {SHOW_REVIEWS && (
     <div>
       <h2>From a customer nearby</h2>
       <figure class="mini-review">
@@ -39,6 +40,7 @@ const review = reviews[0];
         <figcaption><strong>{review.name}, {review.suburb}</strong> <span class="stars" role="img" aria-label={`${review.stars} out of 5 stars`}>{'★'.repeat(review.stars)}</span> {review.source}</figcaption>
       </figure>
     </div>
+    )}
   </div>
 </section>
 

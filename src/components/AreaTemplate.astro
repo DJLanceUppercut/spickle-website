@@ -1,5 +1,5 @@
 ---
-import { BOOKING_URL } from '../config/site.js';
+import { BOOKING_URL, SHOW_REVIEWS } from '../config/site.js';
 import { Image } from 'astro:assets';
 import { stones } from '../data/stones.js';
 import { reviews } from '../data/reviews.js';
@@ -57,7 +57,7 @@ const review = reviews[0];
 </section>
 
 <section class="band panel">
-  <div class="wrap two">
+  <div class={`wrap two${SHOW_REVIEWS ? '' : ' one'}`}>
     <div>
       <h2 data-reveal>Questions</h2>
       <dl class="faqs">
@@ -69,10 +69,12 @@ const review = reviews[0];
         ))}
       </dl>
     </div>
+    {SHOW_REVIEWS && (
     <figure class="mini-review">
       <blockquote><p>{review.text}</p></blockquote>
       <figcaption><strong>{review.name}, {review.suburb}</strong> <span class="stars" role="img" aria-label={`${review.stars} out of 5 stars`}>{'★'.repeat(review.stars)}</span> {review.source}</figcaption>
     </figure>
+    )}
   </div>
 </section>
 
@@ -98,6 +100,7 @@ const review = reviews[0];
   .price strong { color: var(--strong); }
   .hero-grid :global(.hero-img) { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 6px; box-shadow: 0 30px 60px -28px rgba(0,0,0,0.7); }
   .cta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.9rem 1.6rem; }
+  .one { grid-template-columns: 1fr; max-width: 760px; }
   .two { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 5rem); align-items: start; }
   .risks { margin: 0; padding: 0; list-style: none; }
   .risks li { position: relative; padding: 0.75rem 0 0.75rem 1.6rem; border-top: 1px solid var(--hairline); }

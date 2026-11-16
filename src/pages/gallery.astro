@@ -1,5 +1,5 @@
 ---
-import { BOOKING_URL } from '../config/site.js';
+import { BOOKING_URL, SHOW_REVIEWS } from '../config/site.js';
 import Base from '../layouts/Base.astro';
 import BeforeAfter from '../components/BeforeAfter.astro';
 import SealDemo from '../components/SealDemo.astro';
@@ -9,7 +9,7 @@ import { reviews } from '../data/reviews.js';
 ---
 <Base
   title="Our Work | Stone Cleaning & Sealing Melbourne | Spickle"
-  description="What a Spickle clean and seal does to natural stone and concrete, what customers say, and recent jobs across Melbourne and the Mornington Peninsula."
+  description="What a Spickle clean and seal does to natural stone and concrete, and recent jobs across Melbourne and the Mornington Peninsula."
 >
   <section class="band hairline-top">
     <div class="wrap">
@@ -34,6 +34,7 @@ import { reviews } from '../data/reviews.js';
     </div>
   </section>
 
+  {SHOW_REVIEWS && (
   <section class="band textured">
     <StoneTexture id="tx-gallery" shade={0.66} />
     <div class="wrap">
@@ -52,6 +53,7 @@ import { reviews } from '../data/reviews.js';
       </div>
     </div>
   </section>
+  )}
 
   <section class="band">
     <div class="wrap split">
