@@ -3,7 +3,7 @@
 // indexed (404, thank-you) pass `noindex` to Base themselves.
 export const PRELAUNCH = true;
 
-// From the ABN register (SPICKLE PTY LTD, VIC 3166). Confirmed with Lukey: pending.
+// From the ABN register (SPICKLE PTY LTD, VIC 3166). Confirmed by Lukey 16 Nov 2026.
 export const ABN = '25 663 619 583';
 export const SITE = 'https://www.spickle.com.au';
 
