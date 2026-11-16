@@ -12,6 +12,11 @@
       "permanent": true
     },
     {
+      "source": "/new-installation-sealing",
+      "destination": "/services#sealing",
+      "permanent": true
+    },
+    {
       "source": "/pages/cookie-policy",
       "destination": "/privacy",
       "permanent": true

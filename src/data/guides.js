@@ -146,10 +146,9 @@ export const guides = [
         ],
       },
     ],
-    ctaText: 'Book new installation sealing',
-    ctaHref: '/new-installation-sealing',
-    related: '/new-installation-sealing',
-    relatedText: 'More about new installation sealing',
+    ctaText: 'Ask us about sealing your paving',
+    related: '/services#sealing',
+    relatedText: 'More about sealing new stone',
   },
   {
     slug: 'oil-stains-on-exposed-aggregate',
