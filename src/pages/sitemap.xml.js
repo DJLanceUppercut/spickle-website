@@ -14,7 +14,9 @@ export async function GET({ site }) {
   const { suburbs } = await import('../data/suburbs.js');
   const { guides } = await import('../data/guides.js');
   const { areas } = await import('../data/areas.js');
+  const { localAreas } = await import('../data/localAreas.js');
   areas.forEach((a) => paths.add(`/${a.slug}`));
+  localAreas.forEach((a) => paths.add(`/service-areas/${a.slug}`));
   stones.forEach((s) => paths.add(`/${s.slug}`));
   suburbs.forEach((s) => paths.add(`/${s.slug}`));
   guides.forEach((g) => paths.add(`/guides/${g.slug}`));

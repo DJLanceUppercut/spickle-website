@@ -3,6 +3,8 @@ import { BOOKING_URL } from '../config/site.js';
 import Base from '../layouts/Base.astro';
 import { regions } from '../data/serviceAreas.js';
 import { suburbs } from '../data/suburbs.js';
+import { localAreas } from '../data/localAreas.js';
+const pageFor = (n) => localAreas.find((a) => a.name === n);
 ---
 <Base
   title="Service Areas: Melbourne & Mornington Peninsula | Spickle"
@@ -17,7 +19,7 @@ import { suburbs } from '../data/suburbs.js';
           <div>
             <h2>{r.name}</h2>
             <ul class="burbs">
-              {r.suburbs.map((n) => <li>{n}</li>)}
+              {r.suburbs.map((n) => <li>{pageFor(n) ? <a class="tlink" href={`/service-areas/${pageFor(n).slug}`}>{n}</a> : n}</li>)}
             </ul>
           </div>
         ))}

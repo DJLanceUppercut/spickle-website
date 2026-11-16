@@ -1,0 +1,122 @@
+---
+import { BOOKING_URL, SITE } from '../../config/site.js';
+import Base from '../../layouts/Base.astro';
+import { localAreas, regionGuides } from '../../data/localAreas.js';
+import { guides } from '../../data/guides.js';
+
+export function getStaticPaths() {
+  return localAreas.map((a) => ({ params: { suburb: a.slug }, props: { a } }));
+}
+
+const { a } = Astro.props;
+const nearby = a.near.map((n) => ({ name: n, page: localAreas.find((x) => x.name === n) }));
+const reading = regionGuides[a.region].map((s) => guides.find((g) => g.slug === s)).filter(Boolean);
+const url = `${SITE}/service-areas/${a.slug}`;
+const title = `Stone Cleaning & Sealing ${a.name} | Spickle`;
+const description = `Stone and concrete cleaning and sealing in ${a.name}: bluestone, limestone, travertine, driveways and pool surrounds. From $15/m². Call 1300 22 00 45.`;
+const schema = [
+  {
+    '@type': 'Service',
+    name: `Stone cleaning and sealing in ${a.name}`,
+    serviceType: 'Stone cleaning and sealing',
+    url,
+    provider: { '@type': 'HomeAndConstructionBusiness', name: 'Spickle Cleaning & Sealing', url: SITE, telephone: '+61 1300 22 00 45' },
+    areaServed: [{ '@type': 'Place', name: `${a.name}, VIC` }],
+    offers: { '@type': 'Offer', priceCurrency: 'AUD', priceSpecification: { '@type': 'UnitPriceSpecification', price: 15, priceCurrency: 'AUD', unitText: 'per square metre', minPrice: 15 } },
+  },
+  {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE}/` },
+      { '@type': 'ListItem', position: 2, name: 'Service areas', item: `${SITE}/service-areas` },
+      { '@type': 'ListItem', position: 3, name: a.name, item: url },
+    ],
+  },
+];
+---
+<Base title={title} description={description} schema={schema}>
+  <section class="band hairline-top">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="crumb"><a href="/service-areas">Where we work</a></p>
+        <h1>Stone cleaning and sealing in {a.name}</h1>
+        <p class="lede">{a.angle}</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href={BOOKING_URL}>Book a quote</a>
+          <a class="tlink" href="tel:1300220045">Call 1300 22 00 45</a>
+        </div>
+      </div>
+      <ul class="points">
+        <li>Priced from your photos and a rough size</li>
+        <li>A test patch first, so you see the result</li>
+        <li>Cleaner and sealer matched to the stone</li>
+        <li>From $15 per m², depending on the sealer and the job</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="band panel">
+    <div class="wrap grid2">
+      <div>
+        <h2>What we look after in {a.name}</h2>
+        <p>Natural stone and concrete, inside the home and out: <a class="tlink" href="/bluestone">bluestone</a>, <a class="tlink" href="/limestone">limestone</a>, <a class="tlink" href="/travertine">travertine</a>, <a class="tlink" href="/granite">granite</a>, <a class="tlink" href="/sandstone">sandstone</a>, <a class="tlink" href="/slate">slate</a>, <a class="tlink" href="/porphyry">porphyry</a> and <a class="tlink" href="/aggregate">concrete and exposed aggregate</a>.</p>
+        <p>That includes <a class="tlink" href="/pool-surrounds">pool surrounds</a>, <a class="tlink" href="/driveways">driveways</a>, paths, patios and entertaining areas. Not sure what your stone is? Send photos and we'll tell you.</p>
+      </div>
+      <div>
+        <h2>How it works</h2>
+        <p>Send a few photos and the rough size of the area, and we come back with a price. We test a patch first, clean the surface with products suited to the stone, then seal it.</p>
+        <p>Pricing starts from $15 per m² and depends on the sealer and what the job needs. <a class="tlink" href="/pricing">How pricing works</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap grid2">
+      <div>
+        <h2>Nearby</h2>
+        <p>We also work in {nearby.map((n, i) => (
+          <>{i > 0 && (i === nearby.length - 1 ? ' and ' : ', ')}{n.page ? <a class="tlink" href={`/service-areas/${n.page.slug}`}>{n.name}</a> : n.name}</>
+        ))}, and across all of Melbourne and the Mornington Peninsula. <a class="tlink" href="/service-areas">See where we work</a></p>
+      </div>
+      {reading.length > 0 && (
+        <div>
+          <h2>Worth reading</h2>
+          <ul class="more">
+            {reading.map((g) => <li><a class="tlink" href={`/guides/${g.slug}`}>{g.title}</a></li>)}
+          </ul>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <section class="band panel">
+    <div class="wrap book-row">
+      <div>
+        <h2>Book a quote in {a.name}</h2>
+        <p>Send photos and a rough size and we'll price your job.</p>
+      </div>
+      <div class="cta-row">
+        <a class="btn btn-primary" href={BOOKING_URL}>Book a quote</a>
+        <a class="tlink" href="tel:1300220045">Call 1300 22 00 45</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .hero-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: clamp(2.5rem, 6vw, 6rem); align-items: start; }
+  .crumb { font-size: var(--step--1); font-weight: 700; margin-bottom: 0.9rem; letter-spacing: 0.04em; }
+  .crumb a { color: var(--accent); text-decoration: none; }
+  .crumb a:hover { text-decoration: underline; }
+  .lede { font-size: var(--step-1); color: var(--lede); max-width: 38ch; }
+  .cta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.9rem 1.6rem; }
+  .points { margin: 0; padding: 0; list-style: none; }
+  .points li { padding: 0.8rem 0; border-top: 1px solid var(--hairline); color: var(--muted); }
+  .points li:last-child { border-bottom: 1px solid var(--hairline); }
+  .grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(380px, 100%), 1fr)); gap: clamp(2rem, 5vw, 5rem); align-items: start; }
+  .more { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.6rem; }
+  .book-row { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1.5rem 3rem; }
+  .book-row h2 { margin-bottom: 0.3em; }
+  .book-row p { margin: 0; }
+  @media (max-width: 860px) { .hero-grid { grid-template-columns: 1fr; } }
+</style>
