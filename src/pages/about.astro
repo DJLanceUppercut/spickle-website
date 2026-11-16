@@ -33,15 +33,15 @@ const principles = [
           <div><dt>Service area</dt><dd>All of Melbourne and the Mornington Peninsula. <a class="tlink" href="/service-areas">See the suburbs</a></dd></div>
           <div><dt>Contact</dt><dd><a href="tel:1300220045">1300 22 00 45</a><br /><a href="mailto:info@spickle.com.au">info@spickle.com.au</a></dd></div>
         </dl>
-        <Image class="action" src={action} alt="A Spickle cleaner working a rotary surface cleaner across paving at a home" widths={[480, 720]} sizes="(max-width: 860px) 100vw, 400px" quality={72} loading="lazy" />
         <div class="todo">[Who does the work: names and a line of background each. Waiting on content from Lukey.]</div>
       </div>
     </div>
   </section>
 
   <section class="band van-band">
-    <div class="wrap">
-      <Image class="van" src={van} alt="The Spickle van, wrapped in blue and white with the Spickle logo, the Cleaning and Sealing icons and the 1300 22 00 45 number" widths={[640, 960, 1400]} sizes="(max-width: 1200px) 100vw, 1200px" quality={72} loading="lazy" />
+    <div class="wrap photos">
+      <Image class="van" src={van} alt="The Spickle van, wrapped in blue and white with the Spickle logo, the Cleaning and Sealing icons and the 1300 22 00 45 number" widths={[480, 720, 960]} sizes="(max-width: 860px) 100vw, 740px" quality={72} loading="lazy" />
+      <Image class="action" src={action} alt="A Spickle cleaner working a rotary surface cleaner across paving at a home" widths={[400, 600, 800]} sizes="(max-width: 860px) 100vw, 440px" quality={72} loading="lazy" />
     </div>
   </section>
 
@@ -75,9 +75,9 @@ const principles = [
 </Base>
 
 <style>
-  .action { display: block; width: 100%; max-width: 400px; height: auto; border-radius: 6px; }
   .van-band { padding-block: clamp(1rem, 3vw, 2rem); }
-  .van { display: block; width: 100%; max-width: 860px; height: auto; border-radius: 6px; margin-inline: auto; }
+  .photos { display: grid; grid-template-columns: 4fr 2.4fr; gap: clamp(1rem, 2vw, 1.5rem); align-items: start; }
+  .van, .action { display: block; width: 100%; height: auto; border-radius: 6px; }
   .grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: clamp(2.5rem, 6vw, 6rem); align-items: start; }
   .lede { font-size: var(--step-1); color: var(--lede); }
   .facts { display: grid; gap: 1.25rem; }
@@ -96,5 +96,5 @@ const principles = [
   .book-row h2 { margin-bottom: 0.3em; }
   .book-row p { margin: 0; }
   .cta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.9rem 1.6rem; }
-  @media (max-width: 860px) { .grid { grid-template-columns: 1fr; } }
+  @media (max-width: 860px) { .grid, .photos { grid-template-columns: 1fr; } .action { max-width: 420px; } }
 </style>
