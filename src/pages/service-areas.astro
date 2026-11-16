@@ -6,12 +6,12 @@ import { suburbs } from '../data/suburbs.js';
 ---
 <Base
   title="Service Areas: Melbourne & Mornington Peninsula | Spickle"
-  description="Spickle cleans and seals stone across 115 suburbs in inner, eastern and south-east Melbourne and the Mornington Peninsula, from Abbotsford to Sorrento."
+  description="Spickle cleans and seals stone and concrete across all of Melbourne and the Mornington Peninsula. See the suburbs we work in, including Hawthorn, Toorak and Sorrento."
 >
   <section class="band hairline-top">
     <div class="wrap">
       <h1>Where we work</h1>
-      <p class="lede">115 suburbs across inner, eastern and south-east Melbourne and the Mornington Peninsula, from Abbotsford to Sorrento.</p>
+      <p class="lede">We clean and seal stone and concrete across all of Melbourne and the Mornington Peninsula. Suburbs we work in include:</p>
       <div class="regions">
         {regions.map((r) => (
           <div>
@@ -25,7 +25,7 @@ import { suburbs } from '../data/suburbs.js';
       {suburbs.length > 0 && (
         <p class="local">Local pages: {suburbs.map((sub, i) => <>{i > 0 && ', '}<a class="tlink" href={`/${sub.slug}`}>{sub.name}</a></>)}</p>
       )}
-      <p class="rural">Outside these areas, we still travel. Rural jobs carry a separate travel fee, quoted up front, so you'll know the full price before you book.</p>
+      <p class="rural">Don't see your suburb? We'll still come to you. Rural jobs carry a separate travel fee, quoted up front, so you'll know the full price before you book.</p>
     </div>
   </section>
 
