@@ -4,7 +4,14 @@ import Base from '../layouts/Base.astro';
 import { regions } from '../data/serviceAreas.js';
 import { suburbs } from '../data/suburbs.js';
 import { localAreas } from '../data/localAreas.js';
-const pageFor = (n) => localAreas.find((a) => a.name === n);
+// Suburbs with their own page link to it: SEO pages sit under /service-areas,
+// flyer campaign pages at the site root.
+const hrefFor = (n) => {
+  const local = localAreas.find((a) => a.name === n);
+  if (local) return `/service-areas/${local.slug}`;
+  const flyer = suburbs.find((x) => x.name === n);
+  return flyer ? `/${flyer.slug}` : null;
+};
 ---
 <Base
   title="Service Areas: Melbourne & Mornington Peninsula | Spickle"
@@ -19,14 +26,11 @@ const pageFor = (n) => localAreas.find((a) => a.name === n);
           <div>
             <h2>{r.name}</h2>
             <ul class="burbs">
-              {r.suburbs.map((n) => <li>{pageFor(n) ? <a class="tlink" href={`/service-areas/${pageFor(n).slug}`}>{n}</a> : n}</li>)}
+              {r.suburbs.map((n) => <li>{hrefFor(n) ? <a class="tlink" href={hrefFor(n)}>{n}</a> : n}</li>)}
             </ul>
           </div>
         ))}
       </div>
-      {suburbs.length > 0 && (
-        <p class="local">Local pages: {suburbs.map((sub, i) => <>{i > 0 && ', '}<a class="tlink" href={`/${sub.slug}`}>{sub.name}</a></>)}</p>
-      )}
       <p class="rural">Don't see your suburb? We'll still come to you. Rural jobs carry a separate travel fee, quoted up front, so you'll know the full price before you book.</p>
     </div>
   </section>
@@ -51,7 +55,6 @@ const pageFor = (n) => localAreas.find((a) => a.name === n);
   .regions h2 { font-size: var(--step-1); }
   .burbs { list-style: none; margin: 0; padding: 0; columns: 2 10rem; column-gap: 1.5rem; }
   .burbs li { padding: 0.28rem 0; color: var(--muted); break-inside: avoid; font-size: 1rem; }
-  .local { margin-top: 1.5rem; }
   .rural { margin-top: clamp(2rem, 4vw, 3rem); padding-top: 1.4rem; border-top: 1px solid var(--hairline); }
   .book-row { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1.5rem 3rem; }
   .book-row h2 { margin-bottom: 0.3em; }
