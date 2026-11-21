@@ -4,84 +4,143 @@
 // darkens the stone) against sealed (water beads up on top).
 // The pour animation runs when the demo scrolls into view, and again on "Pour again".
 
-// Deterministic drop layout so the build is stable.
+// Deterministic drop layout so the build is stable. Drops stay inside one
+// paver (never across a joint) and don't overlap each other.
 let seed = 11;
 const rand = () => ((seed = (seed * 16807) % 2147483647) - 1) / 2147483646;
+const inPaver = (x: number, y: number, r: number) => {
+  const xs = x < 320 ? [0, 316] : [324, 640];
+  const ys = y < 220 ? [0, 216] : [224, 440];
+  return x - r > xs[0] + 6 && x + r < xs[1] - 6 && y - r > ys[0] + 6 && y + r < ys[1] - 6;
+};
 const drops: [number, number, number][] = [];
-for (let row = 0; row < 6; row++) {
-  for (let col = 0; col < 8; col++) {
-    if (rand() < 0.22) continue;
-    const x = 26 + col * 80 + rand() * 50;
-    const y = 26 + row * 72 + rand() * 40;
-    const r = 6 + Math.round(rand() * 15);
-    drops.push([Math.round(x), Math.round(y), r]);
-  }
+for (let i = 0; i < 400 && drops.length < 44; i++) {
+  const big = rand() < 0.22;
+  const r = big ? 13 + Math.round(rand() * 6) : 5 + Math.round(rand() * 7);
+  const x = Math.round(r + 8 + rand() * (624 - r * 2));
+  const y = Math.round(r + 8 + rand() * (424 - r * 2));
+  if (!inPaver(x, y, r)) continue;
+  if (drops.some(([dx, dy, dr]) => Math.hypot(dx - x, dy - y) < dr + r + 7)) continue;
+  drops.push([x, y, r]);
 }
+// Paver positions and tones (real bluestone varies slab to slab).
+const pavers = [
+  { x: 0, y: 0, tone: '#566873' },
+  { x: 324, y: 0, tone: '#4d5e69' },
+  { x: 0, y: 224, tone: '#5b6c77' },
+  { x: 324, y: 224, tone: '#52636e' },
+];
 ---
 <figure class="seal-demo" data-seal>
   <div class="stage" style="--pos: 50%">
     <svg viewBox="0 0 640 440" role="img" aria-labelledby="sd-title sd-desc">
       <title id="sd-title">Unsealed and sealed bluestone compared</title>
-      <desc id="sd-desc">The same water poured over bluestone. On the unsealed side it soaks in and leaves dark stains. On the sealed side it sits on top in round beads.</desc>
+      <desc id="sd-desc">The same water poured over bluestone. On the unsealed side it soaks in and leaves dark patches. On the sealed side it sits on top in round beads.</desc>
       <defs>
-        <filter id="sd-grain" x="0" y="0" width="100%" height="100%">
-          <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" seed="7" />
-          <feColorMatrix type="matrix" values="0 0 0 0 0.10  0 0 0 0 0.13  0 0 0 0 0.16  0 0 0 1.6 -0.62" />
+        <!-- fine dark flecks, like the crystalline grain in sawn bluestone -->
+        <filter id="sd-fleck" x="0" y="0" width="100%" height="100%">
+          <feTurbulence type="fractalNoise" baseFrequency="1.1" numOctaves="2" seed="4" />
+          <feColorMatrix type="matrix" values="0 0 0 0 0.04  0 0 0 0 0.07  0 0 0 0 0.09  0 0 0 2.6 -1.2" />
         </filter>
-        <filter id="sd-mottle" x="0" y="0" width="100%" height="100%">
-          <feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="2" seed="3" />
-          <feColorMatrix type="matrix" values="0 0 0 0 0.85  0 0 0 0 0.9  0 0 0 0 0.92  0 0 0 0.5 -0.12" />
+        <!-- pale flecks -->
+        <filter id="sd-pale" x="0" y="0" width="100%" height="100%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.95" numOctaves="2" seed="21" />
+          <feColorMatrix type="matrix" values="0 0 0 0 0.78  0 0 0 0 0.84  0 0 0 0 0.88  0 0 0 2.8 -1.5" />
         </filter>
-        <filter id="sd-soft" x="-60%" y="-60%" width="220%" height="220%">
-          <feGaussianBlur stdDeviation="6" />
+        <!-- soft tonal clouding within each slab -->
+        <filter id="sd-cloud" x="0" y="0" width="100%" height="100%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.011 0.016" numOctaves="3" seed="3" />
+          <feColorMatrix type="matrix" values="0 0 0 0 0.10  0 0 0 0 0.16  0 0 0 0 0.20  0 0 0 1.1 -0.3" />
         </filter>
-        <radialGradient id="sd-drop" cx="38%" cy="32%" r="70%">
-          <stop offset="0" stop-color="#ffffff" stop-opacity="0.35" />
-          <stop offset="0.55" stop-color="#7d93a0" stop-opacity="0.18" />
-          <stop offset="1" stop-color="#0b2a3a" stop-opacity="0.45" />
-        </radialGradient>
-        <linearGradient id="sd-sheen" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stop-color="#ffffff" stop-opacity="0.16" />
+        <!-- faint sawn streaks -->
+        <filter id="sd-saw" x="0" y="0" width="100%" height="100%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.02 0.55" numOctaves="2" seed="12" />
+          <feColorMatrix type="matrix" values="0 0 0 0 0.75  0 0 0 0 0.8  0 0 0 0 0.84  0 0 0 0.55 -0.2" />
+        </filter>
+        <!-- sand in the joints -->
+        <filter id="sd-sand" x="0" y="0" width="100%" height="100%">
+          <feTurbulence type="fractalNoise" baseFrequency="1.4" numOctaves="2" seed="8" />
+          <feColorMatrix type="matrix" values="0 0 0 0 0.62  0 0 0 0 0.6  0 0 0 0 0.55  0 0 0 2 -0.7" />
+        </filter>
+        <!-- irregular, absorbed-water edges for the soak patches -->
+        <filter id="sd-wet" filterUnits="userSpaceOnUse" x="0" y="0" width="640" height="440">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="b" />
+          <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="2" seed="9" result="t" />
+          <feDisplacementMap in="b" in2="t" scale="15" xChannelSelector="R" yChannelSelector="G" result="d" />
+          <feGaussianBlur in="d" stdDeviation="2.4" />
+        </filter>
+        <linearGradient id="sd-edge" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#ffffff" stop-opacity="0.34" />
           <stop offset="0.5" stop-color="#ffffff" stop-opacity="0" />
-          <stop offset="1" stop-color="#ffffff" stop-opacity="0.08" />
+          <stop offset="1" stop-color="#000000" stop-opacity="0.38" />
         </linearGradient>
+        <linearGradient id="sd-light" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#ffffff" stop-opacity="0.12" />
+          <stop offset="0.55" stop-color="#ffffff" stop-opacity="0" />
+          <stop offset="1" stop-color="#000000" stop-opacity="0.16" />
+        </linearGradient>
+        <!-- a water bead: clear centre, dark rim, bright light spot where light focuses through it -->
+        <radialGradient id="sd-bead" cx="50%" cy="56%" r="54%">
+          <stop offset="0" stop-color="#b9d3e0" stop-opacity="0.26" />
+          <stop offset="0.62" stop-color="#587888" stop-opacity="0.10" />
+          <stop offset="0.9" stop-color="#06141c" stop-opacity="0.42" />
+          <stop offset="1" stop-color="#06141c" stop-opacity="0.6" />
+        </radialGradient>
+        <radialGradient id="sd-focus" cx="50%" cy="50%" r="50%">
+          <stop offset="0" stop-color="#e6f3f9" stop-opacity="0.55" />
+          <stop offset="1" stop-color="#e6f3f9" stop-opacity="0" />
+        </radialGradient>
         <clipPath id="sd-pavers">
-          <rect x="0" y="0" width="316" height="216" rx="3" />
-          <rect x="324" y="0" width="316" height="216" rx="3" />
-          <rect x="0" y="224" width="316" height="216" rx="3" />
-          <rect x="324" y="224" width="316" height="216" rx="3" />
+          {pavers.map((v) => <rect x={v.x} y={v.y} width="316" height="216" rx="2.5" />)}
         </clipPath>
         <clipPath id="sd-left">
           <rect class="reveal" x="0" y="0" width="320" height="440" />
         </clipPath>
+
+        <!-- the dry stone surface, drawn once and used on both sides -->
+        <g id="sd-stone">
+          <rect width="640" height="440" fill="#5f5c55" />
+          <rect width="640" height="440" filter="url(#sd-sand)" />
+          <g clip-path="url(#sd-pavers)">
+            {pavers.map((v) => <rect x={v.x} y={v.y} width="316" height="216" fill={v.tone} />)}
+            <rect width="640" height="440" filter="url(#sd-cloud)" />
+            <rect width="640" height="440" filter="url(#sd-saw)" opacity="0.5" />
+            <rect width="640" height="440" filter="url(#sd-fleck)" />
+            <rect width="640" height="440" filter="url(#sd-pale)" opacity="0.7" />
+            <rect width="640" height="440" fill="url(#sd-light)" />
+          </g>
+          {pavers.map((v) => <rect x={v.x + 1.5} y={v.y + 1.5} width="313" height="213" rx="2.5" fill="none" stroke="url(#sd-edge)" stroke-width="3" />)}
+        </g>
       </defs>
 
-      <rect width="640" height="440" fill="#b9c1c3" />
-
       <!-- Sealed: full width underneath -->
+      <use href="#sd-stone" />
       <g clip-path="url(#sd-pavers)">
-        <rect width="640" height="440" fill="#5d6a72" />
-        <rect width="640" height="440" filter="url(#sd-mottle)" />
-        <rect width="640" height="440" filter="url(#sd-grain)" />
-        <rect width="640" height="440" fill="url(#sd-sheen)" />
+        <rect width="640" height="440" fill="#0b2230" opacity="0.07" />
         {drops.map(([x, y, r], i) => (
-          <g class="drop" style={`--d:${(0.15 + i * 0.035).toFixed(2)}s`}>
-            <ellipse cx={x + r * 0.18} cy={y + r * 0.62} rx={r * 0.95} ry={r * 0.45} fill="#0d1d25" opacity="0.28" />
-            <circle cx={x} cy={y} r={r} fill="url(#sd-drop)" stroke="#dfe9ee" stroke-opacity="0.35" stroke-width="1" />
-            <ellipse cx={x - r * 0.35} cy={y - r * 0.4} rx={r * 0.32} ry={r * 0.2} fill="#ffffff" opacity="0.85" transform={`rotate(-30 ${x - r * 0.35} ${y - r * 0.4})`} />
+          <g class="drop" style={`--d:${(0.15 + i * 0.03).toFixed(2)}s`}>
+            <ellipse cx={x + r * 0.28} cy={y + r * 0.72} rx={r * 1.02} ry={r * 0.5} fill="#050e14" opacity="0.38" />
+            <circle cx={x} cy={y} r={r} fill="url(#sd-bead)" />
+            <circle cx={x} cy={y} r={r} fill="none" stroke="#dcecf3" stroke-opacity="0.22" stroke-width="0.8" />
+            <ellipse cx={x + r * 0.24} cy={y + r * 0.42} rx={r * 0.46} ry={r * 0.3} fill="url(#sd-focus)" />
+            <ellipse cx={x - r * 0.38} cy={y - r * 0.42} rx={r * 0.3} ry={r * 0.17} fill="#ffffff" opacity="0.92" transform={`rotate(-32 ${x - r * 0.38} ${y - r * 0.42})`} />
+            <circle cx={x + r * 0.42} cy={y - r * 0.18} r={Math.max(0.8, r * 0.07)} fill="#ffffff" opacity="0.6" />
           </g>
         ))}
       </g>
 
       <!-- Unsealed: same water, clipped to the left of the divider -->
       <g clip-path="url(#sd-left)">
+        <use href="#sd-stone" />
         <g clip-path="url(#sd-pavers)">
-          <rect width="640" height="440" fill="#5d6a72" />
-          <rect width="640" height="440" filter="url(#sd-mottle)" />
-          <rect width="640" height="440" filter="url(#sd-grain)" />
-          {drops.map(([x, y, r], i) => (
-            <circle class="soak" cx={x} cy={y} r={r * 1.9} fill="#1c272d" filter="url(#sd-soft)" style={`--d:${(0.15 + i * 0.035).toFixed(2)}s`} />
-          ))}
+          <g filter="url(#sd-wet)">
+            {drops.map(([x, y, r], i) => (
+              <g class="soak" style={`--d:${(0.15 + i * 0.03).toFixed(2)}s`}>
+                <circle cx={x} cy={y} r={r * 1.7 + 4} fill="#1a2931" opacity="0.4" />
+                <circle cx={x} cy={y} r={r * 1.05 + 2} fill="#111d24" opacity="0.4" />
+              </g>
+            ))}
+          </g>
         </g>
       </g>
     </svg>
@@ -192,7 +251,7 @@ for (let row = 0; row < 6; row++) {
   /* Pour animation: hidden until the demo is in view, then plays */
   .drop, .soak { transform-box: fill-box; }
   .drop { transform-origin: 50% 100%; }
-  .soak { transform-origin: 50% 50%; opacity: 0.62; }
+  .soak { transform-origin: 50% 50%; opacity: 1; }
   :global(html.js) .drop { transform: scale(0); opacity: 0; }
   :global(html.js) .soak { transform: scale(0.2); opacity: 0; }
   .run .drop { animation: bead 0.55s cubic-bezier(0.3, 1.5, 0.5, 1) var(--d) both; }
@@ -204,13 +263,13 @@ for (let row = 0; row < 6; row++) {
   @keyframes soak {
     0% { transform: scale(0.2); opacity: 0; }
     25% { opacity: 0.35; }
-    100% { transform: scale(1); opacity: 0.62; }
+    100% { transform: scale(1); opacity: 1; }
   }
   @media (prefers-reduced-motion: reduce) {
     .drop, .soak, .run .drop, .run .soak,
     :global(html.js) .drop, :global(html.js) .soak { animation: none; transform: none; }
     :global(html.js) .drop { opacity: 1; }
-    :global(html.js) .soak { opacity: 0.62; }
+    :global(html.js) .soak { opacity: 1; }
     .pour { display: none; }
   }
 
