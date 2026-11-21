@@ -2,6 +2,7 @@
 import { BOOKING_URL, SHOW_REVIEWS } from '../config/site.js';
 import { Image } from 'astro:assets';
 import Base from '../layouts/Base.astro';
+import SealDemo from '../components/SealDemo.astro';
 import StoneTexture from '../components/StoneTexture.astro';
 import { stones } from '../data/stones.js';
 import heroDusk from '../assets/hero-dusk.jpg';
@@ -57,9 +58,9 @@ import BookingCard from '../components/BookingCard.astro';
   <section class="band dark" id="sealing">
     <div class="wrap">
       <h2 data-reveal>Two ways to seal stone</h2>
-      <p class="section-lede" data-reveal style="--delay:0.08s">We choose the sealer for the stone and where it's laid, then tell you why.</p>
+      <p class="section-lede" data-reveal style="--delay:0.08s">Drag across the paver. Same water, same stone: the only difference is the sealer. We choose the sealer for the stone and where it's laid, then tell you why.</p>
       <div class="seal-grid" data-reveal style="--delay:0.16s">
-        <BeforeAfter image={pairs[2].image} alt={pairs[2].alt} caption={captionFor(pairs[2])} />
+        <SealDemo />
         <div class="seal-types">
           <div>
             <h3>Penetrating sealer</h3>
